@@ -10,7 +10,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
-				<h1>Picasso</h1>
+				<p>Picasso</p>
 			</div>
 		);
 	}
