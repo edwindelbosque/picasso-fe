@@ -20,7 +20,8 @@
 		"build": "react-scripts build",
 		"eject": "react-scripts eject",
 		"test": "react-scripts test",
-		"test:watch": "jest --watchAll"
+		"test:watch": "jest --watchAll",
+		"heroku-postbuild": "npm install --only=dev && npm install && npm run prod"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
