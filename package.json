@@ -2,6 +2,10 @@
 	"name": "picasso-fe",
 	"version": "0.1.0",
 	"private": true,
+	"engines": {
+		"npm": "6.13.2",
+		"node": "13.1.0"
+	},
 	"dependencies": {
 		"fsevents": "^2.1.2",
 		"node-sass": "^4.13.0",
