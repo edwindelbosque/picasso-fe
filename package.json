@@ -7,7 +7,6 @@
 		"node": "13.1.0"
 	},
 	"dependencies": {
-		"fsevents": "^2.1.2",
 		"node-sass": "^4.13.0",
 		"normalize-scss": "^7.0.1",
 		"poetic": "^1.2.1",
