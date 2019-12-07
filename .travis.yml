@@ -1,17 +1,7 @@
 language: node_js
 node_js:
-  - 7
-  - 8
-  - 10
-before_install:
-  - npm install -g npm
-script:
-  - npm install
-  - npm run pretest
+  - 'node'
 deploy:
+  provider: heroku
   api_key:
     secure: rjYjQsz1a/C+eSGoomsN0xvcUSjCVFd6Jzp8mhNO5lF+SETcO1mx9skjk5tYSscZhtTsf4V8q3/dzsk6l2L5miSChIIAQFcEEW4VIQrPQZyYXLax7dF40dLs33xu+kFeKWJrlmba4HKRyWjdiI5X/bMXEyQJPyAl0WpKGz2nT9LVyBHBnC8rHd0UNhqfdASmz454y2U2QVqLCkT6z8eYNFzgf04e+LkDRxtSzPcbyAeKH3hqUY3bk4g5IkJkQPuKbVTIH5hMvhaCRSX1VhMOGutL39iCe10Mw+J8Y6eLYil9rdkLsf/1pplYJxMlGXCJG/a7qHJmr5yiNBtBNvQnL5WrMqGTmr6SvJWsfyQgU3vM3Cu1PL/NjgAxU2sSrtuMnqDgDV8WG6oJIwM0s8hGs5dZyeetg4iYEhGlroox7oo9g9xzZ5e5zGgvGch8l06vk5QxAYZj1FLaduCoXPhDC/mIOXRolx/iUdvl4RdiFnuzAqarxrKltm0LVnGZqGoPOtBqrJo/puTmFq1ZM6d/Aa5RMHcWNFVEp3G+TeB36PJiDvZCTCH+yg5GM8ptNA73pcx7RDOougDpeVjyQ8G1rreQqZP9lQQGWs5mC6D4Qag9PQMxHbnFRULRLm1fhzRCTjytrUfxr3NL/s3SQXPS06jAx7U/Vld6DuQKA4MGKXA=
-  app: colorsbypicasso
-  skip_cleanup: true
-  notifications:
-    email: false
