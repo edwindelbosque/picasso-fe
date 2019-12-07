@@ -8,3 +8,10 @@ node_js:
   script:
   - npm install
   - npm run pretest
+  deploy:
+    provider: heroku
+    api_key:
+      secure: <3421432>
+    app: automate-heroku
+    on:
+      repo: edwindelbosque/colorsbypicasso
