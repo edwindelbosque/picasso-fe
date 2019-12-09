@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar App should match snapshot 1`] = `
+<Fragment>
+  <nav
+    className="NavBar"
+  >
+    <p>
+      Picasso.
+    </p>
+    <div
+      className="hamburger-menu false"
+      onClick={[Function]}
+    >
+      <div
+        className="bar-1"
+      />
+      <div
+        className="bar-2"
+      />
+      <div
+        className="bar-3"
+      />
+    </div>
+  </nav>
+  <div
+    className="menu false"
+  />
+</Fragment>
+`;
