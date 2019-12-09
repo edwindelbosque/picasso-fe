@@ -35,7 +35,7 @@ class App extends Component {
     http.open("POST", url, true);
     http.send(JSON.stringify(data));
   }
-
+// This function is to get the info for each specific color
 colorFormats = (rgbColors) => {
   const r = rgbColors[0]
   const g = rgbColors[1]
@@ -43,6 +43,7 @@ colorFormats = (rgbColors) => {
   fetch(`https://www.thecolorapi.com/id?format=string&rgb=${r},${g},${b}`)
   .then ( response => response.json())
   .then( data => console.log(data))
+  .then( data => data)
 }
 
   render() {
