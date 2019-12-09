@@ -1,8 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NavBar.scss';
+import { createUser } from '../../util/apiCalls';
 
 const NavBar = () => {
 	const [menuIsActive, toggleMenu] = useState(false);
+
+	useEffect(() => {
+		const postNewUser = async () => {
+			const newUser = {
+				email: 'edwindbda@gmail.com',
+				password: 'verySecret',
+				firstName: 'Edwin',
+				lastName: 'Del Bisquit'
+			};
+			const user = await createUser(newUser);
+			console.log(user);
+		};
+
+		postNewUser();
+	}, []);
 
 	return (
 		<>
