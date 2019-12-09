@@ -5,8 +5,10 @@ exports[`NavBar App should match snapshot 1`] = `
   <nav
     className="NavBar"
   >
-    <p>
-      Picasso.
+    <p
+      className={false}
+    >
+      Picasso
     </p>
     <div
       className="hamburger-menu false"
