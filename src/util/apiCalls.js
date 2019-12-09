@@ -50,3 +50,51 @@ export const saveCatalog = async newCatalog => {
 	}
 	return response.json();
 };
+
+export const getCatalogs = async userInfo => {
+	const { id } = userInfo;
+	const url = `http://localhost:3000/api/v1/users/${id}/catalogs`;
+	const response = await fetch(url);
+	const catalogs = response.json();
+	if (!response.ok) {
+		throw new Error('Catalogs could not be retrieved at this time.');
+	}
+	return catalogs;
+};
+
+export const getCatalog = async catalogInfo => {
+	const { userId, id, catalogName } = catalogInfo;
+	const url = `http://localhost:3000/api/v1/users/${userId}/catalogs/${id}`;
+	const response = await fetch(url);
+	const catalog = response.json();
+	if (!response.ok) {
+		throw new Error(
+			`Your catalog "${catalogName}" could not be retrieved at this time. :(`
+		);
+	}
+	return catalog;
+};
+
+export const getPalettes = async catalogInfo => {
+	const { userId, id } = catalogInfo;
+	const url = `http://localhost:3000/api/v1/users/${userId}/catalogs/${id}/palettes`;
+	const response = await fetch(url);
+	const palettes = response.json();
+	if (!response.ok) {
+		throw new Error('Palettes could not be retrieved at this time.');
+	}
+	return palettes;
+};
+
+export const getPalette = async paletteInfo => {
+	const { catalogId, id, paletteName } = paletteInfo;
+	const url = `http://localhost:3000/api/v1/users/0/catalogs/${catalogId}/palettes/${id}`;
+	const response = await fetch(url);
+	const palette = response.json();
+	if (!response.ok) {
+		throw new Error(
+			`Your palette "${paletteName}" could not be retrieved at this time. :(`
+		);
+	}
+	return palette;
+};
