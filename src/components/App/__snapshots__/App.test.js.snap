@@ -4,8 +4,6 @@ exports[`App App should match snapshot 1`] = `
 <div
   className="App"
 >
-  <p>
-    Picasso
-  </p>
+  <NavBar />
 </div>
 `;
