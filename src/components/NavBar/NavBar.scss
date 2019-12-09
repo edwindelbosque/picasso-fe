@@ -1,0 +1,100 @@
+.NavBar {
+	height: 60px;
+	position: fixed;
+	padding: 0 20px;
+	left: 0;
+	top: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1;
+
+	p {
+		font-weight: 500;
+		font-size: 30px;
+		color: #235575;
+	}
+
+	.hamburger-menu {
+		display: flex;
+		position: fixed;
+		right: 0;
+		top: 0;
+		padding: 15px;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		width: 60px;
+		height: 60px;
+		transition: 0.2s;
+		border-radius: 0 0 0 2px;
+
+		&:hover {
+			background: #235575;
+			div {
+				background: white;
+			}
+		}
+
+		div {
+			height: 3px;
+			width: 25px;
+			border-radius: 5px;
+			background: #235575;
+			margin: 2px;
+			transition: 0.2s;
+		}
+	}
+
+	.hamburger-menu-active {
+		align-items: center;
+		background: #235575;
+
+		.bar-1 {
+			height: 3px;
+			width: 25px;
+			background: white;
+			margin: 2px;
+			position: relative;
+			top: 7px;
+			transform: rotate(-45deg);
+		}
+
+		.bar-2 {
+			width: 0;
+		}
+
+		.bar-3 {
+			height: 3px;
+			transform: rotate(45deg);
+			width: 25px;
+			background: white;
+			position: relative;
+			bottom: 7px;
+			margin: 2px;
+		}
+
+		&:hover {
+			background: rgb(240, 240, 240);
+			div {
+				background: #235575;
+			}
+		}
+	}
+}
+
+.menu {
+	background: rgb(240, 240, 240);
+	position: fixed;
+	top: 100vh;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	transition: 0.3s ease-in-out;
+}
+
+.show-menu {
+	top: 0;
+}
