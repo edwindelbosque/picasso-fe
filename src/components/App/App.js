@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import NavBar from '../NavBar/NavBar';
 
 class App extends Component {
 	constructor() {
@@ -10,7 +11,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
-				<p>Picasso</p>
+				<NavBar />
 			</div>
 		);
 	}
