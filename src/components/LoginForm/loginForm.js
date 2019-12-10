@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 // import userLogin from '../../util/apiCalls.js'
 
-const LoginForm = ({userName, userId}) => {
-    console.log(userName, userId);
+const LoginForm = (props) => {
+    console.log(props);
     
     const [emailValue, handleEmailChange] = useState("");
     const [passwordValue, handlePassowrdChange] = useState("");
@@ -10,15 +10,15 @@ const LoginForm = ({userName, userId}) => {
     const handleSubmit = async event => {
         event.preventDefault();
         const newUser = {email: emailValue, passowrd: passwordValue}
-        // const loginResponse = await userLogin(newUser)
-        // if(loginResponse) {
-            // console.log(loginResponse);
+        const loginResponse = await userLogin(newUser)
+        if(loginResponse) {
+            console.log(loginResponse);
             // userName = loginResponse
             // userId = loginResponse
             resetInputs();
-        // } else {
+        } else {
 
-        // }
+        }
       }
 
     const resetInputs = () => {
