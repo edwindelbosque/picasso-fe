@@ -1,55 +1,42 @@
 {
-	"name": "picasso-fe",
-	"version": "0.1.0",
-	"private": true,
-	"engines": {
-		"npm": "3.10.10",
-		"node": "13.1.0"
-	},
-	"dependencies": {
-		"node-sass": "^4.13.0",
-		"normalize-scss": "^7.0.1",
-		"poetic": "^1.2.1",
-		"prop-types": "^15.7.2",
-		"react": "^16.12.0",
-		"react-dom": "^16.12.0",
-		"react-scripts": "3.2.0"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"eject": "react-scripts eject",
-		"test": "react-scripts test",
-		"test:watch": "jest --watchAll",
-		"heroku-postbuild": "npm install --only=dev && npm install && npm run prod"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"devDependencies": {
-		"enzyme": "^3.10.0",
-		"enzyme-adapter-react-16": "^1.15.1",
-		"enzyme-to-json": "^3.4.3"
-	},
-	"jest": {
-		"snapshotSerializers": [
-			"enzyme-to-json/serializer"
-		],
-		"collectCoverageFrom": [
-			"src/**/{!(serviceWorker),}.js",
-			"!src/index.js"
-		]
-	}
+  "name": "picasso-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-scripts": "3.2.0",
+    "supertest": "^4.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "enzyme-to-json": "^3.4.3"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
 }
