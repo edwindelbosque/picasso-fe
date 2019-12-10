@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getFiveColors } from "../src/apiCalls.js/apiCalls";
+import LoginForm from '../src/containersmm/loginForm/login'
 
 import logo from './logo.svg';
 import './App.css';
@@ -63,6 +64,7 @@ colorFormats = (rgbColors) => {
             Learn React
           </a>
         </header>
+        <LoginForm />
       </div>
     );
   }
