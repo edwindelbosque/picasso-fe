@@ -14,10 +14,12 @@ class App extends Component {
       userId: 0
     }
   }
-  componentDidMount = async () => {
-    this.getFiveColors();
+  // componentDidMount = async () => {
+  //   this.getFiveColors();
      
-  };
+  // };
+
+
 
   getFiveColors = (colorsRequest, model = 'default') => {
     const url = "http://colormind.io/api/";
@@ -66,7 +68,7 @@ colorFormats = (rgbColors) => {
             Learn React
           </a>
         </header>
-        <LoginForm userName={this.state.userName} userId={this.sate.userId}/>
+        <LoginForm userName={this.state.userName} userId={this.state.userId} updateCurrentUser={updateCurrentUser}/>
       </div>
     );
   }

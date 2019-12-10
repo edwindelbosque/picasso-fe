@@ -100,7 +100,9 @@ export const getPalette = async paletteInfo => {
 };
 
 export const userLogin = async userLogin => {
-	const url = 'http://localhost:3000/api/v1//api/v1/login';
+	console.log('userLogin', userLogin);
+	
+	const url = 'https://picasso-database.herokuapp.com/api/v1/login';
 	const options = {
 		method: 'POST',
 		headers: {
@@ -109,8 +111,11 @@ export const userLogin = async userLogin => {
 		body: JSON.stringify(userLogin)
 	};
 	const response = await fetch(url, options);
+	
 	if (!response.ok) {
-		throw new Error('User could not be created at this time.');
+		return response
 	}
 	return response.json();
 }
+
+export default userLogin;

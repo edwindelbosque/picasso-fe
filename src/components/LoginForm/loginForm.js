@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-// import userLogin from '../../util/apiCalls.js'
+import userLogin from '../../util/apiCalls.js'
 
-const LoginForm = (props) => {
-    console.log(props);
-    
+const LoginForm = ({updateCurrentUser}) => {
     const [emailValue, handleEmailChange] = useState("");
-    const [passwordValue, handlePassowrdChange] = useState("");
+    const [passwordValue, handlePasswordChange] = useState("");
+    const [loginStatus, handleLoginAttempt] = useState("");
 
     const handleSubmit = async event => {
         event.preventDefault();
-        const newUser = {email: emailValue, passowrd: passwordValue}
+        handleLoginAttempt('');
+        const newUser = {email: emailValue, password: passwordValue};
         const loginResponse = await userLogin(newUser)
-        if(loginResponse) {
-            console.log(loginResponse);
-            // userName = loginResponse
-            // userId = loginResponse
-            resetInputs();
+        if (loginResponse.error) {
+            handleLoginAttempt(loginResponse.error)
         } else {
-
-        }
+            console.log(updateCurrentUser)
+            updateCurrentUser(loginResponse)
+            resetInputs();
+        } 
       }
 
     const resetInputs = () => {
         handleEmailChange('')
-        handlePassowrdChange('')
+        handlePasswordChange('')
+        handleLoginAttempt('')
     }
 
     const checkEmail = () => {
@@ -52,7 +52,7 @@ const LoginForm = (props) => {
                 onChange={ e => handleEmailChange(e.target.value)}
                 value={emailValue}
             />
-             <label htmlFor="password" className="form-login passowrd-login__label">
+             <label htmlFor="password" className="form-login password-login__label">
                 Password
             </label>
             <input
@@ -61,7 +61,7 @@ const LoginForm = (props) => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                onChange={ e => handlePassowrdChange(e.target.value)}
+                onChange={ e => handlePasswordChange(e.target.value)}
                 value={passwordValue}
             />
             <button
