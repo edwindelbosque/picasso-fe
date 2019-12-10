@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteCard App should match snapshot 1`] = `
+<Fade
+  delay={150}
+  duration={600}
+>
+  <div
+    className="PaletteCard"
+  >
+    <h4 />
+    <div
+      className="colors"
+    >
+      <div
+        style={
+          Object {
+            "background": "#undefined",
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "background": "#undefined",
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "background": "#undefined",
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "background": "#undefined",
+          }
+        }
+      />
+      <div
+        style={
+          Object {
+            "background": "#undefined",
+          }
+        }
+      />
+    </div>
+  </div>
+</Fade>
+`;

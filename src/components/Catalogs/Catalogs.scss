@@ -1,0 +1,35 @@
+.Catalogs {
+	padding-left: 50px;
+	overflow: scroll;
+	direction: rtl;
+	padding-top: 35px;
+	width: 600px;
+	height: 99%;
+	padding-right: 30px;
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	.active-catalog {
+		color: white;
+		text-decoration: underline;
+		li {
+			transform: translate(30px);
+		}
+	}
+
+	li {
+		font-size: 80px;
+		list-style-type: none;
+		cursor: pointer;
+		transition: 0.15s;
+
+		&:hover {
+			color: white;
+			text-decoration: underline;
+			transform: translate(30px);
+		}
+	}
+}

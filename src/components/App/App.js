@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
-import LoginForm from '../LoginForm/loginForm.js'
+import Footer from '../Footer/Footer';
+import LoginForm from '../LoginForm/loginForm.js';
 
 class App extends Component {
 	constructor() {
@@ -13,16 +14,17 @@ class App extends Component {
 		};
 	}
 
-	updateCurrentUser = (user) => {
-		const {firstName, id} = user
-		this.setState({userName: firstName, userId: id})
-	  }
+	updateCurrentUser = user => {
+		const { firstName, id } = user;
+		this.setState({ userName: firstName, userId: id });
+	};
 
 	render() {
 		return (
 			<div className='App'>
 				<NavBar />
-				<LoginForm updateCurrentUser={this.updateCurrentUser}/>
+				<Footer />
+				<LoginForm updateCurrentUser={this.updateCurrentUser} />
 			</div>
 		);
 	}

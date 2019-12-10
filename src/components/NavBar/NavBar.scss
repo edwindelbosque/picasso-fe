@@ -1,5 +1,6 @@
 $accent: #775c54;
-$accent2: rgb(33, 100, 243);
+$accent2: #2164f3;
+$text-color: #000000;
 $main: #ffffff;
 
 .NavBar {
@@ -44,7 +45,7 @@ $main: #ffffff;
 		-webkit-tap-highlight-color: transparent;
 
 		&:hover {
-			background: $accent;
+			background: $accent2;
 			div {
 				background: $main;
 			}
@@ -53,7 +54,7 @@ $main: #ffffff;
 		div {
 			height: 3px;
 			width: 20px;
-			background: $accent;
+			background: $accent2;
 			margin: 1.5px;
 			transition: 0.16s;
 		}
@@ -61,7 +62,7 @@ $main: #ffffff;
 
 	.hamburger-menu-active {
 		align-items: center;
-		background: $accent;
+		background: $text-color;
 
 		.bar-1 {
 			height: 3px;
@@ -90,24 +91,117 @@ $main: #ffffff;
 		&:hover {
 			background: $main;
 			div {
-				background: $accent;
+				background: $accent2;
 			}
 		}
 	}
 }
 
 .menu {
-	background: $accent;
+	background: $accent2;
 	position: fixed;
 	top: 100vh;
 	left: 0;
 	height: 100vh;
 	width: 100vw;
 	transition: 0.3s ease-in-out;
-	transition-delay: 0.24s;
+
+	.access-buttons {
+		width: 100%;
+		margin-top: 75px;
+		height: 60px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	button {
+		height: 45px;
+		width: 100px;
+		opacity: 0;
+		cursor: pointer;
+		margin-right: 15px;
+		background: none;
+		border: 1px solid $main;
+		color: $main;
+		border-radius: 3px;
+		font-size: 18px;
+		transition: 0.1s;
+	}
+
+	.signup-button {
+		background: $main;
+		color: $accent;
+		font-weight: 700;
+
+		&:hover {
+			background: $accent2;
+			color: $main;
+			border-color: $main;
+		}
+	}
+
+	.login-button {
+		transition: 0.1s;
+		border: none;
+		margin-right: 0;
+
+		&:hover {
+			color: rgb(216, 216, 216);
+			transition: 0.1s;
+		}
+	}
+
+	.information-area {
+		height: 80%;
+		width: 850px;
+		padding-left: 80px;
+		display: block;
+
+		h1 {
+			color: $main;
+			font-size: 80px;
+			font-family: 'Roboto';
+			letter-spacing: -0.5px;
+
+			span {
+				border-bottom: 5px solid $accent2;
+			}
+		}
+	}
+}
+
+.hidden-circle {
+	height: 1200px;
+	width: 1200px;
+	background: $accent;
+	position: relative;
+	top: -950px;
+	left: -300px;
+	z-index: -1;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.active-circle {
+	opacity: 1;
 }
 
 .show-menu {
 	top: 0px;
 	transition: 0.3s ease-in-out;
+}
+
+.main-menu {
+	width: 100%;
+	background: $accent2;
+	padding-top: 60px;
+	height: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+h2 {
+	color: $main;
 }
