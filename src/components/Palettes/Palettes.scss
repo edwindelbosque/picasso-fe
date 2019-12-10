@@ -1,14 +1,15 @@
 .Palettes {
-	margin-left: 60px;
-	padding-top: 35px;
+	margin-right: 100px;
+	padding-top: 40px;
+	margin-top: 60px;
 	overflow: scroll;
 	width: 750px;
 	height: 100.5%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background: white;
-	border-radius: 10px 0 0 0;
+	background: rgba(255, 255, 255, 0.589);
+	border-left: 3px solid white;
 
 	a {
 		text-decoration: none;
@@ -16,7 +17,7 @@
 	}
 
 	h2 {
-		color: rgb(53, 53, 53);
+		color: rgb(48, 48, 48);
 		width: 635px;
 	}
 }
