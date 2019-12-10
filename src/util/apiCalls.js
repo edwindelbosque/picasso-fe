@@ -98,3 +98,19 @@ export const getPalette = async paletteInfo => {
 	}
 	return palette;
 };
+
+export const userLogin = async userLogin => {
+	const url = 'http://localhost:3000/api/v1//api/v1/login';
+	const options = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(userLogin)
+	};
+	const response = await fetch(url, options);
+	if (!response.ok) {
+		throw new Error('User could not be created at this time.');
+	}
+	return response.json();
+}

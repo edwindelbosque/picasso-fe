@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import userLogin from '../../util/apiCalls.js'
 
 const LoginForm = () => {
     const [emailValue, handleEmailChange] = useState("");
     const [passwordValue, handlePassowrdChange] = useState("");
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
+        const newUser = {email: emailValue, passowrd: passwordValue}
+        const loginResponse = await userLogin(newUser)
+        if(loginResponse) {
+            // set prop drilled state(firstname and id) for user here with firstname and id
+        }
         resetInputs();
       }
 
