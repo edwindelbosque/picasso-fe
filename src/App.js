@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getFiveColors } from "../src/apiCalls.js/apiCalls";
+// import { getFiveColors } from "../src/apiCalls.js/apiCalls";
 import LoginForm from '../src/containersmm/loginForm/login'
 
 import logo from './logo.svg';
@@ -9,13 +9,17 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      arrayOfColors: []
+      arrayOfColors: [],
+      userName: '',
+      userId: 0
     }
   }
-  componentDidMount = async () => {
-    this.getFiveColors();
+  // componentDidMount = async () => {
+  //   this.getFiveColors();
      
-  };
+  // };
+
+
 
   getFiveColors = (colorsRequest, model = 'default') => {
     const url = "http://colormind.io/api/";
@@ -64,7 +68,7 @@ colorFormats = (rgbColors) => {
             Learn React
           </a>
         </header>
-        <LoginForm />
+        <LoginForm userName={this.state.userName} userId={this.state.userId} updateCurrentUser={updateCurrentUser}/>
       </div>
     );
   }

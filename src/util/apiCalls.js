@@ -98,3 +98,24 @@ export const getPalette = async paletteInfo => {
 	}
 	return palette;
 };
+
+export const userLogin = async userLogin => {
+	console.log('userLogin', userLogin);
+	
+	const url = 'https://picasso-database.herokuapp.com/api/v1/login';
+	const options = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(userLogin)
+	};
+	const response = await fetch(url, options);
+	
+	if (!response.ok) {
+		return response
+	}
+	return response.json();
+}
+
+export default userLogin;
