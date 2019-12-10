@@ -12,7 +12,7 @@ const palette = {
 
 const PaletteCard = ({ menuIsActive }) => {
 	return (
-		<Fade when={menuIsActive} duration={600} bottom>
+		<Fade when={menuIsActive} duration={600} delay={150}>
 			<div className='PaletteCard'>
 				<h4>Prototype Art</h4>
 				<div className='colors'>
