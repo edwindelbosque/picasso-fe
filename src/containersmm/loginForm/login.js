@@ -8,7 +8,7 @@ const LoginForm = () => {
         event.preventDefault();
         resetInputs();
       }
-    
+
     const resetInputs = () => {
         handleEmailChange('')
         handlePassowrdChange('')
