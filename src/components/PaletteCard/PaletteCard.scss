@@ -1,7 +1,8 @@
 .PaletteCard {
-	margin-top: 20px;
+	margin-top: 40px;
 	cursor: pointer;
 	transition: 0.15s ease-in-out;
+	width: fit-content;
 
 	&:hover {
 		transform: translate(-30px);
@@ -9,22 +10,23 @@
 
 	h4 {
 		font-size: 30px;
-		color: white;
+		color: rgb(59, 59, 59);
+		font-family: 'Roboto';
 	}
 
 	.colors {
-		margin-top: 5px;
+		margin-top: 10px;
+		box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.24);
 		display: flex;
-		background: rgb(0, 0, 0);
+		background: rgb(85, 85, 85);
 		width: fit-content;
 		justify-content: center;
-		padding: 15px;
-		border-bottom: 5px solid rgb(255, 255, 255);
+		border-bottom: 6px solid rgb(87, 87, 87);
+		border-radius: 2px;
 
 		div {
-			margin: 2px;
-			width: 60px;
-			height: 60px;
+			width: 125px;
+			height: 125px;
 			background: greenyellow;
 		}
 	}

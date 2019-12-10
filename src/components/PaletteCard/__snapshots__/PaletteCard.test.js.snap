@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteCard App should match snapshot 1`] = `
+<div
+  className="PaletteCard"
+>
+  <h4>
+    Prototype Art
+  </h4>
+  <div
+    className="colors"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</div>
+`;

@@ -1,12 +1,19 @@
 .Palettes {
 	margin-left: 200px;
-	padding-left: 50px;
+	padding-left: 100px;
+	padding-top: 35px;
 	overflow: scroll;
 	width: 100%;
-	height: 100%;
+	height: 100.5%;
+	background: white;
+	border-radius: 10px 0 0 0;
 
 	a {
 		text-decoration: none;
 		color: black;
+	}
+
+	h2 {
+		color: rgb(53, 53, 53);
 	}
 }
