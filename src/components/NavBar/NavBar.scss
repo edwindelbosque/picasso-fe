@@ -105,6 +105,51 @@ $main: #ffffff;
 	width: 100vw;
 	transition: 0.3s ease-in-out;
 	transition-delay: 0.24s;
+
+	div {
+		width: 100%;
+		margin-top: 75px;
+		height: 60px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	button {
+		height: 45px;
+		width: 100px;
+		opacity: 0;
+		cursor: pointer;
+		margin-right: 15px;
+		background: none;
+		border: 1px solid $main;
+		color: $main;
+		border-radius: 3px;
+		font-size: 18px;
+		transition: 0.1s;
+	}
+
+	.signup-button {
+		background: $main;
+		color: $accent;
+		font-weight: 700;
+
+		&:hover {
+			background: $accent2;
+			color: $main;
+			border-color: $main;
+		}
+	}
+
+	.login-button {
+		transition: 0.1s;
+		border: none;
+		margin-right: 0;
+
+		&:hover {
+			color: rgb(216, 216, 216);
+			transition: 0.1s;
+		}
+	}
 }
 
 .show-menu {
