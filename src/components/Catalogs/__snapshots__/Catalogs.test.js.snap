@@ -8,72 +8,78 @@ exports[`Catalogs App should match snapshot 1`] = `
     Catalogs
   </h2>
   <ul>
-    <NavLink
-      activeClassName="nav-active"
-      className="Nav__button link-wrapper dropdown"
-      exact={true}
-      to="/"
+    <Fade
+      bottom={true}
+      delay={200}
+      duration={400}
     >
-       
-      <li>
-        Work
-      </li>
-    </NavLink>
-    <NavLink
-      activeClassName="nav-active"
-      className="Nav__button link-wrapper dropdown"
-      exact={true}
-      to="/"
-    >
-       
-      <li>
-        Personal
-      </li>
-    </NavLink>
-    <NavLink
-      activeClassName="nav-active"
-      className="Nav__button link-wrapper dropdown"
-      exact={true}
-      to="/"
-    >
-       
-      <li>
-        Hobby
-      </li>
-    </NavLink>
-    <NavLink
-      activeClassName="nav-active"
-      className="Nav__button link-wrapper dropdown"
-      exact={true}
-      to="/"
-    >
-       
-      <li>
-        Mood
-      </li>
-    </NavLink>
-    <NavLink
-      activeClassName="nav-active"
-      className="Nav__button link-wrapper dropdown"
-      exact={true}
-      to="/"
-    >
-       
-      <li>
-        Design
-      </li>
-    </NavLink>
-    <NavLink
-      activeClassName="nav-active"
-      className="Nav__button link-wrapper dropdown"
-      exact={true}
-      to="/"
-    >
-       
-      <li>
-        Design
-      </li>
-    </NavLink>
+      <NavLink
+        activeClassName="nav-active"
+        className="Nav__button link-wrapper dropdown"
+        exact={true}
+        to="/"
+      >
+         
+        <li>
+          Work
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="nav-active"
+        className="Nav__button link-wrapper dropdown"
+        exact={true}
+        to="/"
+      >
+         
+        <li>
+          Personal
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="nav-active"
+        className="Nav__button link-wrapper dropdown"
+        exact={true}
+        to="/"
+      >
+         
+        <li>
+          Hobby
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="nav-active"
+        className="Nav__button link-wrapper dropdown"
+        exact={true}
+        to="/"
+      >
+         
+        <li>
+          Mood
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="nav-active"
+        className="Nav__button link-wrapper dropdown"
+        exact={true}
+        to="/"
+      >
+         
+        <li>
+          Design
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="nav-active"
+        className="Nav__button link-wrapper dropdown"
+        exact={true}
+        to="/"
+      >
+         
+        <li>
+          Design
+        </li>
+      </NavLink>
+    </Fade>
   </ul>
 </section>
 `;

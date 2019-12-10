@@ -34,8 +34,12 @@ exports[`NavBar App should match snapshot 1`] = `
     <div
       className="main-menu"
     >
-      <Catalogs />
-      <Palettes />
+      <Catalogs
+        menuIsActive={false}
+      />
+      <Palettes
+        menuIsActive={false}
+      />
     </div>
   </div>
 </Fragment>

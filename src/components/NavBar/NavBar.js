@@ -66,8 +66,8 @@ const NavBar = () => {
 				)}
 				{isSignedIn && (
 					<div className='main-menu'>
-						<Catalogs />
-						<Palettes />
+						<Catalogs menuIsActive={menuIsActive} />
+						<Palettes menuIsActive={menuIsActive} />
 					</div>
 				)}
 			</div>
