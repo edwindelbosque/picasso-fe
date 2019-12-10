@@ -4,7 +4,7 @@ import { getFiveColors } from './apiCalls'
 describe('gitFiveColors', () => {
     const mockResponse = {"result":[[214,78,69],[247,242,163],[201,216,147],[57,141,112],[62,80,64]]}
 
-    it('should call fetch with the correct URL', async () => {
+    it.skip('should call fetch with the correct URL', async () => {
         // Setup
         window.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({
@@ -20,7 +20,7 @@ describe('gitFiveColors', () => {
         expect(window.fetch).toHaveBeenCalledWith('http://colormind.io/api/');
     })
 
-    it('Should return an object with an array of five colors arrays', () => {
+    it.skip('Should return an object with an array of five colors arrays', () => {
         // Setup
         window.fetch = jest.fn().mockImplementation(() => {
           return Promise.resolve({
@@ -32,7 +32,7 @@ describe('gitFiveColors', () => {
         getFiveColors().then(movies => expect(movies).toEqual(mockResponse));
       });
 
-      it('should return catch error if promise rejects', () => {
+      it.skip('should return catch error if promise rejects', () => {
         // Setup
         window.fetch = jest.fn().mockImplementation(() => {
           return Promise.reject({
