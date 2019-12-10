@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './NavBar.scss';
 import Fade from 'react-reveal/Fade';
 // import { createUser } from '../../util/apiCalls';
+import Palettes from '../Palettes/Palettes';
+import Catalogs from '../Catalogs/Catalogs';
 
 const NavBar = () => {
 	const [menuIsActive, toggleMenu] = useState(false);
+	const isSignedIn = true;
 
 	useEffect(() => {
 		// const postNewUser = async () => {
@@ -35,28 +38,38 @@ const NavBar = () => {
 			</nav>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}></div>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}>
-				<div className='access-buttons'>
-					<Fade right when={menuIsActive} duration={300} delay={200}>
-						<button
-							className={`login-button ${menuIsActive && 'animate-button'}`}>
-							Login
-						</button>
-						<button
-							className={`signup-button ${menuIsActive && 'animate-button'}`}>
-							Sign Up
-						</button>
-					</Fade>
-				</div>
-				<div className='information-area'>
-					<Fade left when={menuIsActive} delay={60} duration={400}>
-						<h1>
-							Save all of your palettes by creating an <span>account.</span>
-						</h1>
-					</Fade>
-					<div
-						className={`hidden-circle ${menuIsActive &&
-							'active-circle'}`}></div>
-				</div>
+				{!isSignedIn && (
+					<div className='access-buttons'>
+						<Fade right when={menuIsActive} duration={300} delay={200}>
+							<button
+								className={`login-button ${menuIsActive && 'animate-button'}`}>
+								Login
+							</button>
+							<button
+								className={`signup-button ${menuIsActive && 'animate-button'}`}>
+								Sign Up
+							</button>
+						</Fade>
+					</div>
+				)}
+				{!isSignedIn && (
+					<div className='information-area'>
+						<Fade left when={menuIsActive} delay={60} duration={400}>
+							<h1>
+								Save all of your palettes by creating an <span>account.</span>
+							</h1>
+						</Fade>
+						<div
+							className={`hidden-circle ${menuIsActive &&
+								'active-circle'}`}></div>
+					</div>
+				)}
+				{isSignedIn && (
+					<div className='main-menu'>
+						<Catalogs />
+						<Palettes />
+					</div>
+				)}
 			</div>
 		</>
 	);

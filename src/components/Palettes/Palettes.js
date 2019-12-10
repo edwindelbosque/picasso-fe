@@ -1,7 +1,14 @@
 import React from 'react';
+import './Palettes.scss';
+import PaletteCard from '../PaletteCard/PaletteCard';
 
 const Palettes = () => {
-	return <h1>Palettes</h1>;
+	return (
+		<section className='Palettes'>
+			<h2>Palettes</h2>
+			<PaletteCard />
+		</section>
+	);
 };
 
 export default Palettes;

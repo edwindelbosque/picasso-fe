@@ -1,7 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Catalogs App should match snapshot 1`] = `
-<h1>
-  Catalogs
-</h1>
+<section
+  className="Catalogs"
+>
+  <h2>
+    Catalogs
+  </h2>
+  <ul>
+    <NavLink
+      activeClassName="nav-active"
+      className="Nav__button link-wrapper dropdown"
+      exact={true}
+      to="/"
+    >
+       
+      <li>
+        Work
+      </li>
+    </NavLink>
+    <NavLink
+      activeClassName="nav-active"
+      className="Nav__button link-wrapper dropdown"
+      exact={true}
+      to="/"
+    >
+       
+      <li>
+        Personal
+      </li>
+    </NavLink>
+    <NavLink
+      activeClassName="nav-active"
+      className="Nav__button link-wrapper dropdown"
+      exact={true}
+      to="/"
+    >
+       
+      <li>
+        Hobby
+      </li>
+    </NavLink>
+    <NavLink
+      activeClassName="nav-active"
+      className="Nav__button link-wrapper dropdown"
+      exact={true}
+      to="/"
+    >
+       
+      <li>
+        Mood
+      </li>
+    </NavLink>
+    <NavLink
+      activeClassName="nav-active"
+      className="Nav__button link-wrapper dropdown"
+      exact={true}
+      to="/"
+    >
+       
+      <li>
+        Design
+      </li>
+    </NavLink>
+    <NavLink
+      activeClassName="nav-active"
+      className="Nav__button link-wrapper dropdown"
+      exact={true}
+      to="/"
+    >
+       
+      <li>
+        Design
+      </li>
+    </NavLink>
+  </ul>
+</section>
 `;

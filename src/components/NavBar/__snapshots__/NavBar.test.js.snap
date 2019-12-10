@@ -32,45 +32,10 @@ exports[`NavBar App should match snapshot 1`] = `
     className="menu false"
   >
     <div
-      className="access-buttons"
+      className="main-menu"
     >
-      <Fade
-        delay={200}
-        duration={300}
-        right={true}
-        when={false}
-      >
-        <button
-          className="login-button false"
-        >
-          Login
-        </button>
-        <button
-          className="signup-button false"
-        >
-          Sign Up
-        </button>
-      </Fade>
-    </div>
-    <div
-      className="information-area"
-    >
-      <Fade
-        delay={60}
-        duration={400}
-        left={true}
-        when={false}
-      >
-        <h1>
-          Save all of your palettes by creating an 
-          <span>
-            account.
-          </span>
-        </h1>
-      </Fade>
-      <div
-        className="hidden-circle false"
-      />
+      <Catalogs />
+      <Palettes />
     </div>
   </div>
 </Fragment>

@@ -1,0 +1,27 @@
+.Catalogs {
+	// border-right: 2px solid black;
+	padding-left: 50px;
+	overflow: scroll;
+	direction: rtl;
+	width: 700px;
+	height: 100%;
+	padding-right: 30px;
+
+	a {
+		text-decoration: none;
+		color: black;
+	}
+
+	li {
+		font-size: 80px;
+		list-style-type: none;
+		cursor: pointer;
+		transition: 0.15s;
+
+		&:hover {
+			color: white;
+			text-decoration: underline;
+			transform: translate(30px);
+		}
+	}
+}

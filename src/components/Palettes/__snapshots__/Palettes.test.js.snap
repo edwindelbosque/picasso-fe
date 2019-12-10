@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Palettes App should match snapshot 1`] = `
-<h1>
-  Palettes
-</h1>
+<section
+  className="Palettes"
+>
+  <h2>
+    Palettes
+  </h2>
+  <PaletteCard />
+</section>
 `;

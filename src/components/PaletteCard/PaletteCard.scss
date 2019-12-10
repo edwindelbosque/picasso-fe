@@ -1,0 +1,31 @@
+.PaletteCard {
+	margin-top: 20px;
+	cursor: pointer;
+	transition: 0.15s ease-in-out;
+
+	&:hover {
+		transform: translate(-30px);
+	}
+
+	h4 {
+		font-size: 30px;
+		color: white;
+	}
+
+	.colors {
+		margin-top: 5px;
+		display: flex;
+		background: rgb(0, 0, 0);
+		width: fit-content;
+		justify-content: center;
+		padding: 15px;
+		border-bottom: 5px solid rgb(255, 255, 255);
+
+		div {
+			margin: 2px;
+			width: 60px;
+			height: 60px;
+			background: greenyellow;
+		}
+	}
+}
