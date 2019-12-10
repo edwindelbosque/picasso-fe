@@ -1,29 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import './NavBar.scss';
-import { createUser } from '../../util/apiCalls';
+// import { createUser } from '../../util/apiCalls';
 
 const NavBar = () => {
 	const [menuIsActive, toggleMenu] = useState(false);
 
 	useEffect(() => {
-		const postNewUser = async () => {
-			const newUser = {
-				email: 'edwindbda@gmail.com',
-				password: 'verySecret',
-				firstName: 'Edwin',
-				lastName: 'Del Bisquit'
-			};
-			const user = await createUser(newUser);
-			console.log(user);
-		};
-
-		postNewUser();
+		// const postNewUser = async () => {
+		// 	const newUser = {
+		// 		email: 'edwindbdjba@gmail.com',
+		// 		password: 'verySecret',
+		// 		firstName: 'Edwin',
+		// 		lastName: 'Del Bisquit'
+		// 	};
+		// 	const user = await createUser(newUser);
+		// 	console.log(user);
+		// };
+		// postNewUser();
 	}, []);
 
 	return (
 		<>
 			<nav className='NavBar'>
-				<p>Picasso.</p>
+				<p className={menuIsActive && 'active-title'}>Picasso</p>
 				<div
 					className={`hamburger-menu ${menuIsActive &&
 						'hamburger-menu-active'}`}

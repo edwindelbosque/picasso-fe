@@ -1,3 +1,7 @@
+$accent: #775c54;
+$accent2: rgb(33, 100, 243);
+$main: #ffffff;
+
 .NavBar {
 	height: 60px;
 	position: fixed;
@@ -9,11 +13,20 @@
 	justify-content: space-between;
 	align-items: center;
 	z-index: 1;
+	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.13);
 
 	p {
 		font-weight: 500;
-		font-size: 30px;
-		color: #235575;
+		font-size: 25px;
+		color: $accent2;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		transition: 0.2s ease-in-out;
+		transition-delay: 0.2s;
+	}
+
+	.active-title {
+		color: $main;
 	}
 
 	.hamburger-menu {
@@ -21,44 +34,42 @@
 		position: fixed;
 		right: 0;
 		top: 0;
-		padding: 15px;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
 		width: 60px;
 		height: 60px;
-		transition: 0.2s;
-		border-radius: 0 0 0 2px;
+		transition: 0.16s;
+		-webkit-tap-highlight-color: transparent;
 
 		&:hover {
-			background: #235575;
+			background: $accent;
 			div {
-				background: white;
+				background: $main;
 			}
 		}
 
 		div {
 			height: 3px;
-			width: 25px;
-			border-radius: 5px;
-			background: #235575;
-			margin: 2px;
-			transition: 0.2s;
+			width: 20px;
+			background: $accent;
+			margin: 1.5px;
+			transition: 0.16s;
 		}
 	}
 
 	.hamburger-menu-active {
 		align-items: center;
-		background: #235575;
+		background: $accent;
 
 		.bar-1 {
 			height: 3px;
 			width: 25px;
-			background: white;
+			background: $main;
 			margin: 2px;
 			position: relative;
-			top: 7px;
+			top: 6.5px;
 			transform: rotate(-45deg);
 		}
 
@@ -70,31 +81,33 @@
 			height: 3px;
 			transform: rotate(45deg);
 			width: 25px;
-			background: white;
+			background: $main;
 			position: relative;
-			bottom: 7px;
+			bottom: 6.5px;
 			margin: 2px;
 		}
 
 		&:hover {
-			background: rgb(240, 240, 240);
+			background: $main;
 			div {
-				background: #235575;
+				background: $accent;
 			}
 		}
 	}
 }
 
 .menu {
-	background: rgb(240, 240, 240);
+	background: $accent;
 	position: fixed;
 	top: 100vh;
 	left: 0;
 	height: 100vh;
 	width: 100vw;
 	transition: 0.3s ease-in-out;
+	transition-delay: 0.24s;
 }
 
 .show-menu {
-	top: 0;
+	top: 0px;
+	transition: 0.3s ease-in-out;
 }
