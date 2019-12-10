@@ -27,6 +27,26 @@ exports[`NavBar App should match snapshot 1`] = `
   </nav>
   <div
     className="menu false"
-  />
+  >
+    <div>
+      <Fade
+        delay={200}
+        duration={300}
+        right={true}
+        when={false}
+      >
+        <button
+          className="login-button false"
+        >
+          Login
+        </button>
+        <button
+          className="signup-button false"
+        >
+          Sign Up
+        </button>
+      </Fade>
+    </div>
+  </div>
 </Fragment>
 `;
