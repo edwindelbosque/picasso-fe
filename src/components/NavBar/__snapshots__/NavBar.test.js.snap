@@ -6,24 +6,28 @@ exports[`NavBar App should match snapshot 1`] = `
     className="NavBar"
   >
     <p
-      className={false}
+      className=""
     >
       Picasso
     </p>
-    <div
-      className="hamburger-menu false"
-      onClick={[Function]}
+    <Link
+      to="/catalogs"
     >
       <div
-        className="bar-1"
-      />
-      <div
-        className="bar-2"
-      />
-      <div
-        className="bar-3"
-      />
-    </div>
+        className="hamburger-menu false"
+        onClick={[Function]}
+      >
+        <div
+          className="bar-1"
+        />
+        <div
+          className="bar-2"
+        />
+        <div
+          className="bar-3"
+        />
+      </div>
+    </Link>
   </nav>
   <div
     className="menu false"
@@ -31,14 +35,118 @@ exports[`NavBar App should match snapshot 1`] = `
   <div
     className="menu false"
   >
+    <Route
+      path="/new-account"
+    >
+      <div
+        className="access-buttons"
+      >
+        <Fade
+          delay={200}
+          duration={300}
+          right={true}
+          when={false}
+        >
+          <button
+            className="login-button false"
+          >
+            Login
+          </button>
+          <button
+            className="signup-button false"
+          >
+            Sign Up
+          </button>
+        </Fade>
+      </div>
+      <div
+        className="information-area"
+      >
+        <Fade
+          delay={60}
+          duration={400}
+          left={true}
+          when={false}
+        >
+          <h1>
+            Save all of your palettes by creating an 
+            <span>
+              account.
+            </span>
+          </h1>
+        </Fade>
+        <div
+          className="hidden-circle false"
+        />
+      </div>
+    </Route>
     <div
       className="main-menu"
     >
-      <Catalogs
-        menuIsActive={false}
-      />
-      <Palettes
-        menuIsActive={false}
+      <Route
+        path="/catalogs"
+      >
+        <Catalogs
+          catalogs={
+            Array [
+              Object {
+                "catalogName": "Personal",
+                "id": 1,
+                "user_id": 1,
+              },
+              Object {
+                "catalogName": "Favorites",
+                "id": 2,
+                "user_id": 1,
+              },
+              Object {
+                "catalogName": "Mood",
+                "id": 3,
+                "user_id": 2,
+              },
+              Object {
+                "catalogName": "Work",
+                "id": 4,
+                "user_id": 3,
+              },
+              Object {
+                "catalogName": "Favorites",
+                "id": 5,
+                "user_id": 4,
+              },
+              Object {
+                "catalogName": "Mood",
+                "id": 6,
+                "user_id": 4,
+              },
+              Object {
+                "catalogName": "Work",
+                "id": 7,
+                "user_id": 4,
+              },
+              Object {
+                "catalogName": "Favorites",
+                "id": 8,
+                "user_id": 5,
+              },
+              Object {
+                "catalogName": "Mood",
+                "id": 9,
+                "user_id": 5,
+              },
+              Object {
+                "catalogName": "Work",
+                "id": 10,
+                "user_id": 5,
+              },
+            ]
+          }
+          menuIsActive={false}
+        />
+      </Route>
+      <Route
+        path="/catalogs/:id"
+        render={[Function]}
       />
     </div>
   </div>

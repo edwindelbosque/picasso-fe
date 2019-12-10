@@ -14,21 +14,10 @@ exports[`Catalogs App should match snapshot 1`] = `
       duration={400}
     >
       <NavLink
-        activeClassName="nav-active"
-        className="Nav__button link-wrapper dropdown"
+        activeClassName="active-catalog"
         exact={true}
-        to="/"
-      >
-         
-        <li>
-          Work
-        </li>
-      </NavLink>
-      <NavLink
-        activeClassName="nav-active"
-        className="Nav__button link-wrapper dropdown"
-        exact={true}
-        to="/"
+        key="1"
+        to="/catalogs/1"
       >
          
         <li>
@@ -36,21 +25,21 @@ exports[`Catalogs App should match snapshot 1`] = `
         </li>
       </NavLink>
       <NavLink
-        activeClassName="nav-active"
-        className="Nav__button link-wrapper dropdown"
+        activeClassName="active-catalog"
         exact={true}
-        to="/"
+        key="2"
+        to="/catalogs/2"
       >
          
         <li>
-          Hobby
+          Favorites
         </li>
       </NavLink>
       <NavLink
-        activeClassName="nav-active"
-        className="Nav__button link-wrapper dropdown"
+        activeClassName="active-catalog"
         exact={true}
-        to="/"
+        key="3"
+        to="/catalogs/3"
       >
          
         <li>
@@ -58,25 +47,80 @@ exports[`Catalogs App should match snapshot 1`] = `
         </li>
       </NavLink>
       <NavLink
-        activeClassName="nav-active"
-        className="Nav__button link-wrapper dropdown"
+        activeClassName="active-catalog"
         exact={true}
-        to="/"
+        key="4"
+        to="/catalogs/4"
       >
          
         <li>
-          Design
+          Work
         </li>
       </NavLink>
       <NavLink
-        activeClassName="nav-active"
-        className="Nav__button link-wrapper dropdown"
+        activeClassName="active-catalog"
         exact={true}
-        to="/"
+        key="5"
+        to="/catalogs/5"
       >
          
         <li>
-          Design
+          Favorites
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="active-catalog"
+        exact={true}
+        key="6"
+        to="/catalogs/6"
+      >
+         
+        <li>
+          Mood
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="active-catalog"
+        exact={true}
+        key="7"
+        to="/catalogs/7"
+      >
+         
+        <li>
+          Work
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="active-catalog"
+        exact={true}
+        key="8"
+        to="/catalogs/8"
+      >
+         
+        <li>
+          Favorites
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="active-catalog"
+        exact={true}
+        key="9"
+        to="/catalogs/9"
+      >
+         
+        <li>
+          Mood
+        </li>
+      </NavLink>
+      <NavLink
+        activeClassName="active-catalog"
+        exact={true}
+        key="10"
+        to="/catalogs/10"
+      >
+         
+        <li>
+          Work
         </li>
       </NavLink>
     </Fade>

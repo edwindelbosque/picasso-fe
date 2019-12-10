@@ -5,8 +5,14 @@ import { shallow } from 'enzyme';
 describe('PaletteCard', () => {
 	let wrapper;
 
+	let palette = {
+		id: 1,
+		catalogName: 'Personal',
+		user_id: 1
+	};
+
 	beforeEach(() => {
-		wrapper = shallow(<PaletteCard />);
+		wrapper = shallow(<PaletteCard palette={palette} />);
 	});
 
 	it('App should match snapshot', () => {
