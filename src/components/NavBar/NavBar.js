@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './NavBar.scss';
+import Fade from 'react-reveal/Fade';
 // import { createUser } from '../../util/apiCalls';
 
 const NavBar = () => {
@@ -32,7 +33,20 @@ const NavBar = () => {
 					<div className='bar-3'></div>
 				</div>
 			</nav>
-			<div className={`menu ${menuIsActive && 'show-menu'}`}></div>
+			<div className={`menu ${menuIsActive && 'show-menu'}`}>
+				<div>
+					<Fade right when={menuIsActive} duration={300} delay={200}>
+						<button
+							className={`login-button ${menuIsActive && 'animate-button'}`}>
+							Login
+						</button>
+						<button
+							className={`signup-button ${menuIsActive && 'animate-button'}`}>
+							Sign Up
+						</button>
+					</Fade>
+				</div>
+			</div>
 		</>
 	);
 };
