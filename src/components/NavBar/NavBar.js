@@ -34,7 +34,19 @@ const NavBar = () => {
 				</div>
 			</nav>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}>
-				<div>
+				<div className='information-area'>
+					<Fade bottom when={menuIsActive} delay={200} duration={400}>
+						<h1>
+							Save all of your palettes by creating an <span>account.</span>
+						</h1>
+					</Fade>
+					<div
+						className={`hidden-circle ${menuIsActive &&
+							'active-circle'}`}></div>
+				</div>
+			</div>
+			{/* <div className={`menu ${menuIsActive && 'show-menu'}`}>
+				<div className='access-buttons'>
 					<Fade right when={menuIsActive} duration={300} delay={200}>
 						<button
 							className={`login-button ${menuIsActive && 'animate-button'}`}>
@@ -45,8 +57,8 @@ const NavBar = () => {
 							Sign Up
 						</button>
 					</Fade>
-				</div>
-			</div>
+				</div> */}
+			{/* </div> */}
 		</>
 	);
 };

@@ -106,7 +106,7 @@ $main: #ffffff;
 	transition: 0.3s ease-in-out;
 	transition-delay: 0.24s;
 
-	div {
+	.access-buttons {
 		width: 100%;
 		margin-top: 75px;
 		height: 60px;
@@ -150,6 +150,43 @@ $main: #ffffff;
 			transition: 0.1s;
 		}
 	}
+
+	.information-area {
+		height: 80%;
+		width: 850px;
+		padding-left: 80px;
+		display: block;
+		margin-top: 120px;
+
+		h1 {
+			color: $main;
+			font-size: 80px;
+			font-family: 'Roboto';
+			letter-spacing: -0.5px;
+
+			span {
+				border-bottom: 5px solid $accent;
+			}
+		}
+	}
+}
+
+.hidden-circle {
+	height: 1200px;
+	width: 1200px;
+	background: $accent2;
+	position: relative;
+	top: -950px;
+	left: -300px;
+	z-index: -1;
+	border-radius: 50%;
+	opacity: 0;
+	transition: 0.2s;
+	transition-delay: 0.2s;
+}
+
+.active-circle {
+	opacity: 1;
 }
 
 .show-menu {
