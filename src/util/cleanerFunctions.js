@@ -4,8 +4,10 @@ export const cleanColorName = async (updateArrayOfColors, palettes) => {
     const colorInfo = await palettes.map(color => colorFormats(color))
     const promiseResolve = await Promise.all(colorInfo)
     const cleanedColorData = promiseResolve.map( colorObj => {
-        const {XYZ, cmyk, hex, hsl, hsv, image, rgb} = colorObj
-        return {XYZ, cmyk, hex, hsl, hsv, image, rgb}
+        const {XYZ, cmyk, hex, hsl, hsv, rgb, name} = colorObj
+        return {XYZ, cmyk, hex, hsl, hsv, rgb, name}
     })
+    console.log(cleanedColorData);
+    
     updateArrayOfColors(cleanedColorData)
 }

@@ -31,7 +31,7 @@ class App extends Component {
 				<NavBar />
 				<LoginForm updateCurrentUser={this.updateCurrentUser} />
 				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
-				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors}/>
+				<GetRandomColors arrayOfColors={this.state.arrayOfColors} updateArrayOfColors={this.updateArrayOfColors}/>
 				<Footer />
 			</div>
 		);

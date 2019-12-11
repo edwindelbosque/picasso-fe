@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { getFiveColors } from '../../util/apiCalls.js'
+import RandomPalette from "../RandomPalette/RandomPalette.js";
 
-const GetRandomColors = ({updateArrayOfColors}) => {
+const GetRandomColors = ({arrayOfColors, updateArrayOfColors}) => {
     const handleSubmit = async event => { 
         event.preventDefault();
          getFiveColors(updateArrayOfColors)
     }
-
      return (
-          <button
-                type="button"
-                className="GetColorsBtn"
-                onClick={(e) => handleSubmit(e)}
-                >
-                Get Colors
-            </button>
+        <>
+        <RandomPalette palette={arrayOfColors} />
+        <button
+            type="button"
+            className="GetColorsBtn"
+            onClick={(e) => handleSubmit(e)}
+            >
+            Get Colors
+        </button>
+        </>
      )
 
 }
