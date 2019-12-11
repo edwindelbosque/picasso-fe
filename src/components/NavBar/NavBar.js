@@ -85,6 +85,7 @@ const NavBar = ({ userName, catalogs }) => {
 						<div menuIsActive={menuIsActive}></div>
 					</Route>
 					<Route
+						exact
 						path='/catalogs/:id'
 						render={({ match }) => {
 							const matchingPalettes = palettes.filter(
@@ -94,6 +95,7 @@ const NavBar = ({ userName, catalogs }) => {
 								<Palettes
 									menuIsActive={menuIsActive}
 									palettes={matchingPalettes}
+									toggleMenu={toggleMenu}
 								/>
 							);
 						}}
