@@ -15,6 +15,8 @@ $main: #ffffff;
 	align-items: center;
 	z-index: 1;
 	box-shadow: 0 2px 15px rgba(0, 0, 0, 0.13);
+	backdrop-filter: blur(15px);
+	background: rgba(255, 255, 255, 0.144);
 
 	p {
 		font-weight: 500;
@@ -23,7 +25,6 @@ $main: #ffffff;
 		font-weight: 600;
 		letter-spacing: 0.5px;
 		transition: 0.2s ease-in-out;
-		transition-delay: 0.2s;
 	}
 
 	.active-title {
@@ -117,7 +118,6 @@ $main: #ffffff;
 	button {
 		height: 45px;
 		width: 100px;
-		opacity: 0;
 		cursor: pointer;
 		margin-right: 15px;
 		background: none;
@@ -126,6 +126,10 @@ $main: #ffffff;
 		border-radius: 3px;
 		font-size: 18px;
 		transition: 0.1s;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	.signup-button {
@@ -196,7 +200,7 @@ $main: #ffffff;
 .main-menu {
 	width: 100%;
 	background: $accent2;
-	padding-top: 60px;
+	padding-top: 0px;
 	height: 100%;
 	display: flex;
 	justify-content: space-between;

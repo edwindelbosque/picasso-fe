@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import LoginForm from '../LoginForm/loginForm.js';
-import UserSignupForm from '../UserSignupForm/UserSignupForm.js'
-import GetRandomColors from '../RandomColor/RandomColor.js'
+import LoginForm from '../LoginForm/LoginForm.js';
+import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
+import GetRandomColors from '../RandomColor/RandomColor.js';
 
 class App extends Component {
 	constructor() {
@@ -12,26 +12,31 @@ class App extends Component {
 		this.state = {
 			arrayOfColors: [],
 			userName: '',
-			userId: 0
+			userId: 0,
+			catalogs: [],
+			palettes: []
 		};
 	}
 
 	updateArrayOfColors = colors => {
-		this.setState({arrayOfColors: colors})
-	}
+		this.setState({ arrayOfColors: colors });
+	};
 
-	updateCurrentUser = user => {
+	updateCurrentUser = (user, catalogs) => {
 		const { firstName, id } = user;
-		this.setState({ userName: firstName, userId: id });
+		this.setState({ userName: firstName, userId: id, catalogs: catalogs });
 	};
 
 	render() {
 		return (
 			<div className='App'>
-				<NavBar />
-				<LoginForm updateCurrentUser={this.updateCurrentUser} />
-				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
-				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors}/>
+				<NavBar
+					userName={this.state.userName}
+					catalogs={this.state.catalogs}
+					updateCurrentUser={this.updateCurrentUser}
+				/>
+				<Footer />
+				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors} />
 				<Footer />
 			</div>
 		);

@@ -1,0 +1,53 @@
+.LoginForm {
+	margin-top: 60px;
+	background: white;
+	z-index: 10000000;
+	position: absolute;
+	padding: 20px 20px;
+	display: flex;
+	flex-direction: column;
+	right: 15px;
+	width: 300px;
+	border-radius: 4px;
+	box-shadow: 0 2px 15px -10px rgba(0, 0, 0, 0.144);
+
+	label {
+		font-family: 'Roboto';
+		color: rgb(92, 97, 112);
+		margin-bottom: 6px;
+	}
+
+	::placeholder {
+		color: rgb(192, 192, 192);
+	}
+
+	input {
+		border: 1px solid rgb(204, 204, 204);
+		margin-bottom: 20px;
+		height: 40px;
+		border-radius: 3px;
+		padding-left: 10px;
+		font-size: 16px;
+	}
+
+	.loginFormBtn {
+		background: #2164f3;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: rgb(255, 255, 255);
+		box-shadow: 0 0 15px -9px #1356e7;
+		font-family: 'Roboto';
+		font-weight: bold;
+		margin-top: 10px;
+		width: 100%;
+		cursor: pointer;
+		height: 50px;
+		border-radius: 3px;
+		transition: 0.15s;
+
+		&:hover {
+			background: #3474ff;
+		}
+	}
+}

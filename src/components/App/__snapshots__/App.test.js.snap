@@ -4,7 +4,15 @@ exports[`App App should match snapshot 1`] = `
 <div
   className="App"
 >
-  <NavBar />
+  <NavBar
+    catalogs={Array []}
+    updateCurrentUser={[Function]}
+    userName=""
+  />
+  <Footer />
+  <GetRandomColors
+    updateArrayOfColors={[Function]}
+  />
   <Footer />
 </div>
 `;
