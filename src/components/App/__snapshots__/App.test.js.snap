@@ -12,5 +12,12 @@ exports[`App App should match snapshot 1`] = `
   <LoginForm
     updateCurrentUser={[Function]}
   />
+  <UserSignupForm
+    updateCurrentUser={[Function]}
+  />
+  <GetRandomColors
+    updateArrayOfColors={[Function]}
+  />
+  <Footer />
 </div>
 `;

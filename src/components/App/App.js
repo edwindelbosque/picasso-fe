@@ -3,6 +3,8 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LoginForm from '../LoginForm/LoginForm.js';
+import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
+import GetRandomColors from '../RandomColor/RandomColor.js';
 
 class App extends Component {
 	constructor() {
@@ -16,9 +18,13 @@ class App extends Component {
 		};
 	}
 
-	updateCurrentUser = (user, cats) => {
+	updateArrayOfColors = colors => {
+		this.setState({ arrayOfColors: colors });
+	};
+
+	updateCurrentUser = (user, catalogs) => {
 		const { firstName, id } = user;
-		this.setState({ userName: firstName, userId: id, catalogs: cats });
+		this.setState({ userName: firstName, userId: id, catalogs: catalogs });
 	};
 
 	render() {
@@ -27,6 +33,9 @@ class App extends Component {
 				<NavBar userName={this.state.userName} catalogs={this.state.catalogs} />
 				<Footer />
 				<LoginForm updateCurrentUser={this.updateCurrentUser} />
+				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
+				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors} />
+				<Footer />
 			</div>
 		);
 	}
