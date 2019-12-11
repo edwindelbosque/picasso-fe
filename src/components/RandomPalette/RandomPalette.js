@@ -1,4 +1,5 @@
 import React from 'react';
+import './RandomPalette.scss';
 
 const RandomPalette = ({palette}) => {
 	if (!palette.length) {
@@ -9,9 +10,9 @@ const RandomPalette = ({palette}) => {
 		})
 		return (
 			<div>
-				<div className='PaletteCard'>
+				<div className='random-palette-card'>
 					<h4>{palette.paletteName}</h4>
-					<div className='colors'>
+					<div className='colors-holder'>
 						{createdColor}
 					</div>
 				</div>

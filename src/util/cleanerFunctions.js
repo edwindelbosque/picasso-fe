@@ -7,7 +7,5 @@ export const cleanColorName = async (updateArrayOfColors, palettes) => {
         const {XYZ, cmyk, hex, hsl, hsv, rgb, name} = colorObj
         return {XYZ, cmyk, hex, hsl, hsv, rgb, name}
     })
-    console.log(cleanedColorData);
-    
     updateArrayOfColors(cleanedColorData)
 }
