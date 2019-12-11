@@ -10,6 +10,7 @@ class App extends Component {
 		this.state = {
 			arrayOfColors: [],
 			userName: '',
+			currentCatalog: 0,
 			userId: 0,
 			catalogs: [],
 			palettes: []
@@ -25,16 +26,26 @@ class App extends Component {
 		this.setState({ userName: firstName, userId: id, catalogs: catalogs });
 	};
 
+	updateCurrentCatalog = id => {
+		this.setState({ currentCatalog: id });
+	};
+
 	render() {
 		return (
 			<div className='App'>
+				<NavBar />
+				<GetRandomColors
+					arrayOfColors={this.state.arrayOfColors}
+					updateArrayOfColors={this.updateArrayOfColors}
+					userID={this.state.userId}
+					currentCatalog={this.state.currentCatalog}
+				/>
 				<NavBar
 					userName={this.state.userName}
 					catalogs={this.state.catalogs}
 					updateCurrentUser={this.updateCurrentUser}
+					updateCurrentCatalog={this.updateCurrentCatalog}
 				/>
-				<Footer />
-				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors} />
 				<Footer />
 			</div>
 		);

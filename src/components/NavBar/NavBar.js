@@ -5,24 +5,27 @@ import Palettes from '../Palettes/Palettes';
 import Catalogs from '../Catalogs/Catalogs';
 import { Route, Link } from 'react-router-dom';
 import { getPalettes } from '../../util/apiCalls';
-import LoginForm from '../LoginForm/LoginForm.js';
+import LoginForm from '../LoginForm/LoginForm';
 import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 
-const NavBar = ({ userName, catalogs, updateCurrentUser }) => {
+const NavBar = ({
+	userName,
+	catalogs,
+	updateCurrentUser,
+	updateCurrentCatalog
+}) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
 
 	const fetchPalettes = () => {
-		if (isSignedIn) {
-			if (catalogs) {
-				const accumulatedPalettes = [];
-				catalogs.forEach(async catalog => {
-					const palettess = await getPalettes(catalog);
-					accumulatedPalettes.push(...palettess);
-				});
-				updatePalettes(accumulatedPalettes);
-			}
+		if (isSignedIn && catalogs) {
+			const accumulatedPalettes = [];
+			catalogs.forEach(async catalog => {
+				const palettess = await getPalettes(catalog);
+				accumulatedPalettes.push(...palettess);
+			});
+			updatePalettes(accumulatedPalettes);
 		}
 	};
 
@@ -101,7 +104,11 @@ const NavBar = ({ userName, catalogs, updateCurrentUser }) => {
 				</Route>
 				<div className='main-menu'>
 					<Route path='/catalogs'>
-						<Catalogs menuIsActive={menuIsActive} catalogs={catalogs} />
+						<Catalogs
+							menuIsActive={menuIsActive}
+							catalogs={catalogs}
+							updateCurrentCatalog={updateCurrentCatalog}
+						/>
 					</Route>
 					<Route path='/logout'>
 						<div menuIsActive={menuIsActive}></div>
