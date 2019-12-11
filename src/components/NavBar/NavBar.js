@@ -22,8 +22,6 @@ const NavBar = ({ userName, catalogs }) => {
 		}
 	};
 
-	console.log(catalogs);
-
 	return (
 		<>
 			<nav className='NavBar'>
