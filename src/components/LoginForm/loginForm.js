@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { userLogin, getCatalogs } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 
-const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
+const LoginForm = ({ updateCurrentUser }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
 	const [loginStatus, handleLoginAttempt] = useState('');
@@ -18,7 +18,6 @@ const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
 		} else {
 			updateCurrentUser(loginResponse, catalogs);
 			resetInputs();
-			toggleMenu(false);
 		}
 	};
 
@@ -46,7 +45,7 @@ const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
 	const isEnabled = canBeSubmitted();
 
 	return (
-		<form className='LoginForm'>
+		<form className='Form'>
 			<label htmlFor='email' className='form-login email-login__label'>
 				Email
 			</label>
@@ -55,7 +54,7 @@ const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
 				id='email'
 				type='text'
 				name='email'
-				placeholder='ex. hello@email.com'
+				placeholder='Email'
 				onChange={e => handleEmailChange(e.target.value)}
 				value={emailValue}
 			/>
@@ -67,16 +66,17 @@ const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
 				id='password'
 				type='password'
 				name='password'
-				placeholder='ex. •••••••••••'
+				placeholder='Password'
 				onChange={e => handlePasswordChange(e.target.value)}
 				value={passwordValue}
 			/>
-			<div
+			<button
+				type='button'
 				className='loginFormBtn'
 				disabled={!isEnabled}
 				onClick={e => handleSubmit(e)}>
-				Login
-			</div>
+				Submit
+			</button>
 		</form>
 	);
 };
