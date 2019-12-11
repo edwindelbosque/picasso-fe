@@ -47,7 +47,7 @@ export const createPalette = async newPalette => {
 
 export const savePalette = async newPalette => {
 	const { catalogId, id } = newPalette;
-	const url = `http://localhost:3000/api/v1/users/0/catalogs/${catalogId}/palettes/${id}`;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/0/catalogs/${catalogId}/palettes/${id}`;
 	const options = {
 		method: 'POST',
 		headers: {
@@ -65,7 +65,7 @@ export const savePalette = async newPalette => {
 
 export const saveCatalog = async newCatalog => {
 	const { userId, id } = newCatalog;
-	const url = `http://localhost:3000/api/v1/users/${userId}/catalogs/${id}`;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${userId}/catalogs/${id}`;
 	const options = {
 		method: 'POST',
 		headers: {
@@ -83,7 +83,7 @@ export const saveCatalog = async newCatalog => {
 
 export const getCatalogs = async userInfo => {
 	const { id } = userInfo;
-	const url = `http://localhost:3000/api/v1/users/${id}/catalogs`;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${id}/catalogs`;
 	const response = await fetch(url);
 	const catalogs = response.json();
 	if (!response.ok) {
@@ -94,7 +94,7 @@ export const getCatalogs = async userInfo => {
 
 export const getCatalog = async catalogInfo => {
 	const { userId, id, catalogName } = catalogInfo;
-	const url = `http://localhost:3000/api/v1/users/${userId}/catalogs/${id}`;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${userId}/catalogs/${id}`;
 	const response = await fetch(url);
 	const catalog = response.json();
 	if (!response.ok) {
@@ -106,8 +106,8 @@ export const getCatalog = async catalogInfo => {
 };
 
 export const getPalettes = async catalogInfo => {
-	const { userId, id } = catalogInfo;
-	const url = `http://localhost:3000/api/v1/users/${userId}/catalogs/${id}/palettes`;
+	const { user_id, id } = catalogInfo;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${id}/palettes`;
 	const response = await fetch(url);
 	const palettes = response.json();
 	if (!response.ok) {
@@ -118,7 +118,7 @@ export const getPalettes = async catalogInfo => {
 
 export const getPalette = async paletteInfo => {
 	const { catalogId, id, paletteName } = paletteInfo;
-	const url = `http://localhost:3000/api/v1/users/0/catalogs/${catalogId}/palettes/${id}`;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/0/catalogs/${catalogId}/palettes/${id}`;
 	const response = await fetch(url);
 	const palette = response.json();
 	if (!response.ok) {
@@ -131,7 +131,7 @@ export const getPalette = async paletteInfo => {
 
 export const userLogin = async userLogin => {
 	console.log('userLogin', userLogin);
-	
+
 	const url = 'https://picasso-database.herokuapp.com/api/v1/login';
 	const options = {
 		method: 'POST',
@@ -141,12 +141,12 @@ export const userLogin = async userLogin => {
 		body: JSON.stringify(userLogin)
 	};
 	const response = await fetch(url, options);
-	
+
 	if (!response.ok) {
-		return response
+		return response;
 	}
 	return response.json();
-}
+};
 
 export const colorFormats = async rgbColors => {
 	const response = await fetch(`https://www.thecolorapi.com/id?format=string&rgb=${rgbColors[0]},${rgbColors[1]},${rgbColors[2]}`)
