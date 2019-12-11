@@ -4,6 +4,7 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LoginForm from '../LoginForm/loginForm.js';
 import UserSignupForm from '../UserSignupForm/UserSignupForm.js'
+import GetRandomColors from '../RandomColor/RandomColor.js'
 
 class App extends Component {
 	constructor() {
@@ -13,6 +14,10 @@ class App extends Component {
 			userName: '',
 			userId: 0
 		};
+	}
+
+	updateArrayOfColors = colors => {
+		this.setState({arrayOfColors: colors})
 	}
 
 	updateCurrentUser = user => {
@@ -26,6 +31,7 @@ class App extends Component {
 				<NavBar />
 				<LoginForm updateCurrentUser={this.updateCurrentUser} />
 				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
+				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors}/>
 				<Footer />
 			</div>
 		);
