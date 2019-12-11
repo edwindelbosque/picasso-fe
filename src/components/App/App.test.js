@@ -9,7 +9,7 @@ describe('App', () => {
 		wrapper = shallow(<App />);
 	});
 
-	it.skip('App should match snapshot', () => {
+	it('App should match snapshot', () => {
 		expect(wrapper).toMatchSnapshot();
 	});
 });
