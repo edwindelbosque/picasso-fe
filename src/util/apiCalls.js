@@ -12,10 +12,35 @@ export const createUser = async newUser => {
 
 	const response = await fetch(url, options);
 	if (!response.ok) {
-		console.log('hit error in apiCalls line 13', response);
+		console.log('hit error in apiCalls line 15', response);
 		
 		return response
 		// throw new Error('User could not be created at this time.');
+	}
+	return response.json();
+};
+
+export const createPalette = async newPalette => {
+	console.log('newPalette', newPalette);
+	
+	const { catalog_id, user_id, paletteName, colors } = newPalette;
+	const newPaletteForDB = { catalog_id, paletteName, colors}
+	console.log('newPaletteForDB', newPaletteForDB);
+	
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${catalog_id}/palettes`;
+	const options = {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(newPaletteForDB)
+	};
+
+	const response = await fetch(url, options);
+	if (!response.ok) {
+		console.log('hit error in apiCalls line 36 in APIcalls for Create Palette', response);
+		return response
+		// throw new Error('Palette could not be saved at this time.');
 	}
 	return response.json();
 };
