@@ -19,12 +19,12 @@ const Catalogs = ({ menuIsActive, catalogs }) => {
 		);
 	});
 
-	const fetchPalettes = () => {
-		catalogs.forEach(async catalog => {
-			const palettess = await getPalettes(catalog);
-			console.log(palettess);
-		});
-	};
+	// const fetchPalettes = () => {
+	// 	catalogs.forEach(async catalog => {
+	// 		const palettess = await getPalettes(catalog);
+	// 		console.log(palettess);
+	// 	});
+	// };
 
 	return (
 		<section className='Catalogs'>

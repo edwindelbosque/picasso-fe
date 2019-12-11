@@ -118,7 +118,6 @@ $main: #ffffff;
 	button {
 		height: 45px;
 		width: 100px;
-		opacity: 0;
 		cursor: pointer;
 		margin-right: 15px;
 		background: none;
@@ -127,6 +126,10 @@ $main: #ffffff;
 		border-radius: 3px;
 		font-size: 18px;
 		transition: 0.1s;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	.signup-button {

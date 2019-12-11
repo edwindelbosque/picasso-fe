@@ -6,15 +6,10 @@ exports[`App App should match snapshot 1`] = `
 >
   <NavBar
     catalogs={Array []}
+    updateCurrentUser={[Function]}
     userName=""
   />
   <Footer />
-  <LoginForm
-    updateCurrentUser={[Function]}
-  />
-  <UserSignupForm
-    updateCurrentUser={[Function]}
-  />
   <GetRandomColors
     updateArrayOfColors={[Function]}
   />

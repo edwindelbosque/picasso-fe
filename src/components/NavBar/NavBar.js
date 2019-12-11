@@ -5,20 +5,24 @@ import Palettes from '../Palettes/Palettes';
 import Catalogs from '../Catalogs/Catalogs';
 import { Route, Link } from 'react-router-dom';
 import { getPalettes } from '../../util/apiCalls';
+import LoginForm from '../LoginForm/LoginForm.js';
+import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 
-const NavBar = ({ userName, catalogs }) => {
+const NavBar = ({ userName, catalogs, updateCurrentUser }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
 
 	const fetchPalettes = () => {
 		if (isSignedIn) {
-			const accumulatedPalettes = [];
-			catalogs.forEach(async catalog => {
-				const palettess = await getPalettes(catalog);
-				accumulatedPalettes.push(...palettess);
-			});
-			updatePalettes(accumulatedPalettes);
+			if (catalogs) {
+				const accumulatedPalettes = [];
+				catalogs.forEach(async catalog => {
+					const palettess = await getPalettes(catalog);
+					accumulatedPalettes.push(...palettess);
+				});
+				updatePalettes(accumulatedPalettes);
+			}
 		}
 	};
 
@@ -36,7 +40,7 @@ const NavBar = ({ userName, catalogs }) => {
 								: '/logout'
 							: menuIsActive
 							? '/create'
-							: '/new-account'
+							: '/signup'
 					}>
 					<div
 						className={`hamburger-menu ${menuIsActive &&
@@ -53,18 +57,36 @@ const NavBar = ({ userName, catalogs }) => {
 			</nav>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}></div>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}>
-				<Route path='/new-account'>
+				<Route path='(/signup|/login)'>
 					<div className='access-buttons'>
 						<Fade right when={menuIsActive} duration={300} delay={200}>
-							<button
-								className={`login-button ${menuIsActive && 'animate-button'}`}>
-								Login
-							</button>
-							<button
-								className={`signup-button ${menuIsActive && 'animate-button'}`}>
-								Sign Up
-							</button>
+							<Link to='/login'>
+								<button
+									className={`login-button ${menuIsActive &&
+										'animate-button'}`}>
+									Login
+								</button>
+							</Link>
+							<Link to='/signup'>
+								<button
+									className={`signup-button ${menuIsActive &&
+										'animate-button'}`}>
+									Sign Up
+								</button>
+							</Link>
 						</Fade>
+						<Route exact path='/login'>
+							<LoginForm
+								updateCurrentUser={updateCurrentUser}
+								toggleMenu={toggleMenu}
+							/>
+						</Route>
+						<Route exact path='/signup'>
+							<UserSignupForm
+								updateCurrentUser={updateCurrentUser}
+								toggleMenu={toggleMenu}
+							/>
+						</Route>
 					</div>
 					<div className='information-area'>
 						<Fade left when={menuIsActive} delay={60} duration={400}>

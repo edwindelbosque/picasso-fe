@@ -30,10 +30,12 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
-				<NavBar userName={this.state.userName} catalogs={this.state.catalogs} />
+				<NavBar
+					userName={this.state.userName}
+					catalogs={this.state.catalogs}
+					updateCurrentUser={this.updateCurrentUser}
+				/>
 				<Footer />
-				<LoginForm updateCurrentUser={this.updateCurrentUser} />
-				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
 				<GetRandomColors updateArrayOfColors={this.updateArrayOfColors} />
 				<Footer />
 			</div>
