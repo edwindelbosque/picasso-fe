@@ -3,6 +3,7 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import LoginForm from '../LoginForm/loginForm.js';
+import UserSignupForm from '../UserSignupForm/UserSignupForm.js'
 
 class App extends Component {
 	constructor() {
@@ -23,8 +24,9 @@ class App extends Component {
 		return (
 			<div className='App'>
 				<NavBar />
-				<Footer />
 				<LoginForm updateCurrentUser={this.updateCurrentUser} />
+				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
+				<Footer />
 			</div>
 		);
 	}

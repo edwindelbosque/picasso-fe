@@ -1,5 +1,5 @@
 export const createUser = async newUser => {
-	const url = 'http://localhost:3000/api/v1/users';
+	const url = 'https://picasso-database.herokuapp.com/api/v1/users';
 	const options = {
 		method: 'POST',
 		headers: {
@@ -10,7 +10,10 @@ export const createUser = async newUser => {
 
 	const response = await fetch(url, options);
 	if (!response.ok) {
-		throw new Error('User could not be created at this time.');
+		console.log('hit error in apiCalls line 13', response);
+		
+		return response
+		// throw new Error('User could not be created at this time.');
 	}
 	return response.json();
 };

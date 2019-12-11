@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import userLogin from '../../util/apiCalls.js'
+import { userLogin } from '../../util/apiCalls.js'
 
 const LoginForm = ({updateCurrentUser}) => {
     const [emailValue, handleEmailChange] = useState("");
@@ -9,12 +9,11 @@ const LoginForm = ({updateCurrentUser}) => {
     const handleSubmit = async event => {
         event.preventDefault();
         handleLoginAttempt('');
-        const newUser = {email: emailValue, password: passwordValue};
-        const loginResponse = await userLogin(newUser)
+        const userLogin = {email: emailValue, password: passwordValue};
+        const loginResponse = await userLogin(userLogin)
         if (loginResponse.error) {
             handleLoginAttempt(loginResponse.error)
         } else {
-            console.log(updateCurrentUser)
             updateCurrentUser(loginResponse)
             resetInputs();
         } 
