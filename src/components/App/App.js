@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import LoginForm from '../LoginForm/LoginForm.js';
-import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 import GetRandomColors from '../RandomColor/RandomColor.js';
 
 class App extends Component {
