@@ -1,3 +1,5 @@
+import { cleanColorName } from './cleanerFunctions.js'
+
 export const createUser = async newUser => {
 	const url = 'https://picasso-database.herokuapp.com/api/v1/users';
 	const options = {
@@ -121,4 +123,27 @@ export const userLogin = async userLogin => {
 	return response.json();
 }
 
-export default userLogin;
+export const colorFormats = async rgbColors => {
+	const response = await fetch(`https://www.thecolorapi.com/id?format=string&rgb=${rgbColors[0]},${rgbColors[1]},${rgbColors[2]}`)
+	const colorInfo = response.json();
+	return colorInfo
+  }
+
+export const getFiveColors = (updateArrayOfColors, colorsRequest, model = 'default') => {
+	const url = "http://colormind.io/api/";
+	const data = {
+		model : model,
+	}
+	if (colorsRequest) {
+		data.input = colorsRequest
+	}
+	var http = new XMLHttpRequest();
+	http.onreadystatechange = async () => {
+		if(http.readyState == 4 && http.status == 200) {
+			var palettes = await JSON.parse(http.responseText).result;
+			cleanColorName(updateArrayOfColors, palettes)
+		}
+	}
+	http.open("POST", url, true);
+	http.send(JSON.stringify(data));
+  }
