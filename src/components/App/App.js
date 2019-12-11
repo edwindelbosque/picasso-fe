@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import LoginForm from '../LoginForm/LoginForm.js';
-import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 import GetRandomColors from '../RandomColor/RandomColor.js';
 
 class App extends Component {
@@ -36,13 +34,17 @@ class App extends Component {
 		return (
 			<div className='App'>
 				<NavBar />
-				<LoginForm updateCurrentUser={this.updateCurrentUser} />
-				<UserSignupForm updateCurrentUser={this.updateCurrentUser} />
-				<GetRandomColors arrayOfColors={this.state.arrayOfColors} updateArrayOfColors={this.updateArrayOfColors} userID={this.state.userId} currentCatalog={this.state.currentCatalog}/>
+				<GetRandomColors
+					arrayOfColors={this.state.arrayOfColors}
+					updateArrayOfColors={this.updateArrayOfColors}
+					userID={this.state.userId}
+					currentCatalog={this.state.currentCatalog}
+				/>
 				<NavBar
 					userName={this.state.userName}
 					catalogs={this.state.catalogs}
 					updateCurrentUser={this.updateCurrentUser}
+					updateCurrentCatalog={this.updateCurrentCatalog}
 				/>
 				<Footer />
 			</div>

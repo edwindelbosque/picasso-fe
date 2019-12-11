@@ -5,8 +5,16 @@ import { shallow } from 'enzyme';
 describe('LoginForm', () => {
 	let wrapper;
 
+	const updateCurrentUser = jest.fn();
+	const toggleMenu = jest.fn();
+
 	beforeEach(() => {
-		wrapper = shallow(<LoginForm />);
+		wrapper = shallow(
+			<LoginForm
+				updateCurrentUser={updateCurrentUser}
+				toggleMenu={toggleMenu}
+			/>
+		);
 	});
 
 	it('App should match snapshot', () => {
