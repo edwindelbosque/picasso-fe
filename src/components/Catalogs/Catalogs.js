@@ -2,6 +2,7 @@ import React from 'react';
 import './Catalogs.scss';
 import { NavLink } from 'react-router-dom';
 import Fade from 'react-reveal/Fade';
+import { getPalettes } from '../../util/apiCalls';
 
 const Catalogs = ({ menuIsActive, catalogs }) => {
 	const allCatalog = catalogs.map(catalog => {
@@ -17,6 +18,13 @@ const Catalogs = ({ menuIsActive, catalogs }) => {
 			</NavLink>
 		);
 	});
+
+	const fetchPalettes = () => {
+		catalogs.forEach(async catalog => {
+			const palettess = await getPalettes(catalog);
+			console.log(palettess);
+		});
+	};
 
 	return (
 		<section className='Catalogs'>

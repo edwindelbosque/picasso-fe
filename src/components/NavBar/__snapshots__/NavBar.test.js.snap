@@ -11,7 +11,7 @@ exports[`NavBar App should match snapshot 1`] = `
       Picasso
     </p>
     <Link
-      to="/catalogs"
+      to="/new-account"
     >
       <div
         className="hamburger-menu false"
@@ -87,60 +87,13 @@ exports[`NavBar App should match snapshot 1`] = `
         path="/catalogs"
       >
         <Catalogs
-          catalogs={
-            Array [
-              Object {
-                "catalogName": "Personal",
-                "id": 1,
-                "user_id": 1,
-              },
-              Object {
-                "catalogName": "Favorites",
-                "id": 2,
-                "user_id": 1,
-              },
-              Object {
-                "catalogName": "Mood",
-                "id": 3,
-                "user_id": 2,
-              },
-              Object {
-                "catalogName": "Work",
-                "id": 4,
-                "user_id": 3,
-              },
-              Object {
-                "catalogName": "Favorites",
-                "id": 5,
-                "user_id": 4,
-              },
-              Object {
-                "catalogName": "Mood",
-                "id": 6,
-                "user_id": 4,
-              },
-              Object {
-                "catalogName": "Work",
-                "id": 7,
-                "user_id": 4,
-              },
-              Object {
-                "catalogName": "Favorites",
-                "id": 8,
-                "user_id": 5,
-              },
-              Object {
-                "catalogName": "Mood",
-                "id": 9,
-                "user_id": 5,
-              },
-              Object {
-                "catalogName": "Work",
-                "id": 10,
-                "user_id": 5,
-              },
-            ]
-          }
+          menuIsActive={false}
+        />
+      </Route>
+      <Route
+        path="/logout"
+      >
+        <div
           menuIsActive={false}
         />
       </Route>
