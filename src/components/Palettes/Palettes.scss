@@ -11,6 +11,10 @@
 	background: rgba(255, 255, 255, 0.589);
 	border-left: 3px solid white;
 
+	-moz-box-shadow: inset 0 0 15px #00000046;
+	-webkit-box-shadow: inset 0 0 15px #0000005e;
+	box-shadow: inset 0 0 15px #00000052;
+
 	a {
 		text-decoration: none;
 		color: black;
