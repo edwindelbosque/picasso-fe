@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 
-const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
+const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
 	const [loginStatus, handleLoginAttempt] = useState('');

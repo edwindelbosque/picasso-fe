@@ -12,22 +12,16 @@ export const createUser = async newUser => {
 
 	const response = await fetch(url, options);
 	if (!response.ok) {
-		console.log('hit error in apiCalls line 15', response);
-
 		return response;
-		// throw new Error('User could not be created at this time.');
 	}
 	return response.json();
 };
 
 export const createPalette = async newPalette => {
-	console.log('newPalette', newPalette);
 
 	const { catalog_id, user_id, paletteName, colorsToString } = newPalette;
 	let colors = JSON.stringify(colorsToString);
 	const newPaletteForDB = { catalog_id, paletteName, colors };
-	console.log('newPaletteForDB', newPaletteForDB);
-	console.log('newPaletteForDBInStringfy', JSON.stringify(newPaletteForDB));
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${catalog_id}/palettes`;
 	const options = {
 		method: 'POST',
@@ -38,12 +32,7 @@ export const createPalette = async newPalette => {
 	};
 	const response = await fetch(url, options);
 	if (!response.ok) {
-		console.log(
-			'hit error in apiCalls line 36 in APIcalls for Create Palette',
-			response
-		);
 		return response;
-		// throw new Error('Palette could not be saved at this time.');
 	}
 	return response.json();
 };
@@ -76,12 +65,11 @@ export const saveCatalog = async newCatalog => {
 		},
 		body: JSON.stringify(newCatalog)
 	};
-
 	const response = await fetch(url, options);
 	if (!response.ok) {
 		throw new Error('Catalog could not be saved at this time.');
 	}
-	return response.json();
+	return response;
 };
 
 export const getCatalogs = async userInfo => {
@@ -90,7 +78,7 @@ export const getCatalogs = async userInfo => {
 	const response = await fetch(url);
 	const catalogs = response.json();
 	if (!response.ok) {
-		throw new Error('Catalogs could not be retrieved at this time.');
+		return response
 	}
 	return catalogs;
 };
@@ -114,7 +102,7 @@ export const getPalettes = async catalogInfo => {
 	const response = await fetch(url);
 	const palettes = response.json();
 	if (!response.ok) {
-		throw new Error('Palettes could not be retrieved at this time.');
+		return palettes
 	}
 	return palettes;
 };
@@ -147,8 +135,6 @@ export const delettePalette = async paletteInfo => {
 };
 
 export const userLogin = async userLogin => {
-	console.log('userLogin', userLogin);
-
 	const url = 'https://picasso-database.herokuapp.com/api/v1/login';
 	const options = {
 		method: 'POST',

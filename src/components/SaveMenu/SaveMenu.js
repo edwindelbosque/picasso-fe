@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SaveMenu.scss';
-import { saveCatalog } from '../../util/apiCalls';
+import { saveCatalog, getCatalogs } from '../../util/apiCalls';
 
 const SaveMenu = ({
 	catalogs,
@@ -8,10 +8,12 @@ const SaveMenu = ({
 	showSaveMenu,
 	postPalette,
 	userID,
-	fetchPalettes
+	fetchPalettes,
+	fetchCatalogs
+
 }) => {
 	const showCatalogs = () => {
-		if (catalogs) {
+		if (catalogs.length) {
 			return catalogs.map(catalog => {
 				return (
 					<li
@@ -33,10 +35,16 @@ const SaveMenu = ({
 		closeSaveMenu();
 	};
 
-	const handleClick = async () => {
+	const handleClick = () => {
 		const newCatalog = { user_id: userID, catalogName: catalogName };
-		await saveCatalog(newCatalog);
-		// await savePalette(newPalette);
+		saveCatalog(newCatalog)
+		.then( res => res.json())
+		.then( data => {
+			fetchCatalogs();
+			postPalette(data.id);
+			fetchPalettes();
+			closeSaveMenu();
+		})
 	};
 
 	return (
