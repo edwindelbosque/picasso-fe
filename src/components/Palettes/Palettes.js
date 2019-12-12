@@ -8,7 +8,8 @@ const Palettes = ({
 	palettes,
 	toggleMenu,
 	updateCurrentPalette,
-	deletePalette
+	deletePalette,
+	fetchPalettes
 }) => {
 	return (
 		<section className='Palettes'>
@@ -27,6 +28,7 @@ const Palettes = ({
 							menuIsActive={menuIsActive}
 							deletePalette={deletePalette}
 							palette={palette}
+							fetchPalettes={fetchPalettes}
 						/>
 					</Link>
 				);
