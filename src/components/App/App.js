@@ -3,7 +3,6 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import GetRandomColors from '../RandomColor/RandomColor.js';
-import SaveMenu from '../SaveMenu/SaveMenu';
 
 class App extends Component {
 	constructor() {
@@ -55,6 +54,10 @@ class App extends Component {
 		this.setState({ currentCatalog: id });
 	};
 
+	resetCurrentCatalog = () => {
+		this.setState({ currentCatalog: 0 });
+	};
+
 	render() {
 		return (
 			<div className='App'>
@@ -66,11 +69,8 @@ class App extends Component {
 					closeSaveMenu={this.closeSaveMenu}
 					openSaveMenu={this.openSaveMenu}
 					showSaveMenu={this.state.showSaveMenu}
-				/>
-				<SaveMenu
 					catalogs={this.state.catalogs}
-					closeSaveMenu={this.closeSaveMenu}
-					showSaveMenu={this.state.showSaveMenu}
+					resetCurrentCatalog={this.resetCurrentCatalog}
 				/>
 				<NavBar
 					userName={this.state.userName}
