@@ -45,9 +45,9 @@ class App extends Component {
 		});
 	};
 
-	updateCurrentUser = (user, catalogs) => {
+	updateCurrentUser = (user, catalogs, palettes) => {
 		const { firstName, id } = user;
-		this.setState({ userName: firstName, userId: id, catalogs: catalogs });
+		this.setState({ userName: firstName, userId: id, catalogs: catalogs, palettes });
 	};
 
 	updateCurrentCatalog = id => {
@@ -78,6 +78,7 @@ class App extends Component {
 					updateCurrentUser={this.updateCurrentUser}
 					updateCurrentCatalog={this.updateCurrentCatalog}
 					wipeUserData={this.wipeUserData}
+					palettes={this.state.palettes}
 				/>
 				<Footer />
 			</div>
