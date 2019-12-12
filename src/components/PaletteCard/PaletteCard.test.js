@@ -8,7 +8,8 @@ describe('PaletteCard', () => {
 	let palette = {
 		id: 1,
 		catalogName: 'Personal',
-		user_id: 1
+		user_id: 1,
+		colors: [{ hex: 'green' }]
 	};
 
 	beforeEach(() => {

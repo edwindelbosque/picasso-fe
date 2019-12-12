@@ -18,37 +18,10 @@ exports[`PaletteCard App should match snapshot 1`] = `
       className="colors"
     >
       <div
+        key="0"
         style={
           Object {
-            "background": "#undefined",
-          }
-        }
-      />
-      <div
-        style={
-          Object {
-            "background": "#undefined",
-          }
-        }
-      />
-      <div
-        style={
-          Object {
-            "background": "#undefined",
-          }
-        }
-      />
-      <div
-        style={
-          Object {
-            "background": "#undefined",
-          }
-        }
-      />
-      <div
-        style={
-          Object {
-            "background": "#undefined",
+            "background": undefined,
           }
         }
       />
