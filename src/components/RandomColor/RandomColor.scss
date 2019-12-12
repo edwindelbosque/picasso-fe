@@ -5,8 +5,13 @@
 
 .random-generator__section {
 	width: 800px;
-	margin: 0 auto;
+	margin: auto;
 	margin-top: 160px;
+
+	label {
+		font-family: 'Roboto';
+		color: rgb(77, 77, 77);
+	}
 
 	::placeholder {
 		color: rgb(207, 207, 207);
@@ -14,6 +19,7 @@
 
 	button:disabled {
 		opacity: 0.5;
+		pointer-events: none;
 	}
 
 	input {
@@ -28,11 +34,22 @@
 	button {
 		height: 60px;
 		width: 150px;
+		cursor: pointer;
 		border: none;
 		background: #2164f3;
 		font-size: 18px;
 		color: white;
 		border-radius: 3px;
+		transition: 0.15s;
+
+		&:focus {
+			outline: none;
+		}
+
+		&:hover {
+			background: #3777ff;
+			box-shadow: 0 0 15px -6px #3777ff;
+		}
 	}
 }
 
