@@ -9,6 +9,7 @@ exports[`App App should match snapshot 1`] = `
     catalogs={Array []}
     closeSaveMenu={[Function]}
     currentCatalog={0}
+    fetchPalettes={[Function]}
     openSaveMenu={[Function]}
     resetCurrentCatalog={[Function]}
     showSaveMenu={false}
