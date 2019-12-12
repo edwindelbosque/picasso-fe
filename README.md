@@ -43,14 +43,16 @@ Learning goals were for the most part for our backend [here](https://github.com/
 ## Built with
 
 - React
-- Hooks
+- React Hooks
 - React Router
 - PostgreSQL
 - Nodejs
 - Express
 - Knex
-- Jest & Enzyme testing suite
-- SASS (SCSS)
+- Jest & Enzyme
+- Sass (SCSS)
 - Heroku
+- Travis CI
+- Git Hooks
 
 ## You can find our backend [here](https://github.com/matthewdshepherd/picasso-be)
