@@ -14,22 +14,32 @@ const NavBar = ({
 	catalogs,
 	updateCurrentUser,
 	updateCurrentCatalog,
-	wipeUserData
+	wipeUserData, 
+	palettes
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
-	const [palettes, updatePalettes] = useState([]);
+	// const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
 
-	const fetchPalettes = () => {
-		if (isSignedIn && catalogs) {
-			const accumulatedPalettes = [];
-			catalogs.forEach(async catalog => {
-				const palettess = await getPalettes(catalog);
-				accumulatedPalettes.push(...palettess);
-			});
-			updatePalettes(accumulatedPalettes);
+	// const fetchPalettes = () => {
+	// 	if (isSignedIn && catalogs) {
+	// 		const accumulatedPalettes = [];
+	// 		catalogs.forEach(async catalog => {
+	// 			const palettess = await getPalettes(catalog);
+	// 			accumulatedPalettes.push(...palettess);
+	// 		});
+	// 		updatePalettes(accumulatedPalettes);
+	// 	}
+	// };
+
+	const filterPalettes = (id) => {
+		if(palettes) {
+			const palettesToReturn = palettes.filter( palette => {
+				return palette.catalog_id ===  parseInt(id)
+			})
+			return palettesToReturn
 		}
-	};
+	}
 
 	return (
 		<>
@@ -52,7 +62,7 @@ const NavBar = ({
 							'hamburger-menu-active'}`}
 						onClick={() => {
 							toggleMenu(!menuIsActive);
-							fetchPalettes();
+							// fetchPalettes();
 						}}>
 						<div className='bar-1'></div>
 						<div className='bar-2'></div>
@@ -143,9 +153,9 @@ const NavBar = ({
 						exact
 						path='/catalogs/:id'
 						render={({ match }) => {
-							const matchingPalettes = palettes.filter(
-								palette => palette.catalog_id === parseInt(match.params.id)
-							);
+							const matchingPalettes = filterPalettes(match.params.id)
+							console.log('matchingPalettes', matchingPalettes);
+							
 							return (
 								<Palettes
 									menuIsActive={menuIsActive}
