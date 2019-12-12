@@ -63,7 +63,12 @@ class App extends Component {
 
 	updateCurrentUser = (user, catalogs, palettes) => {
 		const { firstName, id } = user;
-		this.setState({ userName: firstName, userId: id, catalogs: catalogs, palettes });
+		this.setState({
+			userName: firstName,
+			userId: id,
+			catalogs: catalogs,
+			palettes
+		});
 	};
 
 	updateCurrentCatalog = id => {
@@ -100,6 +105,7 @@ class App extends Component {
 					updateCurrentPalette={this.updateCurrentPalette}
 					deletePalette={this.deletePalette}
 					palettes={this.state.palettes}
+					resetCurrentCatalog={this.resetCurrentCatalog}
 				/>
 				<Footer />
 			</div>

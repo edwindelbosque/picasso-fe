@@ -19,6 +19,7 @@ exports[`App App should match snapshot 1`] = `
     catalogs={Array []}
     deletePalette={[Function]}
     palettes={Array []}
+    resetCurrentCatalog={[Function]}
     updateCurrentCatalog={[Function]}
     updateCurrentPalette={[Function]}
     updateCurrentUser={[Function]}
