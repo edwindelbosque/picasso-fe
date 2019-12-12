@@ -3,6 +3,7 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import GetRandomColors from '../RandomColor/RandomColor.js';
+import { delettePalette } from '../../util/apiCalls';
 
 class App extends Component {
 	constructor() {
@@ -11,6 +12,7 @@ class App extends Component {
 			arrayOfColors: [],
 			userName: '',
 			currentCatalog: 0,
+			currentPalette: 0,
 			userId: 0,
 			catalogs: [],
 			palettes: [],
@@ -20,6 +22,10 @@ class App extends Component {
 
 	updateArrayOfColors = colors => {
 		this.setState({ arrayOfColors: colors });
+	};
+
+	updateCurrentPalette = id => {
+		this.setState({ currentPalette: id });
 	};
 
 	closeSaveMenu = () => {
@@ -39,9 +45,19 @@ class App extends Component {
 			arrayOfColors: [],
 			userName: '',
 			currentCatalog: 0,
+			currentPalette: 0,
 			userId: 0,
 			catalogs: [],
-			palettes: []
+			palettes: [],
+			showSaveMenu: false
+		});
+	};
+
+	deletePalette = palette => {
+		const { id } = palette;
+		delettePalette(palette);
+		this.setState({
+			palette: this.state.palettes.filter(palette => palette.id !== id)
 		});
 	};
 
@@ -72,12 +88,17 @@ class App extends Component {
 					catalogs={this.state.catalogs}
 					resetCurrentCatalog={this.resetCurrentCatalog}
 				/>
+				{/* <Route
+					to='/catalogs/:catalog_id/palettes/:id'
+					render={({ match }) => {}}></Route> */}
 				<NavBar
 					userName={this.state.userName}
 					catalogs={this.state.catalogs}
 					updateCurrentUser={this.updateCurrentUser}
 					updateCurrentCatalog={this.updateCurrentCatalog}
 					wipeUserData={this.wipeUserData}
+					updateCurrentPalette={this.updateCurrentPalette}
+					deletePalette={this.deletePalette}
 				/>
 				<Footer />
 			</div>

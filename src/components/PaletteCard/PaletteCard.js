@@ -2,10 +2,11 @@ import React from 'react';
 import './PaletteCard.scss';
 import Fade from 'react-reveal/Fade';
 
-const PaletteCard = ({ menuIsActive, palette }) => {
+const PaletteCard = ({ menuIsActive, palette, deletePalette }) => {
 	return (
 		<Fade when={menuIsActive} duration={600} delay={150}>
 			<div className='PaletteCard'>
+				<section onClick={() => deletePalette(palette)}>+</section>
 				<h4>{palette.paletteName}</h4>
 				<div className='colors'>
 					<div style={{ background: `#${palette.color1}` }}></div>

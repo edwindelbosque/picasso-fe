@@ -8,6 +8,11 @@ exports[`PaletteCard App should match snapshot 1`] = `
   <div
     className="PaletteCard"
   >
+    <section
+      onClick={[Function]}
+    >
+      +
+    </section>
     <h4 />
     <div
       className="colors"

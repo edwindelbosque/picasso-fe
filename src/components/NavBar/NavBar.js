@@ -14,7 +14,9 @@ const NavBar = ({
 	catalogs,
 	updateCurrentUser,
 	updateCurrentCatalog,
-	wipeUserData
+	updateCurrentPalette,
+	wipeUserData,
+	deletePalette
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	const [palettes, updatePalettes] = useState([]);
@@ -151,6 +153,8 @@ const NavBar = ({
 									menuIsActive={menuIsActive}
 									palettes={matchingPalettes}
 									toggleMenu={toggleMenu}
+									updateCurrentPalette={updateCurrentPalette}
+									deletePalette={deletePalette}
 								/>
 							);
 						}}
