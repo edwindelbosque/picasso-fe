@@ -18,7 +18,7 @@ const NavBar = ({
 	deletePalette,
 	palettes,
 	resetCurrentCatalog,
-	fetchPalettes
+	fetchPalettes,
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	// const [palettes, updatePalettes] = useState([]);

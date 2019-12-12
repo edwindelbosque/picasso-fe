@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 	let allCatalogs;
 
-	if (catalogs) {
+	if (catalogs.length) {
 		allCatalogs = catalogs.map(catalog => {
 			const { catalogName, id } = catalog;
 			return (
