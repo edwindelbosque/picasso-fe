@@ -13,6 +13,7 @@ const RandomPalette = ({ palette }) => {
 				<div key={i}>
 					<h5>{color.name.value}</h5>
 					<p>{color.hex.value}</p>
+					<p>{color.rgb.value}</p>
 				</div>
 			);
 		});
