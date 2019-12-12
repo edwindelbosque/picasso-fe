@@ -23,10 +23,11 @@ export const createUser = async newUser => {
 export const createPalette = async newPalette => {
 	console.log('newPalette', newPalette);
 	
-	const { catalog_id, user_id, paletteName, colors } = newPalette;
+	const { catalog_id, user_id, paletteName, colorsToString } = newPalette;
+	let colors = JSON.stringify(colorsToString)
 	const newPaletteForDB = { catalog_id, paletteName, colors}
 	console.log('newPaletteForDB', newPaletteForDB);
-	
+	console.log('newPaletteForDBInStringfy', JSON.stringify(newPaletteForDB));
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${catalog_id}/palettes`;
 	const options = {
 		method: 'POST',
@@ -35,7 +36,6 @@ export const createPalette = async newPalette => {
 		},
 		body: JSON.stringify(newPaletteForDB)
 	};
-
 	const response = await fetch(url, options);
 	if (!response.ok) {
 		console.log('hit error in apiCalls line 36 in APIcalls for Create Palette', response);

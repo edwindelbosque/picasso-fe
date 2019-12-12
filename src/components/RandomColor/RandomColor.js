@@ -5,31 +5,30 @@ import './RandomColor.scss';
 
 const GetRandomColors = ({arrayOfColors, updateArrayOfColors, userID, currentCatalog}) => {
     const [paletteNameValue, handlePaletteNameValueChange] = useState("");
-    const [userIdError, handleUserIdErrorChange] = useState("");
+    const [showCatalogs, handleShowCatalogsChange] = useState(false);
 
     const handleGenerateColors = async event => { 
         event.preventDefault();
-         getFiveColors(updateArrayOfColors)
+        getFiveColors(updateArrayOfColors)
+        checkToShowCatalog()
+    }
+
+    const checkToShowCatalog = () => {
+        handleShowCatalogsChange(currentCatalog ? false : true) 
     }
 
     const handleSavePalette = async event => {
-        console.log('handleSavePalette', arrayOfColors, userID);
-        
-        if (userID && currentCatalog) {
-            console.log('YES TO BOTH PALLETNAME AND CATALOG AND COLOR GENERATED');
-            
-            const newPalette = {paletteName: paletteNameValue, catalog_id: currentCatalog, user_id: userID, colors: arrayOfColors}
-            createPalette(newPalette)
-            .then(res => res.json())
-            .then( data => console.log('CREATED NEW PALETTE!!', data))
-            handlePaletteNameValueChange('')
+        if (userID && currentCatalog === 0) {
+            handleShowCatalogsChange(true)
         } else {
-            handleUserIdErrorChange("ERROR")
-        }
+            const newPalette = {paletteName: paletteNameValue, catalog_id: currentCatalog, user_id: userID, colorsToString: arrayOfColors}
+            createPalette(newPalette)
+            handlePaletteNameValueChange('')
+        } 
     }
 
     const canBeSubmitted = () => {
-        return (paletteNameValue.length > 0 && currentCatalog > 0 && arrayOfColors.length)
+        return (paletteNameValue.length > 0 && arrayOfColors.length)
     }
 
     const isEnabled = canBeSubmitted()
