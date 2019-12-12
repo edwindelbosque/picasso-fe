@@ -4,8 +4,6 @@ import PaletteCard from '../PaletteCard/PaletteCard';
 import { Link } from 'react-router-dom';
 
 const Palettes = ({ menuIsActive, palettes, toggleMenu }) => {
-	console.log('PALETTES IS WORKING!!', palettes);
-	
 	return (
 		<section className='Palettes'>
 			<h2>Palettes</h2>
