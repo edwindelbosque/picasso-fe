@@ -60,6 +60,7 @@ const NavBar = ({
 							? '/create'
 							: '/signup'
 					}>
+					<h3>{userName}</h3>
 					<div
 						className={`hamburger-menu ${menuIsActive &&
 							'hamburger-menu-active'}`}
