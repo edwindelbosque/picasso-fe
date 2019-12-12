@@ -13,6 +13,7 @@ exports[`NavBar App should match snapshot 1`] = `
     <Link
       to="/signup"
     >
+      <h3 />
       <div
         className="hamburger-menu false"
         onClick={[Function]}
