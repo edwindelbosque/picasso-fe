@@ -1,39 +1,64 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
-  }
+	box-sizing: border-box;
+	padding: 0;
+}
 
 .random-generator__section {
-    width: 100%;
+	width: 800px;
+	margin: 0 auto;
+	margin-top: 160px;
+
+	::placeholder {
+		color: rgb(207, 207, 207);
+	}
+
+	button:disabled {
+		opacity: 0.5;
+	}
+
+	input {
+		height: 60px;
+		padding-left: 10px;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	button {
+		height: 60px;
+		width: 150px;
+		border: none;
+		background: #2164f3;
+		font-size: 18px;
+		color: white;
+		border-radius: 3px;
+	}
 }
 
 .random-generator__div-header {
-    display: flex;
-    justify-content: space-between;
-    // flex-direction: column;
-    align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	// flex-direction: column;
+	align-items: flex-end;
 }
 
 .palette-name__label-and__input {
-    display: flex;
-    flex-direction: column;
-    // align-items: flex-end;
-    justify-content: flex-start;
+	display: flex;
+	flex-direction: column;
+	// align-items: flex-end;
+	justify-content: flex-start;
 }
 
 .palette-name__input {
-    background: transparent;
-    border: none;
-    border-bottom: 3px solid black;
-    height: 40px;
-    font-size: 40px;
-    text-align: left;
-    font-weight: 700;
-
+	background: transparent;
+	border: none;
+	border-bottom: 3px solid black;
+	height: 40px;
+	font-size: 40px;
+	text-align: left;
+	font-weight: 700;
 }
-
-
-
 
 // .RancomColor.js {
 // 	margin-top: 40px;
