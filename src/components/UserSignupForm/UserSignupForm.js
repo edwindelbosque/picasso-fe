@@ -19,11 +19,8 @@ const UserSignupForm = ({ updateCurrentUser, toggleMenu }) => {
 		};
 		const accountCreationResponse = await createUser(newUser);
 		if (accountCreationResponse.error) {
-			console.log('hit error', accountCreationResponse);
-
 			handleSignupAttempt(accountCreationResponse.error);
 		} else {
-			console.log('successful account creation', accountCreationResponse);
 			updateCurrentUser(accountCreationResponse);
 			resetInputs();
 			toggleMenu(false);

@@ -24,13 +24,6 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 		});
 	}
 
-	// const fetchPalettes = () => {
-	// 	catalogs.forEach(async catalog => {
-	// 		const palettess = await getPalettes(catalog);
-	// 		console.log(palettess);
-	// 	});
-	// };
-
 	return (
 		<section className='Catalogs'>
 			<h2>Catalogs</h2>
