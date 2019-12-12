@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getFiveColors, createPalette } from '../../util/apiCalls.js';
 import RandomPalette from '../RandomPalette/RandomPalette.js';
 import './RandomColor.scss';
@@ -17,10 +17,15 @@ const GetRandomColors = ({
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const [showCatalogs, handleShowCatalogsChange] = useState(false);
 	const handleGenerateColors = async event => {
-		event.preventDefault();
+		// event.preventDefault();
 		getFiveColors(updateArrayOfColors);
 		checkToShowCatalog();
 	};
+
+	useEffect(() => {
+		handleGenerateColors();
+	}, []);
+
 	const checkToShowCatalog = () => {
 		handleShowCatalogsChange(currentCatalog ? false : true);
 	};
