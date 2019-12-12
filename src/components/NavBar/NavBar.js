@@ -150,7 +150,6 @@ const NavBar = ({
 						path='/catalogs/:id'
 						render={({ match }) => {
 							const matchingPalettes = filterPalettes(match.params.id);
-							console.log('matchingPalettes', matchingPalettes);
 
 							return (
 								<Palettes
