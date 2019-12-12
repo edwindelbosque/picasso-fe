@@ -25,10 +25,12 @@
 	}
 
 	ul {
-		margin: 20px;
+		margin: 40px 0px 25px 20px;
 		color: white;
+		height: 150px;
 		font-family: 'Roboto';
 		padding-left: 40px;
+		overflow-y: scroll;
 	}
 
 	li {
@@ -44,7 +46,7 @@
 	}
 
 	h4 {
-		margin-top: 30px;
+		margin-top: 10px;
 		color: white;
 		width: 100%;
 		font-size: 25px;
