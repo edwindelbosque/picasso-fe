@@ -27,6 +27,17 @@ $main: #ffffff;
 		transition: 0.2s ease-in-out;
 	}
 
+	a {
+		text-decoration: none;
+	}
+
+	h3 {
+		margin-right: 45px;
+		text-decoration: none;
+		color: rgb(87, 87, 87);
+		font-family: 'Roboto';
+	}
+
 	.active-title {
 		color: $main;
 	}

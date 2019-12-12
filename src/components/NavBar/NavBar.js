@@ -17,7 +17,8 @@ const NavBar = ({
 	updateCurrentPalette,
 	wipeUserData,
 	deletePalette,
-	palettes
+	palettes,
+	resetCurrentCatalog
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	// const [palettes, updatePalettes] = useState([]);
@@ -59,10 +60,14 @@ const NavBar = ({
 							? '/create'
 							: '/signup'
 					}>
+					<h3>{userName}</h3>
 					<div
 						className={`hamburger-menu ${menuIsActive &&
 							'hamburger-menu-active'}`}
 						onClick={() => {
+							if (menuIsActive) {
+								resetCurrentCatalog();
+							}
 							toggleMenu(!menuIsActive);
 							// fetchPalettes();
 						}}>
