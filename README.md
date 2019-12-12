@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Picasso | Color Palette Picker
 
-## Available Scripts
+## Summary
 
-In the project directory, you can run:
+Create your own color palettes in this smart color palette generator that gives you colors that make sense.
 
-### `npm start`
+## Check out our live app in Heroku [here](http://colorsbypicasso.herokuapp.com/)!
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Developers
+- [matthewdshepherd](https://github.com/matthewdshepherd)
+- [edwindelbosque](https://github.com/edwindelbosque)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## How to install into your computer
 
-### `npm test`
+1. Fork and clone down this repository.
+2. In your Terminal, access the directory of this repository.
+3. Run `npm install` to install the webpack dependencies.
+4. Once it has finished installing, run `npm start`.
+5. Follow the instructions [here](https://github.com/turingschool-examples/favorites-tracker-api) to get the database up and running.
+6. Check out your broswer.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Screenshot
 
-### `npm run build`
+<img width="1440" alt="Screen Shot 2019-12-12 at 9 32 46 AM" src="https://user-images.githubusercontent.com/48811985/70730847-9d533100-1cfd-11ea-95f1-5a53bce31ccf.png">
+<img width="1440" alt="Screen Shot 2019-12-12 at 9 32 33 AM" src="https://user-images.githubusercontent.com/48811985/70730859-a217e500-1cfd-11ea-9935-62e1d3aa2597.png">
+<img width="1440" alt="Screen Shot 2019-12-12 at 9 33 17 AM" src="https://user-images.githubusercontent.com/48811985/70730866-a6dc9900-1cfd-11ea-91fb-bec1a6dd8d22.png">
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Kanban Board Workflow
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+[Jira storyboard link](https://edwindelbosque.atlassian.net/secure/RapidBoard.jspa?rapidView=1&selectedIssue=CPR-7)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Learnings
 
-### `npm run eject`
+- Server-side testing
+- Further understanding of complete CRUD endpoints
+- Connecting BE & FE repositories using CORS
+- Multiple environments:
+- Testing
+- Making use of automatic continuous integration with TravisCI
+- Deployment with Heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- React
+- Hooks
+- React Router
+- PostgreSQL
+- Nodejs
+- Express
+- Knex
+- Jest & Enzyme testing suite
+- SASS (SCSS)
+- Heroku
