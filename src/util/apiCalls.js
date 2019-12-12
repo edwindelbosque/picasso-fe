@@ -67,8 +67,8 @@ export const savePalette = async newPalette => {
 };
 
 export const saveCatalog = async newCatalog => {
-	const { userId, id } = newCatalog;
-	const url = `https://picasso-database.herokuapp.com/api/v1/users/${userId}/catalogs/${id}`;
+	const { user_id } = newCatalog;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs`;
 	const options = {
 		method: 'POST',
 		headers: {
