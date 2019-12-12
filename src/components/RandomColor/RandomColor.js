@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { getFiveColors, createPalette } from '../../util/apiCalls.js';
 import RandomPalette from '../RandomPalette/RandomPalette.js';
 import './RandomColor.scss';
-
 const GetRandomColors = ({
 	arrayOfColors,
 	updateArrayOfColors,
@@ -10,42 +9,33 @@ const GetRandomColors = ({
 	currentCatalog
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
-	const [userIdError, handleUserIdErrorChange] = useState('');
-
+	const [showCatalogs, handleShowCatalogsChange] = useState(false);
 	const handleGenerateColors = async event => {
 		event.preventDefault();
 		getFiveColors(updateArrayOfColors);
+		checkToShowCatalog();
 	};
-
+	const checkToShowCatalog = () => {
+		handleShowCatalogsChange(currentCatalog ? false : true);
+	};
 	const handleSavePalette = async event => {
-		console.log('handleSavePalette', arrayOfColors, userID);
-
-		if (userID && currentCatalog) {
-			console.log('YES TO BOTH PALLETNAME AND CATALOG AND COLOR GENERATED');
-
+		if (userID && currentCatalog === 0) {
+			handleShowCatalogsChange(true);
+		} else {
 			const newPalette = {
 				paletteName: paletteNameValue,
 				catalog_id: currentCatalog,
 				user_id: userID,
-				colors: arrayOfColors
+				colorsToString: arrayOfColors
 			};
-			createPalette(newPalette)
-				.then(res => res.json())
-				.then(data => console.log('CREATED NEW PALETTE!!', data));
+			createPalette(newPalette);
 			handlePaletteNameValueChange('');
-		} else {
-			handleUserIdErrorChange('ERROR');
 		}
 	};
-
 	const canBeSubmitted = () => {
-		return (
-			paletteNameValue.length > 0 && currentCatalog > 0 && arrayOfColors.length
-		);
+		return paletteNameValue.length > 0 && arrayOfColors.length;
 	};
-
 	const isEnabled = canBeSubmitted();
-
 	return (
 		<section className='random-generator__section'>
 			<div className='random-generator__div-header'>
@@ -78,5 +68,4 @@ const GetRandomColors = ({
 		</section>
 	);
 };
-
 export default GetRandomColors;
