@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
@@ -16,12 +16,21 @@ class App extends Component {
 			userId: 0,
 			catalogs: [],
 			palettes: [],
-			showSaveMenu: false
+			showSaveMenu: false,
+			triggerMenu: false
 		};
 	}
 
 	updateArrayOfColors = colors => {
 		this.setState({ arrayOfColors: colors });
+	};
+
+	openMenu = () => {
+		this.setState({ triggerMenu: true });
+	};
+
+	closeMenu = () => {
+		this.setState({ triggerMenu: false });
 	};
 
 	updateCurrentPalette = id => {
@@ -112,6 +121,7 @@ class App extends Component {
 					resetCurrentCatalog={this.resetCurrentCatalog}
 					fetchPalettes={this.fetchPalettes}
 					fetchCatalogs={this.fetchCatalogs}
+					openMenu={this.openMenu}
 				/>
 				<NavBar
 					userName={this.state.userName}
@@ -125,6 +135,8 @@ class App extends Component {
 					resetCurrentCatalog={this.resetCurrentCatalog}
 					fetchPalettes={this.fetchPalettes}
 					fetchCatalogs={this.fetchCatalogs}
+					triggerMenu={this.state.triggerMenu}
+					closeMenu={this.closeMenu}
 				/>
 				<Footer />
 			</div>

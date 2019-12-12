@@ -10,6 +10,7 @@ exports[`App App should match snapshot 1`] = `
     closeSaveMenu={[Function]}
     currentCatalog={0}
     fetchPalettes={[Function]}
+    openMenu={[Function]}
     openSaveMenu={[Function]}
     resetCurrentCatalog={[Function]}
     showSaveMenu={false}
@@ -18,10 +19,12 @@ exports[`App App should match snapshot 1`] = `
   />
   <NavBar
     catalogs={Array []}
+    closeMenu={[Function]}
     deletePalette={[Function]}
     fetchPalettes={[Function]}
     palettes={Array []}
     resetCurrentCatalog={[Function]}
+    triggerMenu={false}
     updateCurrentCatalog={[Function]}
     updateCurrentPalette={[Function]}
     updateCurrentUser={[Function]}

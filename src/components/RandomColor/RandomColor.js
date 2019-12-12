@@ -3,6 +3,7 @@ import { getFiveColors, createPalette } from '../../util/apiCalls.js';
 import RandomPalette from '../RandomPalette/RandomPalette.js';
 import './RandomColor.scss';
 import SaveMenu from '../SaveMenu/SaveMenu';
+import { Link } from 'react-router-dom';
 const GetRandomColors = ({
 	arrayOfColors,
 	updateArrayOfColors,
@@ -14,8 +15,8 @@ const GetRandomColors = ({
 	closeSaveMenu,
 	resetCurrentCatalog,
 	fetchPalettes,
-	fetchCatalogs
-
+	fetchCatalogs,
+	openMenu
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const [showCatalogs, handleShowCatalogsChange] = useState(false);
@@ -79,13 +80,25 @@ const GetRandomColors = ({
 							value={paletteNameValue}
 						/>
 					</div>
-					<button
-						type='button'
-						className='SavePaletteBtn'
-						disabled={!isEnabled}
-						onClick={e => handleSavePalette(e)}>
-						Save
-					</button>
+					{userID === 0 ? (
+						<Link to='/signup'>
+							<button
+								type='button'
+								className='SavePaletteBtn'
+								disabled={!isEnabled}
+								onClick={() => openMenu()}>
+								Save
+							</button>
+						</Link>
+					) : (
+						<button
+							type='button'
+							className='SavePaletteBtn'
+							disabled={!isEnabled}
+							onClick={e => handleSavePalette(e)}>
+							Save
+						</button>
+					)}
 					<button
 						type='button'
 						className='GenerateColorsBtn'

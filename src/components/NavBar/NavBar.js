@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NavBar.scss';
 import Fade from 'react-reveal/Fade';
 import Palettes from '../Palettes/Palettes';
@@ -19,6 +19,8 @@ const NavBar = ({
 	palettes,
 	resetCurrentCatalog,
 	fetchPalettes,
+	closeMenu,
+	triggerMenu
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	// const [palettes, updatePalettes] = useState([]);
@@ -32,6 +34,12 @@ const NavBar = ({
 			return palettesToReturn;
 		}
 	};
+
+	useEffect(() => {
+		if (triggerMenu) {
+			toggleMenu(true);
+		}
+	}, [triggerMenu]);
 
 	return (
 		<>
@@ -56,6 +64,7 @@ const NavBar = ({
 						onClick={() => {
 							if (menuIsActive) {
 								resetCurrentCatalog();
+								closeMenu();
 							}
 							toggleMenu(!menuIsActive);
 							// fetchPalettes();
