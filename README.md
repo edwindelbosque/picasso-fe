@@ -31,6 +31,7 @@ Create your own color palettes in this smart color palette generator that gives 
 
 ## Learnings
 
+Learning goals were for the most part for our backend [here](https://github.com/matthewdshepherd/picasso-be)
 - Server-side testing
 - Further understanding of complete CRUD endpoints
 - Connecting BE & FE repositories using CORS
@@ -51,3 +52,5 @@ Create your own color palettes in this smart color palette generator that gives 
 - Jest & Enzyme testing suite
 - SASS (SCSS)
 - Heroku
+
+## You can find our backend [here](https://github.com/matthewdshepherd/picasso-be)
