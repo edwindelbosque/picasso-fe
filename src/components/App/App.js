@@ -104,10 +104,8 @@ class App extends Component {
 					showSaveMenu={this.state.showSaveMenu}
 					catalogs={this.state.catalogs}
 					resetCurrentCatalog={this.resetCurrentCatalog}
+					fetchPalettes={this.fetchPalettes}
 				/>
-				{/* <Route
-					to='/catalogs/:catalog_id/palettes/:id'
-					render={({ match }) => {}}></Route> */}
 				<NavBar
 					userName={this.state.userName}
 					catalogs={this.state.catalogs}

@@ -12,7 +12,8 @@ const GetRandomColors = ({
 	catalogs,
 	showSaveMenu,
 	closeSaveMenu,
-	resetCurrentCatalog
+	resetCurrentCatalog,
+	fetchPalettes
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const [showCatalogs, handleShowCatalogsChange] = useState(false);
@@ -98,6 +99,7 @@ const GetRandomColors = ({
 				showSaveMenu={showSaveMenu}
 				postPalette={postPalette}
 				userID={userID}
+				fetchPalettes={fetchPalettes}
 			/>
 		</>
 	);
