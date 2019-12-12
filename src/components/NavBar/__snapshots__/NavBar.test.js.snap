@@ -113,6 +113,21 @@ exports[`NavBar App should match snapshot 1`] = `
         <Catalogs
           menuIsActive={false}
         />
+        <Link
+          to="/create"
+        >
+          <p
+            className="logout-text"
+          >
+            Logout
+          </p>
+          <img
+            alt="logout button"
+            className="logout-icon"
+            onClick={[Function]}
+            src="logoutIcon.png"
+          />
+        </Link>
       </Route>
       <Route
         path="/logout"
@@ -120,6 +135,21 @@ exports[`NavBar App should match snapshot 1`] = `
         <div
           menuIsActive={false}
         />
+        <Link
+          to="/create"
+        >
+          <p
+            className="logout-text"
+          >
+            Logout
+          </p>
+          <img
+            alt="logout button"
+            className="logout-icon"
+            onClick={[Function]}
+            src="logoutIcon.png"
+          />
+        </Link>
       </Route>
       <Route
         exact={true}

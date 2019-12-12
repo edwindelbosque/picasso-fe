@@ -6,7 +6,12 @@
 .random-generator__section {
 	width: 800px;
 	margin: auto;
-	margin-top: 160px;
+	margin-top: 180px;
+
+	label {
+		font-family: 'Roboto';
+		color: rgb(77, 77, 77);
+	}
 
 	label {
 		font-family: 'Roboto';
@@ -24,16 +29,24 @@
 
 	input {
 		height: 60px;
-		padding-left: 10px;
+		padding-left: 1px;
+		width: 490px;
+		border-bottom: 3px solid rgb(122, 124, 133);
 
 		&:focus {
 			outline: none;
 		}
 	}
 
+	.SavePaletteBtn {
+		margin-left: 10px;
+		width: 90px;
+		background: #1a355c;
+	}
+
 	button {
 		height: 60px;
-		width: 150px;
+		width: 170px;
 		cursor: pointer;
 		border: none;
 		background: #2164f3;

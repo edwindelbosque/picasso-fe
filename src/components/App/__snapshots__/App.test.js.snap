@@ -4,10 +4,14 @@ exports[`App App should match snapshot 1`] = `
 <div
   className="App"
 >
-  <NavBar />
   <GetRandomColors
     arrayOfColors={Array []}
+    catalogs={Array []}
+    closeSaveMenu={[Function]}
     currentCatalog={0}
+    openSaveMenu={[Function]}
+    resetCurrentCatalog={[Function]}
+    showSaveMenu={false}
     updateArrayOfColors={[Function]}
     userID={0}
   />
@@ -16,6 +20,7 @@ exports[`App App should match snapshot 1`] = `
     updateCurrentCatalog={[Function]}
     updateCurrentUser={[Function]}
     userName=""
+    wipeUserData={[Function]}
   />
   <Footer />
 </div>

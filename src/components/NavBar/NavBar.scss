@@ -204,8 +204,46 @@ $main: #ffffff;
 	height: 100%;
 	display: flex;
 	justify-content: space-between;
+
+	.logout-text {
+		position: absolute;
+		bottom: 67px;
+		right: 11px;
+		color: black;
+		z-index: 1000;
+		border-radius: 50%;
+		transition: 0.1s;
+		opacity: 1;
+		font-family: 'Roboto';
+		cursor: pointer;
+		padding: 4px;
+		font-size: 12px;
+	}
 }
 
 h2 {
 	color: $main;
+}
+
+.logout-icon {
+	position: absolute;
+	bottom: 30px;
+	right: 15px;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	transition: 0.1s;
+	cursor: pointer;
+	padding: 4px;
+
+	&:hover {
+		background: white;
+		opacity: 0.7;
+		box-shadow: 0 2px 3px rgba(0, 0, 0, 0.137);
+		transform: rotate(-25deg);
+	}
+
+	&:active {
+		transform: rotate(25deg);
+	}
 }
