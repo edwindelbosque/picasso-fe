@@ -1,25 +1,49 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SaveMenu.scss';
+import { saveCatalog, savePalette } from '../../util/apiCalls';
 
-const SaveMenu = ({ catalogs, closeSaveMenu, showSaveMenu, postPalette }) => {
-	const catalogList = catalogs.map(catalog => {
-		return (
-			<li onClick={() => savePalette(catalog.id)}>{catalog.catalogName}</li>
-		);
-	});
+const SaveMenu = ({
+	catalogs,
+	closeSaveMenu,
+	showSaveMenu,
+	postPalette,
+	userID
+}) => {
+	const showCatalogs = () => {
+		if (catalogs) {
+			return catalogs.map(catalog => {
+				return (
+					<li onClick={() => savePalette(catalog.id)}>{catalog.catalogName}</li>
+				);
+			});
+		}
+	};
+
+	const [catalogName, updateInput] = useState('');
 
 	const savePalette = id => {
 		postPalette(id);
 		closeSaveMenu();
 	};
 
+	const handleClick = async () => {
+		const newCatalog = { user_id: userID, catalogName: catalogName };
+		await saveCatalog(newCatalog);
+		// await savePalette(newPalette);
+	};
+
 	return (
 		<div className={`SaveMenu ${showSaveMenu ? 'showSaveMenu' : ''}`}>
 			<h3>Catalogs</h3>
-			<ul>{catalogList}</ul>
+			<ul>{showCatalogs()}</ul>
 			<h4>Or create a new catalog</h4>
-			<input type='text' placeholder='New Catalog' />
-			<button>Create & Save</button>
+			<input
+				value={catalogName}
+				onChange={e => updateInput(e.target.value)}
+				type='text'
+				placeholder='New Catalog'
+			/>
+			<button onClick={handleClick}>Create & Save</button>
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import { cleanColorName } from './cleanerFunctions.js'
+import { cleanColorName } from './cleanerFunctions.js';
 
 export const createUser = async newUser => {
 	const url = 'https://picasso-database.herokuapp.com/api/v1/users';
@@ -13,8 +13,8 @@ export const createUser = async newUser => {
 	const response = await fetch(url, options);
 	if (!response.ok) {
 		console.log('hit error in apiCalls line 15', response);
-		
-		return response
+
+		return response;
 		// throw new Error('User could not be created at this time.');
 	}
 	return response.json();
@@ -22,10 +22,10 @@ export const createUser = async newUser => {
 
 export const createPalette = async newPalette => {
 	console.log('newPalette', newPalette);
-	
+
 	const { catalog_id, user_id, paletteName, colorsToString } = newPalette;
-	let colors = JSON.stringify(colorsToString)
-	const newPaletteForDB = { catalog_id, paletteName, colors}
+	let colors = JSON.stringify(colorsToString);
+	const newPaletteForDB = { catalog_id, paletteName, colors };
 	console.log('newPaletteForDB', newPaletteForDB);
 	console.log('newPaletteForDBInStringfy', JSON.stringify(newPaletteForDB));
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${catalog_id}/palettes`;
@@ -38,8 +38,11 @@ export const createPalette = async newPalette => {
 	};
 	const response = await fetch(url, options);
 	if (!response.ok) {
-		console.log('hit error in apiCalls line 36 in APIcalls for Create Palette', response);
-		return response
+		console.log(
+			'hit error in apiCalls line 36 in APIcalls for Create Palette',
+			response
+		);
+		return response;
 		// throw new Error('Palette could not be saved at this time.');
 	}
 	return response.json();
@@ -64,8 +67,8 @@ export const savePalette = async newPalette => {
 };
 
 export const saveCatalog = async newCatalog => {
-	const { userId, id } = newCatalog;
-	const url = `https://picasso-database.herokuapp.com/api/v1/users/${userId}/catalogs/${id}`;
+	const { user_id } = newCatalog;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs`;
 	const options = {
 		method: 'POST',
 		headers: {
@@ -129,6 +132,20 @@ export const getPalette = async paletteInfo => {
 	return palette;
 };
 
+export const delettePalette = async paletteInfo => {
+	const { catalog_id, id } = paletteInfo;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/0/catalogs/${catalog_id}/palettes/${id}`;
+	const options = {
+		method: 'DELETE'
+	};
+
+	const response = await fetch(url, options);
+	if (!response.ok) {
+		throw new Error('Catalog could not be saved at this time.');
+	}
+	return response.json();
+};
+
 export const userLogin = async userLogin => {
 	console.log('userLogin', userLogin);
 
@@ -149,26 +166,32 @@ export const userLogin = async userLogin => {
 };
 
 export const colorFormats = async rgbColors => {
-	const response = await fetch(`https://www.thecolorapi.com/id?format=string&rgb=${rgbColors[0]},${rgbColors[1]},${rgbColors[2]}`)
+	const response = await fetch(
+		`https://www.thecolorapi.com/id?format=string&rgb=${rgbColors[0]},${rgbColors[1]},${rgbColors[2]}`
+	);
 	const colorInfo = response.json();
-	return colorInfo
-  }
+	return colorInfo;
+};
 
-export const getFiveColors = (updateArrayOfColors, colorsRequest, model = 'default') => {
-	const url = "http://colormind.io/api/";
+export const getFiveColors = (
+	updateArrayOfColors,
+	colorsRequest,
+	model = 'default'
+) => {
+	const url = 'http://colormind.io/api/';
 	const data = {
-		model : model,
-	}
+		model: model
+	};
 	if (colorsRequest) {
-		data.input = colorsRequest
+		data.input = colorsRequest;
 	}
 	var http = new XMLHttpRequest();
 	http.onreadystatechange = async () => {
-		if(http.readyState == 4 && http.status == 200) {
+		if (http.readyState == 4 && http.status == 200) {
 			var palettes = await JSON.parse(http.responseText).result;
-			cleanColorName(updateArrayOfColors, palettes)
+			cleanColorName(updateArrayOfColors, palettes);
 		}
-	}
-	http.open("POST", url, true);
+	};
+	http.open('POST', url, true);
 	http.send(JSON.stringify(data));
-  }
+};

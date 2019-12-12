@@ -14,7 +14,9 @@ const NavBar = ({
 	catalogs,
 	updateCurrentUser,
 	updateCurrentCatalog,
-	wipeUserData, 
+	updateCurrentPalette,
+	wipeUserData,
+	deletePalette,
 	palettes
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
@@ -32,14 +34,14 @@ const NavBar = ({
 	// 	}
 	// };
 
-	const filterPalettes = (id) => {
-		if(palettes) {
-			const palettesToReturn = palettes.filter( palette => {
-				return palette.catalog_id ===  parseInt(id)
-			})
-			return palettesToReturn
+	const filterPalettes = id => {
+		if (palettes) {
+			const palettesToReturn = palettes.filter(palette => {
+				return palette.catalog_id === parseInt(id);
+			});
+			return palettesToReturn;
 		}
-	}
+	};
 
 	return (
 		<>
@@ -153,14 +155,16 @@ const NavBar = ({
 						exact
 						path='/catalogs/:id'
 						render={({ match }) => {
-							const matchingPalettes = filterPalettes(match.params.id)
+							const matchingPalettes = filterPalettes(match.params.id);
 							console.log('matchingPalettes', matchingPalettes);
-							
+
 							return (
 								<Palettes
 									menuIsActive={menuIsActive}
 									palettes={matchingPalettes}
 									toggleMenu={toggleMenu}
+									updateCurrentPalette={updateCurrentPalette}
+									deletePalette={deletePalette}
 								/>
 							);
 						}}

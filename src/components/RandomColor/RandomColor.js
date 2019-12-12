@@ -92,6 +92,7 @@ const GetRandomColors = ({
 				closeSaveMenu={closeSaveMenu}
 				showSaveMenu={showSaveMenu}
 				postPalette={postPalette}
+				userID={userID}
 			/>
 		</>
 	);

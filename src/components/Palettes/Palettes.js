@@ -3,7 +3,13 @@ import './Palettes.scss';
 import PaletteCard from '../PaletteCard/PaletteCard';
 import { Link } from 'react-router-dom';
 
-const Palettes = ({ menuIsActive, palettes, toggleMenu }) => {
+const Palettes = ({
+	menuIsActive,
+	palettes,
+	toggleMenu,
+	updateCurrentPalette,
+	deletePalette
+}) => {
 	return (
 		<section className='Palettes'>
 			<h2>Palettes</h2>
@@ -13,8 +19,15 @@ const Palettes = ({ menuIsActive, palettes, toggleMenu }) => {
 					<Link
 						key={id}
 						to={`/catalogs/${catalog_id}/palettes/${id}`}
-						onClick={() => toggleMenu(false)}>
-						<PaletteCard menuIsActive={menuIsActive} palette={palette} />
+						onClick={() => {
+							toggleMenu(false);
+							updateCurrentPalette(id);
+						}}>
+						<PaletteCard
+							menuIsActive={menuIsActive}
+							deletePalette={deletePalette}
+							palette={palette}
+						/>
 					</Link>
 				);
 			})}

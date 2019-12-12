@@ -17,7 +17,10 @@ exports[`App App should match snapshot 1`] = `
   />
   <NavBar
     catalogs={Array []}
+    deletePalette={[Function]}
+    palettes={Array []}
     updateCurrentCatalog={[Function]}
+    updateCurrentPalette={[Function]}
     updateCurrentUser={[Function]}
     userName=""
     wipeUserData={[Function]}

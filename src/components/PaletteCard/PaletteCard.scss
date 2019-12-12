@@ -6,13 +6,35 @@
 	background: rgba(0, 0, 0, 0.616);
 	backdrop-filter: blur(10px);
 	padding: 0 10px 10px 10px;
-	box-shadow: 0 3.8px 2.3px rgba(0, 0, 0, 0.13),
-		0 8.7px 6.3px rgba(0, 0, 0, 0.075), 0 18px 15.1px rgba(0, 0, 0, 0.052),
-		0 56px 50px rgba(0, 0, 0, 0.045);
 	border-radius: 2px;
 
 	&:hover {
 		margin-right: 50px;
+	}
+
+	section {
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		background: rgb(228, 46, 46);
+		color: black;
+		position: relative;
+		z-index: 20;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-family: 'Roboto';
+		font-weight: 700;
+		transform: rotate(45deg);
+		font-size: 25px;
+		left: 600px;
+		top: 5px;
+		transition: 0.15s;
+
+		&:hover {
+			transform: rotate(120deg);
+			background: rgb(230, 77, 77);
+		}
 	}
 
 	h4 {
