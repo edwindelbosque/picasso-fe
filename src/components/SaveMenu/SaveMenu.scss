@@ -1,6 +1,6 @@
 .SaveMenu {
 	position: fixed;
-	right: 5px;
+	right: -30vw;
 	width: 250px;
 	height: 500px;
 	background: #2164f3;
@@ -11,6 +11,7 @@
 	display: flex;
 	flex-direction: column;
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.144);
+	transition: 0.25s ease-in-out;
 
 	h3 {
 		color: white;
@@ -68,14 +69,24 @@
 	button {
 		height: 40px;
 		border: none;
+		cursor: pointer;
 		border-radius: 3px;
 		font-size: 16px;
 		color: rgb(65, 65, 65);
 		background: #f3c221;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.158);
+		transition: 0.15s;
+
+		&:hover {
+			background: #ffd54d;
+		}
 
 		&:focus {
 			outline: none;
 		}
 	}
+}
+
+.showSaveMenu {
+	right: 5px;
 }

@@ -6,7 +6,8 @@ const GetRandomColors = ({
 	arrayOfColors,
 	updateArrayOfColors,
 	userID,
-	currentCatalog
+	currentCatalog,
+	openSaveMenu
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const [showCatalogs, handleShowCatalogsChange] = useState(false);
@@ -21,6 +22,7 @@ const GetRandomColors = ({
 	const handleSavePalette = async event => {
 		if (userID && currentCatalog === 0) {
 			handleShowCatalogsChange(true);
+			openSaveMenu();
 		} else {
 			const newPalette = {
 				paletteName: paletteNameValue,

@@ -1,9 +1,9 @@
 import React from 'react';
 import './SaveMenu.scss';
 
-const SaveMenu = ({ catalogs, showSaveMenu }) => {
+const SaveMenu = ({ catalogs, closeSaveMenu, showSaveMenu }) => {
 	const catalogList = catalogs.map(catalog => {
-		return <li>{catalog.catalogName}</li>;
+		return <li onClick={() => closeSaveMenu()}>{catalog.catalogName}</li>;
 	});
 
 	return (

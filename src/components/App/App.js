@@ -23,6 +23,18 @@ class App extends Component {
 		this.setState({ arrayOfColors: colors });
 	};
 
+	closeSaveMenu = () => {
+		this.setState({
+			showSaveMenu: false
+		});
+	};
+
+	openSaveMenu = () => {
+		this.setState({
+			showSaveMenu: true
+		});
+	};
+
 	wipeUserData = () => {
 		this.setState({
 			arrayOfColors: [],
@@ -51,10 +63,13 @@ class App extends Component {
 					updateArrayOfColors={this.updateArrayOfColors}
 					userID={this.state.userId}
 					currentCatalog={this.state.currentCatalog}
+					closeSaveMenu={this.closeSaveMenu}
+					openSaveMenu={this.openSaveMenu}
 					showSaveMenu={this.state.showSaveMenu}
 				/>
 				<SaveMenu
 					catalogs={this.state.catalogs}
+					closeSaveMenu={this.closeSaveMenu}
 					showSaveMenu={this.state.showSaveMenu}
 				/>
 				<NavBar
