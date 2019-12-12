@@ -3,6 +3,7 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import GetRandomColors from '../RandomColor/RandomColor.js';
+import SaveMenu from '../SaveMenu/SaveMenu';
 
 class App extends Component {
 	constructor() {
@@ -13,12 +14,24 @@ class App extends Component {
 			currentCatalog: 0,
 			userId: 0,
 			catalogs: [],
-			palettes: []
+			palettes: [],
+			showSaveMenu: false
 		};
 	}
 
 	updateArrayOfColors = colors => {
 		this.setState({ arrayOfColors: colors });
+	};
+
+	wipeUserData = () => {
+		this.setState({
+			arrayOfColors: [],
+			userName: '',
+			currentCatalog: 0,
+			userId: 0,
+			catalogs: [],
+			palettes: []
+		});
 	};
 
 	updateCurrentUser = (user, catalogs) => {
@@ -33,18 +46,23 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
-				<NavBar />
 				<GetRandomColors
 					arrayOfColors={this.state.arrayOfColors}
 					updateArrayOfColors={this.updateArrayOfColors}
 					userID={this.state.userId}
 					currentCatalog={this.state.currentCatalog}
+					showSaveMenu={this.state.showSaveMenu}
+				/>
+				<SaveMenu
+					catalogs={this.state.catalogs}
+					showSaveMenu={this.state.showSaveMenu}
 				/>
 				<NavBar
 					userName={this.state.userName}
 					catalogs={this.state.catalogs}
 					updateCurrentUser={this.updateCurrentUser}
 					updateCurrentCatalog={this.updateCurrentCatalog}
+					wipeUserData={this.wipeUserData}
 				/>
 				<Footer />
 			</div>

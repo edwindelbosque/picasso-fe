@@ -6,13 +6,15 @@ import Catalogs from '../Catalogs/Catalogs';
 import { Route, Link } from 'react-router-dom';
 import { getPalettes } from '../../util/apiCalls';
 import LoginForm from '../LoginForm/LoginForm';
+import logoutIcon from '../../assets/logoutIcon.png';
 import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 
 const NavBar = ({
 	userName,
 	catalogs,
 	updateCurrentUser,
-	updateCurrentCatalog
+	updateCurrentCatalog,
+	wipeUserData
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	const [palettes, updatePalettes] = useState([]);
@@ -109,9 +111,33 @@ const NavBar = ({
 							catalogs={catalogs}
 							updateCurrentCatalog={updateCurrentCatalog}
 						/>
+						<Link to='/create'>
+							<p className='logout-text'>Logout</p>
+							<img
+								src={logoutIcon}
+								className='logout-icon'
+								alt='logout button'
+								onClick={() => {
+									toggleMenu(false);
+									wipeUserData();
+								}}
+							/>
+						</Link>
 					</Route>
 					<Route path='/logout'>
 						<div menuIsActive={menuIsActive}></div>
+						<Link to='/create'>
+							<p className='logout-text'>Logout</p>
+							<img
+								src={logoutIcon}
+								className='logout-icon'
+								alt='logout button'
+								onClick={() => {
+									toggleMenu(false);
+									wipeUserData();
+								}}
+							/>
+						</Link>
 					</Route>
 					<Route
 						exact
