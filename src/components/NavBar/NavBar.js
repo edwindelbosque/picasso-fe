@@ -20,16 +20,16 @@ const NavBar = ({
 	const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
 
-	const fetchPalettes = () => {
-		if (isSignedIn && catalogs) {
-			const accumulatedPalettes = [];
-			catalogs.forEach(async catalog => {
-				const palettess = await getPalettes(catalog);
-				accumulatedPalettes.push(...palettess);
-			});
-			updatePalettes(accumulatedPalettes);
-		}
-	};
+	// const fetchPalettes = () => {
+	// 	if (isSignedIn && catalogs) {
+	// 		const accumulatedPalettes = [];
+	// 		catalogs.forEach(async catalog => {
+	// 			const palettess = await getPalettes(catalog);
+	// 			accumulatedPalettes.push(...palettess);
+	// 		});
+	// 		updatePalettes(accumulatedPalettes);
+	// 	}
+	// };
 
 	return (
 		<>
@@ -52,7 +52,7 @@ const NavBar = ({
 							'hamburger-menu-active'}`}
 						onClick={() => {
 							toggleMenu(!menuIsActive);
-							fetchPalettes();
+							// fetchPalettes();
 						}}>
 						<div className='bar-1'></div>
 						<div className='bar-2'></div>
