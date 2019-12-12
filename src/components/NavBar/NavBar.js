@@ -4,7 +4,6 @@ import Fade from 'react-reveal/Fade';
 import Palettes from '../Palettes/Palettes';
 import Catalogs from '../Catalogs/Catalogs';
 import { Route, Link } from 'react-router-dom';
-import { getPalettes } from '../../util/apiCalls';
 import LoginForm from '../LoginForm/LoginForm';
 import logoutIcon from '../../assets/logoutIcon.png';
 import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
@@ -18,22 +17,12 @@ const NavBar = ({
 	wipeUserData,
 	deletePalette,
 	palettes,
-	resetCurrentCatalog
+	resetCurrentCatalog,
+	fetchPalettes
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	// const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
-
-	// const fetchPalettes = () => {
-	// 	if (isSignedIn && catalogs) {
-	// 		const accumulatedPalettes = [];
-	// 		catalogs.forEach(async catalog => {
-	// 			const palettess = await getPalettes(catalog);
-	// 			accumulatedPalettes.push(...palettess);
-	// 		});
-	// 		updatePalettes(accumulatedPalettes);
-	// 	}
-	// };
 
 	const filterPalettes = id => {
 		if (palettes) {
@@ -170,6 +159,7 @@ const NavBar = ({
 									toggleMenu={toggleMenu}
 									updateCurrentPalette={updateCurrentPalette}
 									deletePalette={deletePalette}
+									fetchPalettes={fetchPalettes}
 								/>
 							);
 						}}

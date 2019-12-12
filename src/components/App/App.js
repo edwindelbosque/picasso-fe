@@ -3,7 +3,7 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import GetRandomColors from '../RandomColor/RandomColor.js';
-import { delettePalette } from '../../util/apiCalls';
+import { delettePalette, getPalettes } from '../../util/apiCalls';
 
 class App extends Component {
 	constructor() {
@@ -79,6 +79,18 @@ class App extends Component {
 		this.setState({ currentCatalog: 0 });
 	};
 
+	fetchPalettes = async () => {
+		setTimeout(async () => {
+			if (this.state.userId && this.state.catalogs.length) {
+				const allPalettes = this.state.catalogs.map(async catalog => {
+					return await getPalettes(catalog);
+				});
+				const allResolvedPalettes = await Promise.all(allPalettes);
+				this.setState({ palettes: allResolvedPalettes.flat() });
+			}
+		}, 1000);
+	};
+
 	render() {
 		return (
 			<div className='App'>
@@ -106,6 +118,7 @@ class App extends Component {
 					deletePalette={this.deletePalette}
 					palettes={this.state.palettes}
 					resetCurrentCatalog={this.resetCurrentCatalog}
+					fetchPalettes={this.fetchPalettes}
 				/>
 				<Footer />
 			</div>
