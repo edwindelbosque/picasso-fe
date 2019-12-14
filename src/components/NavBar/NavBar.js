@@ -100,13 +100,13 @@ const NavBar = ({
 							<LoginForm
 								updateCurrentUser={updateCurrentUser}
 								toggleMenu={toggleMenu}
-								updateArrayOfColors={updateArrayOfColors}
 							/>
 						</Route>
 						<Route exact path='/signup'>
 							<UserSignupForm
 								updateCurrentUser={updateCurrentUser}
 								toggleMenu={toggleMenu}
+								updateArrayOfColors={updateArrayOfColors}
 							/>
 						</Route>
 					</div>

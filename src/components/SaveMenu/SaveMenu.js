@@ -13,7 +13,7 @@ const SaveMenu = ({
 
 }) => {
 	const showCatalogs = () => {
-		if (catalogs.length) {
+		if (!catalogs === undefined) {
 			return catalogs.map(catalog => {
 				return (
 					<li

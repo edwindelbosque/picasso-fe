@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { createUser } from '../../util/apiCalls.js';
 import './UserSignupForm.scss';
+import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js'
 
-const UserSignupForm = ({ updateCurrentUser, toggleMenu }) => {
-	const [firstNameValue, handleFirstNameChange] = useState('');
-	const [lastNameValue, handleLastNameChange] = useState('');
-	const [emailValue, handleEmailChange] = useState('');
-	const [passwordValue, handlePasswordChange] = useState('');
-	const [userSignupStatus, handleSignupAttempt] = useState('');
+const UserSignupForm = ({ updateCurrentUser, toggleMenu, updateArrayOfColors}) => {
+const [firstNameValue, handleFirstNameChange] = useState('');
+const [lastNameValue, handleLastNameChange] = useState('');
+const [emailValue, handleEmailChange] = useState('');
+const [passwordValue, handlePasswordChange] = useState('');
+const [userSignupStatus, handleSignupAttempt] = useState('');
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -22,6 +23,7 @@ const UserSignupForm = ({ updateCurrentUser, toggleMenu }) => {
 			handleSignupAttempt(accountCreationResponse.error);
 		} else {
 			updateCurrentUser(accountCreationResponse);
+			newUserCatalogAndPalettes(updateArrayOfColors, accountCreationResponse)
 			resetInputs();
 			toggleMenu(false);
 		}
