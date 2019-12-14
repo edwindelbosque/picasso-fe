@@ -137,6 +137,7 @@ class App extends Component {
 					fetchCatalogs={this.fetchCatalogs}
 					triggerMenu={this.state.triggerMenu}
 					closeMenu={this.closeMenu}
+					updateArrayOfColors={this.updateArrayOfColors}
 				/>
 				<Footer />
 			</div>

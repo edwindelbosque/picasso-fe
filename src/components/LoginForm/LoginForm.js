@@ -28,6 +28,7 @@ const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs }) => {
 			handleLoginAttempt(loginResponse.error);
 		} else {
 			updateCurrentUser(loginResponse, catalogs, palettes);
+			newUserCatalogAndPalettes()
 			resetInputs();
 			toggleMenu(false);
 		}
