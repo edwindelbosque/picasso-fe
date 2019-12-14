@@ -20,7 +20,8 @@ const NavBar = ({
 	resetCurrentCatalog,
 	fetchPalettes,
 	closeMenu,
-	triggerMenu
+	triggerMenu,
+	updateArrayOfColors
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	// const [palettes, updatePalettes] = useState([]);
@@ -99,6 +100,7 @@ const NavBar = ({
 							<LoginForm
 								updateCurrentUser={updateCurrentUser}
 								toggleMenu={toggleMenu}
+								updateArrayOfColors={updateArrayOfColors}
 							/>
 						</Route>
 						<Route exact path='/signup'>
