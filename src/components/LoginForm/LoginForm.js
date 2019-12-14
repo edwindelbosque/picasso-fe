@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
+import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js'
 
-const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs }) => {
+const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs, updateArrayOfColors }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
 	const [loginStatus, handleLoginAttempt] = useState('');
@@ -28,7 +29,7 @@ const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs }) => {
 			handleLoginAttempt(loginResponse.error);
 		} else {
 			updateCurrentUser(loginResponse, catalogs, palettes);
-			newUserCatalogAndPalettes()
+			newUserCatalogAndPalettes(updateArrayOfColors)
 			resetInputs();
 			toggleMenu(false);
 		}
