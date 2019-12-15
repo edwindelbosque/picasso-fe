@@ -45,35 +45,37 @@ const NavBar = ({
 		<>
 			<nav className='NavBar'>
 				<p className={menuIsActive ? 'active-title' : ''}>Picasso</p>
-				{userName && <h3>{userName}</h3>}
-				<Link
-					to={
-						isSignedIn
-							? menuIsActive
+				<div>
+					{userName && <h3>{userName}</h3>}
+					<Link
+						to={
+							isSignedIn
+								? menuIsActive
+									? '/create'
+									: catalogs
+									? '/catalogs'
+									: '/logout'
+								: menuIsActive
 								? '/create'
-								: catalogs
-								? '/catalogs'
-								: '/logout'
-							: menuIsActive
-							? '/create'
-							: '/signup'
-					}>
-					<div
-						className={`hamburger-menu ${menuIsActive &&
-							'hamburger-menu-active'}`}
-						onClick={() => {
-							if (menuIsActive) {
-								resetCurrentCatalog();
-								closeMenu();
-							}
-							toggleMenu(!menuIsActive);
-							// fetchPalettes();
-						}}>
-						<div className='bar-1'></div>
-						<div className='bar-2'></div>
-						<div className='bar-3'></div>
-					</div>
-				</Link>
+								: '/signup'
+						}>
+						<div
+							className={`hamburger-menu ${menuIsActive &&
+								'hamburger-menu-active'}`}
+							onClick={() => {
+								if (menuIsActive) {
+									resetCurrentCatalog();
+									closeMenu();
+								}
+								toggleMenu(!menuIsActive);
+								// fetchPalettes();
+							}}>
+							<div className='bar-1'></div>
+							<div className='bar-2'></div>
+							<div className='bar-3'></div>
+						</div>
+					</Link>
+				</div>
 			</nav>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}></div>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}>

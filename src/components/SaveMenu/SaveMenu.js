@@ -49,11 +49,7 @@ const SaveMenu = ({
 	return (
 		<div className={`SaveMenu ${showSaveMenu ? 'showSaveMenu' : ''}`}>
 			<h3>Catalogs</h3>
-			<ul>
-				<li></li>
-				{showCatalogs()}
-				<li></li>
-			</ul>
+			<ul>{showCatalogs()}</ul>
 			<h4>Or create a new catalog</h4>
 			<input
 				value={catalogName}

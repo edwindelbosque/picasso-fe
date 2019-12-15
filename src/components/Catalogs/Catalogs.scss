@@ -8,12 +8,11 @@
 
 	a {
 		text-decoration: none;
-		color: black;
+		color: rgb(15, 17, 41);
 	}
 
 	.active-catalog {
-		color: white;
-		text-decoration: underline;
+		color: rgb(232, 242, 255);
 		li {
 			transform: translate(25px);
 		}
@@ -30,7 +29,7 @@
 		transition: 0.1s;
 
 		&:hover {
-			color: white;
+			color: rgb(232, 245, 255);
 			transform: translate(25px);
 		}
 	}
