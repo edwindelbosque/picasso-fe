@@ -21,7 +21,8 @@ const NavBar = ({
 	fetchPalettes,
 	closeMenu,
 	triggerMenu,
-	updateArrayOfColors
+	updateArrayOfColors,
+	arrayOfColors
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	// const [palettes, updatePalettes] = useState([]);
@@ -107,6 +108,7 @@ const NavBar = ({
 								updateCurrentUser={updateCurrentUser}
 								toggleMenu={toggleMenu}
 								updateArrayOfColors={updateArrayOfColors}
+								arrayOfColors={arrayOfColors}
 							/>
 						</Route>
 					</div>

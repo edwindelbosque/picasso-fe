@@ -1,14 +1,15 @@
-import {getPalettes, getCatalogs, createPalette, saveCatalog } from './apiCalls.js'
+import {getPalettes, getCatalogs, createPalette, saveCatalog, getFiveColors } from './apiCalls.js'
 
-export const newUserCatalogAndPalettes = async (updateArrayOfColors, loginResponse) => {
-    console.log(loginResponse);
+export const newUserCatalogAndPalettes = async (updateArrayOfColors, newUser, arrayOfColors) => {
+    const newCatalog = await saveCatalog({ user_id: newUser.id, catalogName: "First Catalog" })
+    console.log(newCatalog);
     
+    getFiveColors(updateArrayOfColors)
+    .then( () => {
+        createPalette({ catalog_id: newCatalog.id, user_id: newUser.id, paletteName: "First Palette", colorsToString: arrayOfColors })
 
-    // takes in new user id
-    // functon needs to create a new catalog using the user id
-    // const newCatalog = await saveCatalog({user_id: userId})
-    //  create two palettes and save them each needs the catalog id
-    // getColorPalette()
-    // needs these: const { catalog_id, user_id, paletteName, colorsToString } = newPalette;
+    })
+    getCatalogs()
+    getPalettes()
 }
 

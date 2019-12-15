@@ -138,6 +138,7 @@ class App extends Component {
 					triggerMenu={this.state.triggerMenu}
 					closeMenu={this.closeMenu}
 					updateArrayOfColors={this.updateArrayOfColors}
+					arrayOfColors={this.state.arrayOfColors}
 				/>
 				<Footer />
 			</div>

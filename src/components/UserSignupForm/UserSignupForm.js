@@ -3,7 +3,7 @@ import { createUser } from '../../util/apiCalls.js';
 import './UserSignupForm.scss';
 import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js'
 
-const UserSignupForm = ({ updateCurrentUser, toggleMenu, updateArrayOfColors}) => {
+const UserSignupForm = ({ updateCurrentUser, toggleMenu, updateArrayOfColors, arrayOfColors}) => {
 const [firstNameValue, handleFirstNameChange] = useState('');
 const [lastNameValue, handleLastNameChange] = useState('');
 const [emailValue, handleEmailChange] = useState('');
@@ -23,7 +23,7 @@ const [userSignupStatus, handleSignupAttempt] = useState('');
 			handleSignupAttempt(accountCreationResponse.error);
 		} else {
 			updateCurrentUser(accountCreationResponse);
-			newUserCatalogAndPalettes(updateArrayOfColors, accountCreationResponse)
+			newUserCatalogAndPalettes(updateArrayOfColors, accountCreationResponse, arrayOfColors)
 			resetInputs();
 			toggleMenu(false);
 		}
