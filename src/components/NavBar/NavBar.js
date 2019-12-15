@@ -45,6 +45,7 @@ const NavBar = ({
 		<>
 			<nav className='NavBar'>
 				<p className={menuIsActive ? 'active-title' : ''}>Picasso</p>
+				{userName && <h3>{userName}</h3>}
 				<Link
 					to={
 						isSignedIn
@@ -57,7 +58,6 @@ const NavBar = ({
 							? '/create'
 							: '/signup'
 					}>
-					<h3>{userName}</h3>
 					<div
 						className={`hamburger-menu ${menuIsActive &&
 							'hamburger-menu-active'}`}

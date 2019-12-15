@@ -3,43 +3,50 @@
 	cursor: pointer;
 	transition: 0.1s ease-in-out;
 	width: fit-content;
-	background: rgba(0, 0, 0, 0.616);
+	background: rgba(0, 0, 0, 0);
 	backdrop-filter: blur(10px);
 	padding: 0 10px 10px 10px;
+	// box-shadow: 0 2px 5px rgba(0, 0, 0, 0.267);
 	border-radius: 2px;
 
 	&:hover {
-		margin-right: 50px;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.493);
+
+		section {
+			opacity: 1;
+		}
 	}
 
 	section {
 		border-radius: 50%;
 		width: 30px;
+		opacity: 0;
 		height: 30px;
 		background: rgb(228, 46, 46);
-		color: black;
-		position: relative;
+		color: white;
+		position: absolute;
 		z-index: 20;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		font-family: 'Roboto';
-		font-weight: 700;
+		font-weight: 300;
 		transform: rotate(45deg);
 		font-size: 25px;
-		left: 600px;
-		top: 5px;
-		transition: 0.15s;
+		right: 10px;
+		border: 0px solid black;
+		top: 8px;
+		transition: 0.2s;
 
 		&:hover {
-			transform: rotate(120deg);
-			background: rgb(230, 77, 77);
+			background: rgb(255, 106, 106);
+			transition: 0.1s;
 		}
 	}
 
 	h4 {
 		font-size: 30px;
-		color: rgb(255, 255, 255);
+		color: rgb(39, 39, 39);
 		font-family: 'Roboto';
 		padding: 6px 0;
 		width: 100%;
@@ -51,6 +58,7 @@
 		background: rgb(85, 85, 85);
 		width: fit-content;
 		justify-content: center;
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.267);
 
 		div {
 			width: 125px;

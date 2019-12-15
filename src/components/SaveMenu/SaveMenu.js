@@ -10,7 +10,6 @@ const SaveMenu = ({
 	userID,
 	fetchPalettes,
 	fetchCatalogs
-
 }) => {
 	const showCatalogs = () => {
 		if (catalogs.length) {
@@ -38,19 +37,23 @@ const SaveMenu = ({
 	const handleClick = () => {
 		const newCatalog = { user_id: userID, catalogName: catalogName };
 		saveCatalog(newCatalog)
-		.then( res => res.json())
-		.then( data => {
-			fetchCatalogs();
-			postPalette(data.id);
-			fetchPalettes();
-			closeSaveMenu();
-		})
+			.then(res => res.json())
+			.then(data => {
+				fetchCatalogs();
+				postPalette(data.id);
+				fetchPalettes();
+				closeSaveMenu();
+			});
 	};
 
 	return (
 		<div className={`SaveMenu ${showSaveMenu ? 'showSaveMenu' : ''}`}>
 			<h3>Catalogs</h3>
-			<ul>{showCatalogs()}</ul>
+			<ul>
+				<li></li>
+				{showCatalogs()}
+				<li></li>
+			</ul>
 			<h4>Or create a new catalog</h4>
 			<input
 				value={catalogName}

@@ -19,34 +19,38 @@
 		font-size: 30px;
 		width: 100%;
 		text-align: center;
-		margin-top: 0px;
-		padding-bottom: 15px;
-		border-bottom: 1px solid white;
+		padding-bottom: 0 px;
 	}
 
 	ul {
-		margin: 40px 0px 25px 20px;
+		margin: 30px 0px 25px 20px;
+		border-top: 1px solid rgb(155, 189, 194);
+		border-bottom: 1px solid rgb(161, 197, 202);
+		padding-top: 5px;
 		color: white;
-		height: 150px;
+		height: 180px;
 		font-family: 'Roboto';
-		padding-left: 40px;
+		padding-left: 0px;
 		overflow-y: scroll;
 	}
 
 	li {
-		padding: 6px 0;
+		padding: 2px 5px;
+		border-radius: 2px;
+		margin: 8px 0;
 		font-size: 20px;
 		cursor: pointer;
-		transition: 0.2s;
-		list-style-type: none;
 
 		&:hover {
-			margin-left: 15px;
+			margin: 0px 0;
+			display: inline-block;
+			color: rgb(255, 145, 145);
+			background: rgb(255, 255, 255);
 		}
 	}
 
 	h4 {
-		margin-top: 10px;
+		margin-top: 5px;
 		color: white;
 		width: 100%;
 		font-size: 25px;
