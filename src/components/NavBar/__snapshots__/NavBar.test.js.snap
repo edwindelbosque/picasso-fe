@@ -10,24 +10,26 @@ exports[`NavBar App should match snapshot 1`] = `
     >
       Picasso
     </p>
-    <Link
-      to="/signup"
-    >
-      <div
-        className="hamburger-menu false"
-        onClick={[Function]}
+    <div>
+      <Link
+        to="/signup"
       >
         <div
-          className="bar-1"
-        />
-        <div
-          className="bar-2"
-        />
-        <div
-          className="bar-3"
-        />
-      </div>
-    </Link>
+          className="hamburger-menu false"
+          onClick={[Function]}
+        >
+          <div
+            className="bar-1"
+          />
+          <div
+            className="bar-2"
+          />
+          <div
+            className="bar-3"
+          />
+        </div>
+      </Link>
+    </div>
   </nav>
   <div
     className="menu false"
