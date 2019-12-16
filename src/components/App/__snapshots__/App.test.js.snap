@@ -19,6 +19,7 @@ exports[`App App should match snapshot 1`] = `
     userID={0}
   />
   <NavBar
+    arrayOfColors={Array []}
     catalogs={Array []}
     closeMenu={[Function]}
     deletePalette={[Function]}
@@ -27,6 +28,7 @@ exports[`App App should match snapshot 1`] = `
     palettes={Array []}
     resetCurrentCatalog={[Function]}
     triggerMenu={false}
+    updateArrayOfColors={[Function]}
     updateCurrentCatalog={[Function]}
     updateCurrentPalette={[Function]}
     updateCurrentUser={[Function]}
