@@ -18,7 +18,7 @@ const PaletteCard = ({
 		return (
 			<Fade when={menuIsActive} duration={600} delay={150}>
 				<div className='PaletteCard'>
-					<Link to={`/catalogs/${currentCatalog}/palettes`}>
+					<Link to={`/catalogs/${currentCatalog}`}>
 						<section
 							onClick={async () => {
 								await deletePalette(palette);

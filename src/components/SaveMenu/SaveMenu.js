@@ -12,13 +12,13 @@ const SaveMenu = ({
 	fetchCatalogs
 }) => {
 	const showCatalogs = () => {
-		if (catalogs.length) {
+		if (catalogs !== undefined) {
 			return catalogs.map(catalog => {
 				return (
 					<li
 						onClick={() => {
 							savePalette(catalog.id);
-							fetchPalettes();
+							setTimeout(() => fetchPalettes(), 1000);
 						}}>
 						{catalog.catalogName}
 					</li>

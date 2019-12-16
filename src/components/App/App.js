@@ -62,9 +62,9 @@ class App extends Component {
 		});
 	};
 
-	deletePalette = palette => {
+	deletePalette = async palette => {
 		const { id } = palette;
-		delettePalette(palette);
+		await delettePalette(palette);
 		this.setState({
 			palette: this.state.palettes.filter(palette => palette.id !== id)
 		});
@@ -88,20 +88,24 @@ class App extends Component {
 		this.setState({ currentCatalog: 0 });
 	};
 
-	fetchPalettes = async () => {
-		setTimeout(async () => {
-			if (this.state.userId && this.state.catalogs.length) {
-				const allPalettes = this.state.catalogs.map(async catalog => {
-					return await getPalettes(catalog);
-				});
-				const allResolvedPalettes = await Promise.all(allPalettes);
-				this.setState({ palettes: allResolvedPalettes.flat() });
-			}
-		}, 1000);
+	fetchPalettes = async (catalogs = this.state.catalogs) => {
+		console.log('fetchPalettes is running', catalogs);
+
+		if (this.state.userId && this.state.catalogs.length) {
+			const allPalettes = catalogs.map(async catalog => {
+				console.log('going through catalogs in fetchPalettes', catalog);
+
+				return await getPalettes(catalog);
+			});
+			const allResolvedPalettes = await Promise.all(allPalettes);
+			console.log('allResolvedPalettes', allResolvedPalettes);
+
+			this.setState({ palettes: allResolvedPalettes.flat() });
+		}
 	};
 
-	fetchCatalogs = async () => {
-		const catalogs = await getCatalogs({ id: this.state.userId });
+	fetchCatalogs = async (id = { id: this.state.userId }) => {
+		const catalogs = await getCatalogs({ id });
 		this.setState({ catalogs: catalogs });
 	};
 
@@ -137,6 +141,8 @@ class App extends Component {
 					currentCatalog={this.state.currentCatalog}
 					triggerMenu={this.state.triggerMenu}
 					closeMenu={this.closeMenu}
+					updateArrayOfColors={this.updateArrayOfColors}
+					arrayOfColors={this.state.arrayOfColors}
 				/>
 				<Footer />
 			</div>

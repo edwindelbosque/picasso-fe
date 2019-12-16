@@ -84,6 +84,7 @@ export const getCatalogs = async userInfo => {
 };
 
 export const getCatalog = async catalogInfo => {
+	console.log('getCatalog catalogInfo', catalogInfo);
 	const { userId, id, catalogName } = catalogInfo;
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${userId}/catalogs/${id}`;
 	const response = await fetch(url);
@@ -97,6 +98,8 @@ export const getCatalog = async catalogInfo => {
 };
 
 export const getPalettes = async catalogInfo => {
+	console.log(catalogInfo);
+	
 	const { user_id, id } = catalogInfo;
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${id}/palettes`;
 	const response = await fetch(url);
