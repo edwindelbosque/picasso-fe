@@ -19,9 +19,8 @@ const GetRandomColors = ({
 	openMenu
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
-	const [showCatalogs, handleShowCatalogsChange] = useState(false);
-	const handleGenerateColors = async event => {
-		// event.preventDefault();
+	// const [showCatalogs, handleShowCatalogsChange] = useState(false);
+	const handleGenerateColors = async () => {
 		getFiveColors(updateArrayOfColors);
 		checkToShowCatalog();
 	};
@@ -31,11 +30,11 @@ const GetRandomColors = ({
 	}, []);
 
 	const checkToShowCatalog = () => {
-		handleShowCatalogsChange(currentCatalog ? false : true);
+		// handleShowCatalogsChange(currentCatalog ? false : true);
 	};
 	const handleSavePalette = async event => {
 		if (userID && currentCatalog === 0) {
-			handleShowCatalogsChange(true);
+			// handleShowCatalogsChange(true);
 			openSaveMenu();
 		} else {
 			const newPalette = {
@@ -44,7 +43,7 @@ const GetRandomColors = ({
 				user_id: userID,
 				colorsToString: arrayOfColors
 			};
-			createPalette(newPalette);
+			await createPalette(newPalette);
 			handlePaletteNameValueChange('');
 		}
 	};
@@ -56,7 +55,7 @@ const GetRandomColors = ({
 			user_id: userID,
 			colorsToString: arrayOfColors
 		};
-		createPalette(newPalette);
+		await createPalette(newPalette);
 		handlePaletteNameValueChange('');
 		resetCurrentCatalog();
 	};
@@ -116,7 +115,6 @@ const GetRandomColors = ({
 				userID={userID}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
-
 			/>
 		</>
 	);

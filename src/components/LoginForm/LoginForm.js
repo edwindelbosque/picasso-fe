@@ -2,30 +2,30 @@ import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 
-const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs, updateArrayOfColors }) => {
-const [emailValue, handleEmailChange] = useState('');
-const [passwordValue, handlePasswordChange] = useState('');
-const [loginStatus, handleLoginAttempt] = useState('');
+const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
+	const [emailValue, handleEmailChange] = useState('');
+	const [passwordValue, handlePasswordChange] = useState('');
+	// const [loginStatus, handleLoginAttempt] = useState('');
 
 	const fetchPalettes = async (loginResponse, catalogsForFetch) => {
 		if (loginResponse.id && catalogsForFetch.length) {
-			const allPalettes = catalogsForFetch.map( async catalog => {
-				return await getPalettes(catalog)
-			})
-			const allResolvedPalettes = await Promise.all(allPalettes)
-			return allResolvedPalettes.flat()
+			const allPalettes = catalogsForFetch.map(async catalog => {
+				return await getPalettes(catalog);
+			});
+			const allResolvedPalettes = await Promise.all(allPalettes);
+			return allResolvedPalettes.flat();
 		}
 	};
 
 	const handleSubmit = async event => {
 		event.preventDefault();
-		handleLoginAttempt('');
+		// handleLoginAttempt('');
 		const newUser = { email: emailValue, password: passwordValue };
 		const loginResponse = await userLogin(newUser);
 		const catalogs = await getCatalogs(loginResponse);
-		const palettes = await fetchPalettes(loginResponse, catalogs)
+		const palettes = await fetchPalettes(loginResponse, catalogs);
 		if (loginResponse.error) {
-			handleLoginAttempt(loginResponse.error);
+			// handleLoginAttempt(loginResponse.error);
 		} else {
 			updateCurrentUser(loginResponse, catalogs, palettes);
 			resetInputs();
@@ -36,7 +36,7 @@ const [loginStatus, handleLoginAttempt] = useState('');
 	const resetInputs = () => {
 		handleEmailChange('');
 		handlePasswordChange('');
-		handleLoginAttempt('');
+		// handleLoginAttempt('');
 	};
 
 	const checkEmail = () => {
@@ -57,7 +57,7 @@ const [loginStatus, handleLoginAttempt] = useState('');
 	const isEnabled = canBeSubmitted();
 
 	return (
-		<form className='LoginForm'>
+		<form className='LoginForm' onSubmit={e => handleSubmit(e)}>
 			<label htmlFor='email' className='form-login email-login__label'>
 				Email
 			</label>
@@ -82,12 +82,12 @@ const [loginStatus, handleLoginAttempt] = useState('');
 				onChange={e => handlePasswordChange(e.target.value)}
 				value={passwordValue}
 			/>
-			<div
+			<button
 				className='loginFormBtn'
 				disabled={!isEnabled}
 				onClick={e => handleSubmit(e)}>
 				Login
-			</div>
+			</button>
 		</form>
 	);
 };

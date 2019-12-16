@@ -25,6 +25,7 @@ $main: #ffffff;
 		font-weight: 600;
 		letter-spacing: 0.5px;
 		transition: 0.2s ease-in-out;
+		cursor: default;
 	}
 
 	a {
@@ -32,9 +33,10 @@ $main: #ffffff;
 	}
 
 	h3 {
-		margin-right: 45px;
-		text-decoration: none;
-		color: rgb(87, 87, 87);
+		margin-right: 57px;
+		color: rgb(43, 43, 43);
+		font-size: 16px;
+		font-weight: 500;
 		font-family: 'Roboto';
 		cursor: default;
 	}

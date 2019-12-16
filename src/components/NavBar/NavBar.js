@@ -16,7 +16,9 @@ const NavBar = ({
 	updateCurrentPalette,
 	wipeUserData,
 	deletePalette,
+	updateUserId,
 	palettes,
+	currentCatalog,
 	resetCurrentCatalog,
 	fetchPalettes,
 	closeMenu,
@@ -26,7 +28,6 @@ const NavBar = ({
 	fetchCatalogs
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
-	// const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
 
 	const filterPalettes = id => {
@@ -48,35 +49,39 @@ const NavBar = ({
 		<>
 			<nav className='NavBar'>
 				<p className={menuIsActive ? 'active-title' : ''}>Picasso</p>
-				<Link
-					to={
-						isSignedIn
-							? menuIsActive
+				<div>
+					{userName && <h3>{userName}</h3>}
+					<Link
+						to={
+							isSignedIn
+								? menuIsActive
+									? '/create'
+									: catalogs
+									? `/catalogs/${catalogs.length ? catalogs[0].id : 0}`
+									: '/logout'
+								: menuIsActive
 								? '/create'
-								: catalogs
-								? '/catalogs'
-								: '/logout'
-							: menuIsActive
-							? '/create'
-							: '/signup'
-					}>
-					<h3>{userName}</h3>
-					<div
-						className={`hamburger-menu ${menuIsActive &&
-							'hamburger-menu-active'}`}
-						onClick={() => {
-							if (menuIsActive) {
-								resetCurrentCatalog();
-								closeMenu();
-							}
-							toggleMenu(!menuIsActive);
-							// fetchPalettes();
-						}}>
-						<div className='bar-1'></div>
-						<div className='bar-2'></div>
-						<div className='bar-3'></div>
-					</div>
-				</Link>
+								: '/signup'
+						}>
+						<div
+							className={`hamburger-menu ${menuIsActive &&
+								'hamburger-menu-active'}`}
+							onClick={() => {
+								if (menuIsActive) {
+									resetCurrentCatalog();
+									closeMenu();
+								} else {
+									updateCurrentCatalog(catalogs.length && catalogs[0].id);
+									userName && fetchPalettes();
+								}
+								toggleMenu(!menuIsActive);
+							}}>
+							<div className='bar-1'></div>
+							<div className='bar-2'></div>
+							<div className='bar-3'></div>
+						</div>
+					</Link>
+				</div>
 			</nav>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}></div>
 			<div className={`menu ${menuIsActive && 'show-menu'}`}>
@@ -112,8 +117,9 @@ const NavBar = ({
 								toggleMenu={toggleMenu}
 								updateArrayOfColors={updateArrayOfColors}
 								arrayOfColors={arrayOfColors}
-								fetchCatalogs={fetchCatalogs} 
+								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
+								updateUserId={updateUserId}
 							/>
 						</Route>
 					</div>
@@ -177,6 +183,7 @@ const NavBar = ({
 									updateCurrentPalette={updateCurrentPalette}
 									deletePalette={deletePalette}
 									fetchPalettes={fetchPalettes}
+									currentCatalog={currentCatalog}
 								/>
 							);
 						}}

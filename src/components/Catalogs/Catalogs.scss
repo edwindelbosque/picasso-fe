@@ -8,28 +8,29 @@
 
 	a {
 		text-decoration: none;
-		color: black;
+		color: rgb(15, 17, 41);
 	}
 
 	.active-catalog {
-		color: white;
-		text-decoration: underline;
+		color: rgb(232, 242, 255);
 		li {
-			transform: translate(30px);
+			transform: translate(25px);
 		}
 	}
 
+	ul {
+		margin-top: 25px;
+	}
+
 	li {
-		font-size: 80px;
+		font-size: 65px;
 		list-style-type: none;
 		cursor: pointer;
-		transition: 0.15s;
+		transition: 0.1s;
 
 		&:hover {
-			color: white;
-			text-decoration: underline;
-			// padding: 00 0 30px 0;
-			transform: translate(30px);
+			color: rgb(232, 245, 255);
+			transform: translate(25px);
 		}
 	}
 }

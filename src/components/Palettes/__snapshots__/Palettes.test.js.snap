@@ -7,405 +7,305 @@ exports[`Palettes App should match snapshot 1`] = `
   <h2>
     Palettes
   </h2>
-  <Link
+  <PaletteCard
     key="1"
-    onClick={[Function]}
-    to="/catalogs/1/palettes/1"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 1,
-          "color1": "334534",
-          "color2": "443224",
-          "color3": "345534",
-          "color4": "342534",
-          "color5": "342533",
-          "id": 1,
-          "paletteName": "Personal",
-        }
+    palette={
+      Object {
+        "catalog_id": 1,
+        "color1": "334534",
+        "color2": "443224",
+        "color3": "345534",
+        "color4": "342534",
+        "color5": "342533",
+        "id": 1,
+        "paletteName": "Personal",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="2"
-    onClick={[Function]}
-    to="/catalogs/3/palettes/2"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 3,
-          "color1": "342537",
-          "color2": "742532",
-          "color3": "142535",
-          "color4": "544344",
-          "color5": "342531",
-          "id": 2,
-          "paletteName": "Sunny",
-        }
+    palette={
+      Object {
+        "catalog_id": 3,
+        "color1": "342537",
+        "color2": "742532",
+        "color3": "142535",
+        "color4": "544344",
+        "color5": "342531",
+        "id": 2,
+        "paletteName": "Sunny",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="3"
-    onClick={[Function]}
-    to="/catalogs/2/palettes/3"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 2,
-          "color1": "542531",
-          "color2": "342537",
-          "color3": "342531",
-          "color4": "242536",
-          "color5": "742533",
-          "id": 3,
-          "paletteName": "I love it",
-        }
+    palette={
+      Object {
+        "catalog_id": 2,
+        "color1": "542531",
+        "color2": "342537",
+        "color3": "342531",
+        "color4": "242536",
+        "color5": "742533",
+        "id": 3,
+        "paletteName": "I love it",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="4"
-    onClick={[Function]}
-    to="/catalogs/1/palettes/4"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 1,
-          "color1": "242531",
-          "color2": "342533",
-          "color3": "642536",
-          "color4": "142537",
-          "color5": "642530",
-          "id": 4,
-          "paletteName": "12345",
-        }
+    palette={
+      Object {
+        "catalog_id": 1,
+        "color1": "242531",
+        "color2": "342533",
+        "color3": "642536",
+        "color4": "142537",
+        "color5": "642530",
+        "id": 4,
+        "paletteName": "12345",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="5"
-    onClick={[Function]}
-    to="/catalogs/4/palettes/5"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 4,
-          "color1": "042534",
-          "color2": "342534",
-          "color3": "042534",
-          "color4": "342534",
-          "color5": "042534",
-          "id": 5,
-          "paletteName": "Personal",
-        }
+    palette={
+      Object {
+        "catalog_id": 4,
+        "color1": "042534",
+        "color2": "342534",
+        "color3": "042534",
+        "color4": "342534",
+        "color5": "042534",
+        "id": 5,
+        "paletteName": "Personal",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="6"
-    onClick={[Function]}
-    to="/catalogs/5/palettes/6"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 5,
-          "color1": "142534",
-          "color2": "342534",
-          "color3": "142534",
-          "color4": "342534",
-          "color5": "142534",
-          "id": 6,
-          "paletteName": "Dreamin",
-        }
+    palette={
+      Object {
+        "catalog_id": 5,
+        "color1": "142534",
+        "color2": "342534",
+        "color3": "142534",
+        "color4": "342534",
+        "color5": "142534",
+        "id": 6,
+        "paletteName": "Dreamin",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="7"
-    onClick={[Function]}
-    to="/catalogs/6/palettes/7"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 6,
-          "color1": "642534",
-          "color2": "642534",
-          "color3": "342534",
-          "color4": "642534",
-          "color5": "342534",
-          "id": 7,
-          "paletteName": "Hotel",
-        }
+    palette={
+      Object {
+        "catalog_id": 6,
+        "color1": "642534",
+        "color2": "642534",
+        "color3": "342534",
+        "color4": "642534",
+        "color5": "342534",
+        "id": 7,
+        "paletteName": "Hotel",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="8"
-    onClick={[Function]}
-    to="/catalogs/7/palettes/8"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 7,
-          "color1": "842534",
-          "color2": "142534",
-          "color3": "342534",
-          "color4": "142534",
-          "color5": "342534",
-          "id": 8,
-          "paletteName": "Blue",
-        }
+    palette={
+      Object {
+        "catalog_id": 7,
+        "color1": "842534",
+        "color2": "142534",
+        "color3": "342534",
+        "color4": "142534",
+        "color5": "342534",
+        "id": 8,
+        "paletteName": "Blue",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="9"
-    onClick={[Function]}
-    to="/catalogs/7/palettes/9"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 7,
-          "color1": "342534",
-          "color2": "742534",
-          "color3": "642534",
-          "color4": "842534",
-          "color5": "142534",
-          "id": 9,
-          "paletteName": "Warm",
-        }
+    palette={
+      Object {
+        "catalog_id": 7,
+        "color1": "342534",
+        "color2": "742534",
+        "color3": "642534",
+        "color4": "842534",
+        "color5": "142534",
+        "id": 9,
+        "paletteName": "Warm",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="10"
-    onClick={[Function]}
-    to="/catalogs/8/palettes/10"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 8,
-          "color1": "142534",
-          "color2": "342534",
-          "color3": "142534",
-          "color4": "342534",
-          "color5": "142534",
-          "id": 10,
-          "paletteName": "Sad",
-        }
+    palette={
+      Object {
+        "catalog_id": 8,
+        "color1": "142534",
+        "color2": "342534",
+        "color3": "142534",
+        "color4": "342534",
+        "color5": "142534",
+        "id": 10,
+        "paletteName": "Sad",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="11"
-    onClick={[Function]}
-    to="/catalogs/9/palettes/11"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 9,
-          "color1": "142534",
-          "color2": "342534",
-          "color3": "142534",
-          "color4": "342534",
-          "color5": "142534",
-          "id": 11,
-          "paletteName": "Colorful",
-        }
+    palette={
+      Object {
+        "catalog_id": 9,
+        "color1": "142534",
+        "color2": "342534",
+        "color3": "142534",
+        "color4": "342534",
+        "color5": "142534",
+        "id": 11,
+        "paletteName": "Colorful",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="12"
-    onClick={[Function]}
-    to="/catalogs/10/palettes/12"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 10,
-          "color1": "742534",
-          "color2": "342534",
-          "color3": "842534",
-          "color4": "342534",
-          "color5": "342534",
-          "id": 12,
-          "paletteName": "Vibrant",
-        }
+    palette={
+      Object {
+        "catalog_id": 10,
+        "color1": "742534",
+        "color2": "342534",
+        "color3": "842534",
+        "color4": "342534",
+        "color5": "342534",
+        "id": 12,
+        "paletteName": "Vibrant",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="13"
-    onClick={[Function]}
-    to="/catalogs/10/palettes/13"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 10,
-          "color1": "942534",
-          "color2": "342534",
-          "color3": "142534",
-          "color4": "242534",
-          "color5": "342534",
-          "id": 13,
-          "paletteName": "Bold",
-        }
+    palette={
+      Object {
+        "catalog_id": 10,
+        "color1": "942534",
+        "color2": "342534",
+        "color3": "142534",
+        "color4": "242534",
+        "color5": "342534",
+        "id": 13,
+        "paletteName": "Bold",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="14"
-    onClick={[Function]}
-    to="/catalogs/3/palettes/14"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 3,
-          "color1": "142534",
-          "color2": "742534",
-          "color3": "342534",
-          "color4": "142534",
-          "color5": "342534",
-          "id": 14,
-          "paletteName": "Magical",
-        }
+    palette={
+      Object {
+        "catalog_id": 3,
+        "color1": "142534",
+        "color2": "742534",
+        "color3": "342534",
+        "color4": "142534",
+        "color5": "342534",
+        "id": 14,
+        "paletteName": "Magical",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="15"
-    onClick={[Function]}
-    to="/catalogs/5/palettes/15"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 5,
-          "color1": "942534",
-          "color2": "042534",
-          "color3": "342534",
-          "color4": "142534",
-          "color5": "342534",
-          "id": 15,
-          "paletteName": "Interesting",
-        }
+    palette={
+      Object {
+        "catalog_id": 5,
+        "color1": "942534",
+        "color2": "042534",
+        "color3": "342534",
+        "color4": "142534",
+        "color5": "342534",
+        "id": 15,
+        "paletteName": "Interesting",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="16"
-    onClick={[Function]}
-    to="/catalogs/10/palettes/16"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 10,
-          "color1": "442534",
-          "color2": "342534",
-          "color3": "742534",
-          "color4": "142534",
-          "color5": "742534",
-          "id": 16,
-          "paletteName": "Prototype",
-        }
+    palette={
+      Object {
+        "catalog_id": 10,
+        "color1": "442534",
+        "color2": "342534",
+        "color3": "742534",
+        "color4": "142534",
+        "color5": "742534",
+        "id": 16,
+        "paletteName": "Prototype",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="17"
-    onClick={[Function]}
-    to="/catalogs/10/palettes/17"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 10,
-          "color1": "142534",
-          "color2": "842534",
-          "color3": "242534",
-          "color4": "342534",
-          "color5": "842534",
-          "id": 17,
-          "paletteName": "Prototype Hotel 2",
-        }
+    palette={
+      Object {
+        "catalog_id": 10,
+        "color1": "142534",
+        "color2": "842534",
+        "color3": "242534",
+        "color4": "342534",
+        "color5": "842534",
+        "id": 17,
+        "paletteName": "Prototype Hotel 2",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="18"
-    onClick={[Function]}
-    to="/catalogs/10/palettes/18"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 10,
-          "color1": "142534",
-          "color2": "342534",
-          "color3": "142534",
-          "color4": "142534",
-          "color5": "842534",
-          "id": 18,
-          "paletteName": "Prototype Hotel 3",
-        }
+    palette={
+      Object {
+        "catalog_id": 10,
+        "color1": "142534",
+        "color2": "342534",
+        "color3": "142534",
+        "color4": "142534",
+        "color5": "842534",
+        "id": 18,
+        "paletteName": "Prototype Hotel 3",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="19"
-    onClick={[Function]}
-    to="/catalogs/10/palettes/19"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 10,
-          "color1": "142534",
-          "color2": "742534",
-          "color3": "242534",
-          "color4": "342534",
-          "color5": "742534",
-          "id": 19,
-          "paletteName": "Prototype Hotel 4",
-        }
+    palette={
+      Object {
+        "catalog_id": 10,
+        "color1": "142534",
+        "color2": "742534",
+        "color3": "242534",
+        "color4": "342534",
+        "color5": "742534",
+        "id": 19,
+        "paletteName": "Prototype Hotel 4",
       }
-    />
-  </Link>
-  <Link
+    }
+  />
+  <PaletteCard
     key="20"
-    onClick={[Function]}
-    to="/catalogs/3/palettes/20"
-  >
-    <PaletteCard
-      palette={
-        Object {
-          "catalog_id": 3,
-          "color1": "142534",
-          "color2": "842534",
-          "color3": "642534",
-          "color4": "342534",
-          "color5": "242534",
-          "id": 20,
-          "paletteName": "Movie poster 1",
-        }
+    palette={
+      Object {
+        "catalog_id": 3,
+        "color1": "142534",
+        "color2": "842534",
+        "color3": "642534",
+        "color4": "342534",
+        "color5": "242534",
+        "id": 20,
+        "paletteName": "Movie poster 1",
       }
-    />
-  </Link>
+    }
+  />
 </section>
 `;
