@@ -6,11 +6,10 @@
 	background: rgba(0, 0, 0, 0);
 	backdrop-filter: blur(10px);
 	padding: 0 10px 10px 10px;
-	// box-shadow: 0 2px 5px rgba(0, 0, 0, 0.267);
-	border-radius: 2px;
+	border-radius: 4px;
 
 	&:hover {
-		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.493);
+		box-shadow: 0 2px 7px rgba(0, 0, 0, 0.301);
 
 		section {
 			opacity: 1;

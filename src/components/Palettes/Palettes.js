@@ -9,7 +9,8 @@ const Palettes = ({
 	toggleMenu,
 	updateCurrentPalette,
 	deletePalette,
-	fetchPalettes
+	fetchPalettes,
+	currentCatalog
 }) => {
 	return (
 		<section className='Palettes'>
@@ -21,7 +22,7 @@ const Palettes = ({
 						key={id}
 						to={`/catalogs/${catalog_id}/palettes/${id}`}
 						onClick={() => {
-							toggleMenu(false);
+							// toggleMenu(false);
 							updateCurrentPalette(id);
 						}}>
 						<PaletteCard
@@ -29,6 +30,8 @@ const Palettes = ({
 							deletePalette={deletePalette}
 							palette={palette}
 							fetchPalettes={fetchPalettes}
+							toggleMenu={toggleMenu}
+							currentCatalog={currentCatalog}
 						/>
 					</Link>
 				);

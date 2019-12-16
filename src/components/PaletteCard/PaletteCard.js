@@ -1,12 +1,15 @@
 import React from 'react';
 import './PaletteCard.scss';
 import Fade from 'react-reveal/Fade';
+import { Link } from 'react-router-dom';
 
 const PaletteCard = ({
 	menuIsActive,
 	palette,
 	deletePalette,
-	fetchPalettes
+	fetchPalettes,
+	toggleMenu,
+	currentCatalog
 }) => {
 	if (palette.id) {
 		const colorForPalette = palette.colors.map((color, i) => {
@@ -15,13 +18,16 @@ const PaletteCard = ({
 		return (
 			<Fade when={menuIsActive} duration={600} delay={150}>
 				<div className='PaletteCard'>
-					<section
-						onClick={async () => {
-							await deletePalette(palette);
-							fetchPalettes();
-						}}>
-						+
-					</section>
+					<Link to={`/catalogs/${currentCatalog}/palettes`}>
+						<section
+							onClick={async () => {
+								await deletePalette(palette);
+								fetchPalettes();
+								toggleMenu(true);
+							}}>
+							+
+						</section>
+					</Link>
 					<h4>{palette.paletteName}</h4>
 					<div className='colors'>{colorForPalette}</div>
 				</div>

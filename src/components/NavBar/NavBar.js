@@ -17,6 +17,7 @@ const NavBar = ({
 	wipeUserData,
 	deletePalette,
 	palettes,
+	currentCatalog,
 	resetCurrentCatalog,
 	fetchPalettes,
 	closeMenu,
@@ -170,6 +171,7 @@ const NavBar = ({
 									updateCurrentPalette={updateCurrentPalette}
 									deletePalette={deletePalette}
 									fetchPalettes={fetchPalettes}
+									currentCatalog={currentCatalog}
 								/>
 							);
 						}}

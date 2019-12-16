@@ -101,10 +101,9 @@ class App extends Component {
 	};
 
 	fetchCatalogs = async () => {
-		const catalogs = await getCatalogs({ id: this.state.userId} );
+		const catalogs = await getCatalogs({ id: this.state.userId });
 		this.setState({ catalogs: catalogs });
-
-	}
+	};
 
 	render() {
 		return (
@@ -135,6 +134,7 @@ class App extends Component {
 					resetCurrentCatalog={this.resetCurrentCatalog}
 					fetchPalettes={this.fetchPalettes}
 					fetchCatalogs={this.fetchCatalogs}
+					currentCatalog={this.state.currentCatalog}
 					triggerMenu={this.state.triggerMenu}
 					closeMenu={this.closeMenu}
 				/>
