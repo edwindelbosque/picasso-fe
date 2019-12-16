@@ -2,7 +2,6 @@ import React from 'react';
 import './Catalogs.scss';
 import { NavLink } from 'react-router-dom';
 // import { getPalettes } from '../../util/apiCalls';
-import Fade from 'react-reveal/Fade';
 
 const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 	let allCatalogs;
@@ -27,11 +26,9 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 	return (
 		<section className='Catalogs'>
 			<h2>Catalogs</h2>
-			<ul>
-				<Fade when={menuIsActive} delay={200} duration={400} bottom>
+				<ul>
 					{allCatalogs}
-				</Fade>
-			</ul>
+				</ul>
 		</section>
 	);
 };
