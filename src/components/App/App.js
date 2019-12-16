@@ -88,20 +88,27 @@ class App extends Component {
 		this.setState({ currentCatalog: 0 });
 	};
 
-	fetchPalettes = async () => {
+	fetchPalettes = async (catalogs = this.state.catalogs) => {
+		console.log('fetchPalettes is running', catalogs);
+		
 		setTimeout(async () => {
+			
 			if (this.state.userId && this.state.catalogs.length) {
-				const allPalettes = this.state.catalogs.map(async catalog => {
+				const allPalettes = catalogs.map(async catalog => {
+					console.log('going through catalogs in fetchPalettes', catalog);
+					
 					return await getPalettes(catalog);
 				});
 				const allResolvedPalettes = await Promise.all(allPalettes);
+				console.log('allResolvedPalettes', allResolvedPalettes);
+				
 				this.setState({ palettes: allResolvedPalettes.flat() });
 			}
 		}, 1000);
 	};
 
-	fetchCatalogs = async () => {
-		const catalogs = await getCatalogs({ id: this.state.userId} );
+	fetchCatalogs = async (id = { id: this.state.userId}) => {
+		const catalogs = await getCatalogs( { id } );
 		this.setState({ catalogs: catalogs });
 
 	}
