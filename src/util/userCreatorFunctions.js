@@ -368,38 +368,9 @@ export const newUserCatalogAndPalettes = async (
 		colorsToString: arrayOfColors
 	});
 
-	await createPalette({
-		catalog_id: catalog1.id,
-		user_id: newUser.id,
-		paletteName: 'Second Palette',
-		colorsToString: arrayOfColors
-	});
-
-	const response2 = await saveCatalog({
-		user_id: newUser.id,
-		catalogName: 'First Catalog'
-	});
-
-	const catalog2 = await response2.json();
-
-	await createPalette({
-		catalog_id: catalog2.id,
-		user_id: newUser.id,
-		paletteName: 'First Palette',
-		colorsToString: arrayOfColors
-	});
-
-	await createPalette({
-		catalog_id: catalog2.id,
-		user_id: newUser.id,
-		paletteName: 'Second Palette',
-		colorsToString: arrayOfColors
-	});
-
 	await fetchCatalogs(newUser.id);
 	const catalogs = [
-		{ id: catalog1.id, user_id: newUser.id },
-		{ id: catalog2.id, user_id: newUser.id }
+		{ id: catalog1.id, user_id: newUser.id }
 	];
 
 	return await fetchPalettes(catalogs);
