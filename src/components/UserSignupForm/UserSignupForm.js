@@ -9,13 +9,14 @@ const UserSignupForm = ({
 	updateArrayOfColors,
 	arrayOfColors,
 	fetchCatalogs,
-	fetchPalettes
+	fetchPalettes,
+	updateUserId
 }) => {
 	const [firstNameValue, handleFirstNameChange] = useState('');
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
-	// const [userSignupStatus, handleSignupAttempt] = useState('');
+	const [userSignupStatus, handleSignupAttempt] = useState('');
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -26,10 +27,12 @@ const UserSignupForm = ({
 			password: passwordValue
 		};
 		const accountCreationResponse = await createUser(newUser);
+
+		console.log('account', accountCreationResponse);
 		if (accountCreationResponse.error) {
-			// handleSignupAttempt(accountCreationResponse.error);
+			handleSignupAttempt(accountCreationResponse.error);
 		} else {
-			updateCurrentUser(accountCreationResponse);
+			await updateCurrentUser(accountCreationResponse);
 			newUserCatalogAndPalettes(
 				updateArrayOfColors,
 				accountCreationResponse,
@@ -38,6 +41,7 @@ const UserSignupForm = ({
 			);
 			resetInputs();
 			toggleMenu(false);
+			fetchPalettes();
 		}
 	};
 

@@ -16,6 +16,7 @@ const NavBar = ({
 	updateCurrentPalette,
 	wipeUserData,
 	deletePalette,
+	updateUserId,
 	palettes,
 	currentCatalog,
 	resetCurrentCatalog,
@@ -27,7 +28,6 @@ const NavBar = ({
 	fetchCatalogs
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
-	// const [palettes, updatePalettes] = useState([]);
 	const isSignedIn = userName;
 
 	const filterPalettes = id => {
@@ -57,7 +57,7 @@ const NavBar = ({
 								? menuIsActive
 									? '/create'
 									: catalogs
-									? `/catalogs/${catalogs[0].id}`
+									? `/catalogs/${catalogs.length ? catalogs[0].id : 0}`
 									: '/logout'
 								: menuIsActive
 								? '/create'
@@ -72,6 +72,7 @@ const NavBar = ({
 									closeMenu();
 								} else {
 									updateCurrentCatalog(catalogs.length && catalogs[0].id);
+									userName && fetchPalettes();
 								}
 								toggleMenu(!menuIsActive);
 							}}>
@@ -118,6 +119,7 @@ const NavBar = ({
 								arrayOfColors={arrayOfColors}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
+								updateUserId={updateUserId}
 							/>
 						</Route>
 					</div>

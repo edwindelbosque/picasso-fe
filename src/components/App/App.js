@@ -11,7 +11,7 @@ const App = () => {
 	const [currentCatalog, updateCurrentCatalog] = useState(0);
 	const [currentPalette, updateCurrentPalette] = useState(0);
 	const [userId, updateUserId] = useState(0);
-	const [catalogss, updateCatalogs] = useState([]);
+	const [catalogs, updateCatalogs] = useState([]);
 	const [palettes, updatePalettes] = useState([]);
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
@@ -63,8 +63,8 @@ const App = () => {
 		updateCurrentCatalog(0);
 	};
 
-	const fetchPalettes = async (catalogs = catalogss) => {
-		if (userId && catalogs.length) {
+	const fetchPalettes = async (cats = catalogs) => {
+		if (cats.length) {
 			const allPalettes = catalogs.map(async catalog => {
 				return await getPalettes(catalog);
 			});
@@ -75,8 +75,8 @@ const App = () => {
 	};
 
 	const fetchCatalogs = async (id = { id: userId }) => {
-		const catalogs = await getCatalogs({ id });
-		updateCatalogs(catalogs);
+		const newCatalogs = await getCatalogs({ id });
+		updateCatalogs(newCatalogs);
 	};
 
 	return (
@@ -89,7 +89,7 @@ const App = () => {
 				closeSaveMenu={closeSaveMenu}
 				openSaveMenu={openSaveMenu}
 				showSaveMenu={showSaveMenu}
-				catalogs={catalogss}
+				catalogs={catalogs}
 				resetCurrentCatalog={resetCurrentCatalog}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
@@ -97,7 +97,7 @@ const App = () => {
 			/>
 			<NavBar
 				userName={userName}
-				catalogs={catalogss}
+				catalogs={catalogs}
 				updateCurrentUser={updateCurrentUser}
 				updateCurrentCatalog={updateCurrentCatalog}
 				wipeUserData={wipeUserData}
