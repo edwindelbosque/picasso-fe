@@ -3,6 +3,7 @@
 exports[`LoginForm App should match snapshot 1`] = `
 <form
   className="LoginForm"
+  onSubmit={[Function]}
 >
   <label
     className="form-login email-login__label"
@@ -34,12 +35,12 @@ exports[`LoginForm App should match snapshot 1`] = `
     type="password"
     value=""
   />
-  <div
+  <button
     className="loginFormBtn"
     disabled={true}
     onClick={[Function]}
   >
     Login
-  </div>
+  </button>
 </form>
 `;

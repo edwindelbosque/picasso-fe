@@ -57,7 +57,7 @@ const NavBar = ({
 								? menuIsActive
 									? '/create'
 									: catalogs
-									? '/catalogs'
+									? `/catalogs/${catalogs[0].id}`
 									: '/logout'
 								: menuIsActive
 								? '/create'
@@ -115,7 +115,7 @@ const NavBar = ({
 								toggleMenu={toggleMenu}
 								updateArrayOfColors={updateArrayOfColors}
 								arrayOfColors={arrayOfColors}
-								fetchCatalogs={fetchCatalogs} 
+								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
 							/>
 						</Route>

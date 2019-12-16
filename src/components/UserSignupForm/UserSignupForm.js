@@ -15,7 +15,7 @@ const UserSignupForm = ({
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
-	const [userSignupStatus, handleSignupAttempt] = useState('');
+	// const [userSignupStatus, handleSignupAttempt] = useState('');
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -27,7 +27,7 @@ const UserSignupForm = ({
 		};
 		const accountCreationResponse = await createUser(newUser);
 		if (accountCreationResponse.error) {
-			handleSignupAttempt(accountCreationResponse.error);
+			// handleSignupAttempt(accountCreationResponse.error);
 		} else {
 			updateCurrentUser(accountCreationResponse);
 			newUserCatalogAndPalettes(

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './SaveMenu.scss';
-import { saveCatalog, getCatalogs } from '../../util/apiCalls';
+import { saveCatalog } from '../../util/apiCalls';
 
 const SaveMenu = ({
 	catalogs,
@@ -13,9 +13,11 @@ const SaveMenu = ({
 }) => {
 	const showCatalogs = () => {
 		if (catalogs !== undefined) {
-			return catalogs.map(catalog => {
+			return catalogs.map((catalog, i) => {
 				return (
-					<li onClick={() => savePalette(catalog.id)}>{catalog.catalogName}</li>
+					<li key={i} onClick={() => savePalette(catalog.id)}>
+						{catalog.catalogName}
+					</li>
 				);
 			});
 		}

@@ -8,11 +8,7 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 	let allCatalogs;
 
 	if (catalogs.length) {
-		console.log('catalogs in CATALOGS JS', catalogs.length, 'menuIsActive:', menuIsActive, 'updateCurrentCatalog:', updateCurrentCatalog);
-		
 		allCatalogs = catalogs.map(catalog => {
-			// console.log('catalog in CATALOGS JS', catalog);
-			
 			const { catalogName, id } = catalog;
 			return (
 				<NavLink
@@ -26,12 +22,10 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 				</NavLink>
 			);
 		});
-		console.log('allCatalogs', allCatalogs);
-		
-	} 
+	}
 
-		return (
-			<section className='Catalogs'>
+	return (
+		<section className='Catalogs'>
 			<h2>Catalogs</h2>
 			<ul>
 				<Fade when={menuIsActive} delay={200} duration={400} bottom>
@@ -40,8 +34,6 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 			</ul>
 		</section>
 	);
-
-
 };
 
 export default Catalogs;

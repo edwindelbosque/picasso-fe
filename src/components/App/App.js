@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
@@ -89,16 +89,11 @@ class App extends Component {
 	};
 
 	fetchPalettes = async (catalogs = this.state.catalogs) => {
-		console.log('fetchPalettes is running', catalogs);
-
 		if (this.state.userId && this.state.catalogs.length) {
 			const allPalettes = catalogs.map(async catalog => {
-				console.log('going through catalogs in fetchPalettes', catalog);
-
 				return await getPalettes(catalog);
 			});
 			const allResolvedPalettes = await Promise.all(allPalettes);
-			console.log('allResolvedPalettes', allResolvedPalettes);
 
 			this.setState({ palettes: allResolvedPalettes.flat() });
 		}

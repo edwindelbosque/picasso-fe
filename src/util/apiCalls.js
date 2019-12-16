@@ -18,7 +18,6 @@ export const createUser = async newUser => {
 };
 
 export const createPalette = async newPalette => {
-
 	const { catalog_id, user_id, paletteName, colorsToString } = newPalette;
 	let colors = JSON.stringify(colorsToString);
 	const newPaletteForDB = { catalog_id, paletteName, colors };
@@ -78,13 +77,12 @@ export const getCatalogs = async userInfo => {
 	const response = await fetch(url);
 	const catalogs = response.json();
 	if (!response.ok) {
-		return response
+		return response;
 	}
 	return catalogs;
 };
 
 export const getCatalog = async catalogInfo => {
-	console.log('getCatalog catalogInfo', catalogInfo);
 	const { userId, id, catalogName } = catalogInfo;
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${userId}/catalogs/${id}`;
 	const response = await fetch(url);
@@ -98,14 +96,12 @@ export const getCatalog = async catalogInfo => {
 };
 
 export const getPalettes = async catalogInfo => {
-	console.log(catalogInfo);
-	
 	const { user_id, id } = catalogInfo;
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${id}/palettes`;
 	const response = await fetch(url);
 	const palettes = response.json();
 	if (!response.ok) {
-		return palettes
+		return palettes;
 	}
 	return palettes;
 };
@@ -176,7 +172,7 @@ export const getFiveColors = (
 	}
 	var http = new XMLHttpRequest();
 	http.onreadystatechange = async () => {
-		if (http.readyState == 4 && http.status == 200) {
+		if (http.readyState === 4 && http.status === 200) {
 			var palettes = await JSON.parse(http.responseText).result;
 			cleanColorName(updateArrayOfColors, palettes);
 		}

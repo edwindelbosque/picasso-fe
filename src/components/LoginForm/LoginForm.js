@@ -2,15 +2,10 @@ import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 
-const LoginForm = ({
-	updateCurrentUser,
-	toggleMenu,
-	fetchCatalogs,
-	updateArrayOfColors
-}) => {
+const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
-	const [loginStatus, handleLoginAttempt] = useState('');
+	// const [loginStatus, handleLoginAttempt] = useState('');
 
 	const fetchPalettes = async (loginResponse, catalogsForFetch) => {
 		if (loginResponse.id && catalogsForFetch.length) {
@@ -24,13 +19,13 @@ const LoginForm = ({
 
 	const handleSubmit = async event => {
 		event.preventDefault();
-		handleLoginAttempt('');
+		// handleLoginAttempt('');
 		const newUser = { email: emailValue, password: passwordValue };
 		const loginResponse = await userLogin(newUser);
 		const catalogs = await getCatalogs(loginResponse);
 		const palettes = await fetchPalettes(loginResponse, catalogs);
 		if (loginResponse.error) {
-			handleLoginAttempt(loginResponse.error);
+			// handleLoginAttempt(loginResponse.error);
 		} else {
 			updateCurrentUser(loginResponse, catalogs, palettes);
 			resetInputs();
@@ -41,7 +36,7 @@ const LoginForm = ({
 	const resetInputs = () => {
 		handleEmailChange('');
 		handlePasswordChange('');
-		handleLoginAttempt('');
+		// handleLoginAttempt('');
 	};
 
 	const checkEmail = () => {

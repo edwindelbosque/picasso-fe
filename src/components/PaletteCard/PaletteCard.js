@@ -9,7 +9,8 @@ const PaletteCard = ({
 	deletePalette,
 	fetchPalettes,
 	toggleMenu,
-	currentCatalog
+	currentCatalog,
+	updateCurrentPalette
 }) => {
 	const handleDelete = async () => {
 		await deletePalette(palette);
@@ -18,8 +19,12 @@ const PaletteCard = ({
 	};
 
 	if (palette.id) {
-		const colorForPalette = palette.colors.map((color, i) => {
-			return <div key={i} style={{ background: color.hex.value }}></div>;
+		const colorForPalette = palette.colors.map(color => {
+			return (
+				<div
+					key={color.hex.value}
+					style={{ background: color.hex.value }}></div>
+			);
 		});
 		return (
 			<Fade when={menuIsActive} duration={600} delay={150}>
@@ -27,8 +32,16 @@ const PaletteCard = ({
 					<Link to={`/catalogs/${currentCatalog}`}>
 						<section onClick={() => handleDelete()}>+</section>
 					</Link>
-					<h4>{palette.paletteName}</h4>
-					<div className='colors'>{colorForPalette}</div>
+					<Link
+						key={palette.id}
+						to={`/catalogs/${palette.catalog_id}/palettes/${palette.id}`}
+						onClick={() => {
+							toggleMenu(false);
+							updateCurrentPalette(palette.id);
+						}}>
+						<h4>{palette.paletteName}</h4>
+						<div className='colors'>{colorForPalette}</div>
+					</Link>
 				</div>
 			</Fade>
 		);

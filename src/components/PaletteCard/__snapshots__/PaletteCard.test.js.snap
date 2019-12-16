@@ -8,24 +8,34 @@ exports[`PaletteCard App should match snapshot 1`] = `
   <div
     className="PaletteCard"
   >
-    <section
+    <Link
+      to="/catalogs/undefined"
+    >
+      <section
+        onClick={[Function]}
+      >
+        +
+      </section>
+    </Link>
+    <Link
+      key="1"
       onClick={[Function]}
+      to="/catalogs/undefined/palettes/1"
     >
-      +
-    </section>
-    <h4 />
-    <div
-      className="colors"
-    >
+      <h4 />
       <div
-        key="0"
-        style={
-          Object {
-            "background": undefined,
+        className="colors"
+      >
+        <div
+          key="12531"
+          style={
+            Object {
+              "background": 12531,
+            }
           }
-        }
-      />
-    </div>
+        />
+      </div>
+    </Link>
   </div>
 </Fade>
 `;
