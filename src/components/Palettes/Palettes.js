@@ -6,7 +6,6 @@ const Palettes = ({
 	menuIsActive,
 	palettes,
 	toggleMenu,
-	updateCurrentPalette,
 	deletePalette,
 	fetchPalettes,
 	currentCatalog
@@ -24,7 +23,6 @@ const Palettes = ({
 						fetchPalettes={fetchPalettes}
 						toggleMenu={toggleMenu}
 						currentCatalog={currentCatalog}
-						updateCurrentPalette={updateCurrentPalette}
 					/>
 				);
 			})}

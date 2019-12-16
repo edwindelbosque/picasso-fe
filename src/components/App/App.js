@@ -1,148 +1,121 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import GetRandomColors from '../RandomColor/RandomColor.js';
 import { delettePalette, getPalettes, getCatalogs } from '../../util/apiCalls';
 
-class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			arrayOfColors: [],
-			userName: '',
-			currentCatalog: 0,
-			currentPalette: 0,
-			userId: 0,
-			catalogs: [],
-			palettes: [],
-			showSaveMenu: false,
-			triggerMenu: false
-		};
-	}
+const App = () => {
+	const [arrayOfColors, updateColors] = useState([]);
+	const [userName, updateUserName] = useState('');
+	const [currentCatalog, updateCurrentCatalog] = useState(0);
+	const [currentPalette, updateCurrentPalette] = useState(0);
+	const [userId, updateUserId] = useState(0);
+	const [catalogss, updateCatalogs] = useState([]);
+	const [palettes, updatePalettes] = useState([]);
+	const [showSaveMenu, toggleSaveMenu] = useState(false);
+	const [triggerMenu, toggleTriggerMenu] = useState(false);
 
-	updateArrayOfColors = colors => {
-		this.setState({ arrayOfColors: colors });
+	const updateArrayOfColors = colors => {
+		updateColors(colors);
 	};
 
-	openMenu = () => {
-		this.setState({ triggerMenu: true });
+	const openMenu = () => {
+		toggleTriggerMenu(true);
 	};
 
-	closeMenu = () => {
-		this.setState({ triggerMenu: false });
+	const closeMenu = () => {
+		toggleTriggerMenu(false);
 	};
 
-	updateCurrentPalette = id => {
-		this.setState({ currentPalette: id });
+	const closeSaveMenu = () => {
+		toggleSaveMenu(false);
 	};
 
-	closeSaveMenu = () => {
-		this.setState({
-			showSaveMenu: false
-		});
+	const openSaveMenu = () => {
+		toggleSaveMenu(true);
 	};
 
-	openSaveMenu = () => {
-		this.setState({
-			showSaveMenu: true
-		});
+	const wipeUserData = () => {
+		updateColors([]);
+		updateUserName('');
+		updateCurrentCatalog(0);
+		updateCurrentPalette(0);
+		updateUserId(0);
+		updateCatalogs([]);
+		updatePalettes([]);
+		toggleSaveMenu(false);
 	};
 
-	wipeUserData = () => {
-		this.setState({
-			arrayOfColors: [],
-			userName: '',
-			currentCatalog: 0,
-			currentPalette: 0,
-			userId: 0,
-			catalogs: [],
-			palettes: [],
-			showSaveMenu: false
-		});
-	};
-
-	deletePalette = async palette => {
-		const { id } = palette;
+	const deletePalette = async palette => {
 		await delettePalette(palette);
-		this.setState({
-			palette: this.state.palettes.filter(palette => palette.id !== id)
-		});
 	};
 
-	updateCurrentUser = (user, catalogs, palettes) => {
+	const updateCurrentUser = (user, catalogs, palettes) => {
 		const { firstName, id } = user;
-		this.setState({
-			userName: firstName,
-			userId: id,
-			catalogs: catalogs,
-			palettes
-		});
+		updateUserName(firstName);
+		updateUserId(id);
+		updateCatalogs(catalogs);
+		updatePalettes(palettes);
 	};
 
-	updateCurrentCatalog = id => {
-		this.setState({ currentCatalog: id });
+	const resetCurrentCatalog = () => {
+		updateCurrentCatalog(0);
 	};
 
-	resetCurrentCatalog = () => {
-		this.setState({ currentCatalog: 0 });
-	};
-
-	fetchPalettes = async (catalogs = this.state.catalogs) => {
-		if (this.state.userId && this.state.catalogs.length) {
+	const fetchPalettes = async (catalogs = catalogss) => {
+		if (userId && catalogs.length) {
 			const allPalettes = catalogs.map(async catalog => {
 				return await getPalettes(catalog);
 			});
 			const allResolvedPalettes = await Promise.all(allPalettes);
 
-			this.setState({ palettes: allResolvedPalettes.flat() });
+			updatePalettes(allResolvedPalettes.flat());
 		}
 	};
 
-	fetchCatalogs = async (id = { id: this.state.userId }) => {
+	const fetchCatalogs = async (id = { id: userId }) => {
 		const catalogs = await getCatalogs({ id });
-		this.setState({ catalogs: catalogs });
+		updateCatalogs(catalogs);
 	};
 
-	render() {
-		return (
-			<div className='App'>
-				<GetRandomColors
-					arrayOfColors={this.state.arrayOfColors}
-					updateArrayOfColors={this.updateArrayOfColors}
-					userID={this.state.userId}
-					currentCatalog={this.state.currentCatalog}
-					closeSaveMenu={this.closeSaveMenu}
-					openSaveMenu={this.openSaveMenu}
-					showSaveMenu={this.state.showSaveMenu}
-					catalogs={this.state.catalogs}
-					resetCurrentCatalog={this.resetCurrentCatalog}
-					fetchPalettes={this.fetchPalettes}
-					fetchCatalogs={this.fetchCatalogs}
-					openMenu={this.openMenu}
-				/>
-				<NavBar
-					userName={this.state.userName}
-					catalogs={this.state.catalogs}
-					updateCurrentUser={this.updateCurrentUser}
-					updateCurrentCatalog={this.updateCurrentCatalog}
-					wipeUserData={this.wipeUserData}
-					updateCurrentPalette={this.updateCurrentPalette}
-					deletePalette={this.deletePalette}
-					palettes={this.state.palettes}
-					resetCurrentCatalog={this.resetCurrentCatalog}
-					fetchPalettes={this.fetchPalettes}
-					fetchCatalogs={this.fetchCatalogs}
-					currentCatalog={this.state.currentCatalog}
-					triggerMenu={this.state.triggerMenu}
-					closeMenu={this.closeMenu}
-					updateArrayOfColors={this.updateArrayOfColors}
-					arrayOfColors={this.state.arrayOfColors}
-				/>
-				<Footer />
-			</div>
-		);
-	}
-}
+	return (
+		<div className='App'>
+			<GetRandomColors
+				arrayOfColors={arrayOfColors}
+				updateArrayOfColors={updateArrayOfColors}
+				userID={userId}
+				currentCatalog={currentCatalog}
+				closeSaveMenu={closeSaveMenu}
+				openSaveMenu={openSaveMenu}
+				showSaveMenu={showSaveMenu}
+				catalogs={catalogss}
+				resetCurrentCatalog={resetCurrentCatalog}
+				fetchPalettes={fetchPalettes}
+				fetchCatalogs={fetchCatalogs}
+				openMenu={openMenu}
+			/>
+			<NavBar
+				userName={userName}
+				catalogs={catalogss}
+				updateCurrentUser={updateCurrentUser}
+				updateCurrentCatalog={updateCurrentCatalog}
+				wipeUserData={wipeUserData}
+				updateCurrentPalette={updateCurrentPalette}
+				deletePalette={deletePalette}
+				palettes={palettes}
+				resetCurrentCatalog={resetCurrentCatalog}
+				fetchPalettes={fetchPalettes}
+				fetchCatalogs={fetchCatalogs}
+				currentCatalog={currentCatalog}
+				triggerMenu={triggerMenu}
+				closeMenu={closeMenu}
+				updateArrayOfColors={updateArrayOfColors}
+				arrayOfColors={arrayOfColors}
+			/>
+			<Footer />
+		</div>
+	);
+};
 
 export default App;

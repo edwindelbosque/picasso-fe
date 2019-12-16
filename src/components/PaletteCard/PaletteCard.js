@@ -9,8 +9,7 @@ const PaletteCard = ({
 	deletePalette,
 	fetchPalettes,
 	toggleMenu,
-	currentCatalog,
-	updateCurrentPalette
+	currentCatalog
 }) => {
 	const handleDelete = async () => {
 		await deletePalette(palette);
@@ -37,7 +36,6 @@ const PaletteCard = ({
 						to={`/catalogs/${palette.catalog_id}/palettes/${palette.id}`}
 						onClick={() => {
 							toggleMenu(false);
-							updateCurrentPalette(palette.id);
 						}}>
 						<h4>{palette.paletteName}</h4>
 						<div className='colors'>{colorForPalette}</div>

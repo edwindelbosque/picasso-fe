@@ -70,9 +70,10 @@ const NavBar = ({
 								if (menuIsActive) {
 									resetCurrentCatalog();
 									closeMenu();
+								} else {
+									updateCurrentCatalog(catalogs.length && catalogs[0].id);
 								}
 								toggleMenu(!menuIsActive);
-								// fetchPalettes();
 							}}>
 							<div className='bar-1'></div>
 							<div className='bar-2'></div>
