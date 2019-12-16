@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 
-const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs }) => {
-	const [emailValue, handleEmailChange] = useState('');
-	const [passwordValue, handlePasswordChange] = useState('');
-	const [loginStatus, handleLoginAttempt] = useState('');
+const LoginForm = ({ updateCurrentUser, toggleMenu, fetchCatalogs, updateArrayOfColors }) => {
+const [emailValue, handleEmailChange] = useState('');
+const [passwordValue, handlePasswordChange] = useState('');
+const [loginStatus, handleLoginAttempt] = useState('');
 
 	const fetchPalettes = async (loginResponse, catalogsForFetch) => {
 		if (loginResponse.id && catalogsForFetch.length) {
