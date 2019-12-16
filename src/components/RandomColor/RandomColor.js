@@ -44,7 +44,7 @@ const GetRandomColors = ({
 				user_id: userID,
 				colorsToString: arrayOfColors
 			};
-			createPalette(newPalette);
+			await createPalette(newPalette);
 			handlePaletteNameValueChange('');
 		}
 	};
@@ -56,7 +56,7 @@ const GetRandomColors = ({
 			user_id: userID,
 			colorsToString: arrayOfColors
 		};
-		createPalette(newPalette);
+		await createPalette(newPalette);
 		handlePaletteNameValueChange('');
 		resetCurrentCatalog();
 	};
@@ -116,7 +116,6 @@ const GetRandomColors = ({
 				userID={userID}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
-
 			/>
 		</>
 	);

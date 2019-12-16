@@ -15,13 +15,7 @@ const SaveMenu = ({
 		if (catalogs !== undefined) {
 			return catalogs.map(catalog => {
 				return (
-					<li
-						onClick={() => {
-							savePalette(catalog.id);
-							setTimeout(() => fetchPalettes(), 1000);
-						}}>
-						{catalog.catalogName}
-					</li>
+					<li onClick={() => savePalette(catalog.id)}>{catalog.catalogName}</li>
 				);
 			});
 		}
@@ -29,8 +23,9 @@ const SaveMenu = ({
 
 	const [catalogName, updateInput] = useState('');
 
-	const savePalette = id => {
-		postPalette(id);
+	const savePalette = async id => {
+		await postPalette(id);
+		await fetchPalettes();
 		closeSaveMenu();
 	};
 

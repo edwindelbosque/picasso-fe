@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import { createUser } from '../../util/apiCalls.js';
 import './UserSignupForm.scss';
-import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js'
+import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
 
-const UserSignupForm = ({ updateCurrentUser, toggleMenu, updateArrayOfColors, arrayOfColors, fetchCatalogs, fetchPalettes}) => {
-const [firstNameValue, handleFirstNameChange] = useState('');
-const [lastNameValue, handleLastNameChange] = useState('');
-const [emailValue, handleEmailChange] = useState('');
-const [passwordValue, handlePasswordChange] = useState('');
-const [userSignupStatus, handleSignupAttempt] = useState('');
+const UserSignupForm = ({
+	updateCurrentUser,
+	toggleMenu,
+	updateArrayOfColors,
+	arrayOfColors,
+	fetchCatalogs,
+	fetchPalettes
+}) => {
+	const [firstNameValue, handleFirstNameChange] = useState('');
+	const [lastNameValue, handleLastNameChange] = useState('');
+	const [emailValue, handleEmailChange] = useState('');
+	const [passwordValue, handlePasswordChange] = useState('');
+	const [userSignupStatus, handleSignupAttempt] = useState('');
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -23,7 +30,12 @@ const [userSignupStatus, handleSignupAttempt] = useState('');
 			handleSignupAttempt(accountCreationResponse.error);
 		} else {
 			updateCurrentUser(accountCreationResponse);
-			newUserCatalogAndPalettes(updateArrayOfColors, accountCreationResponse, fetchCatalogs, fetchPalettes)
+			newUserCatalogAndPalettes(
+				updateArrayOfColors,
+				accountCreationResponse,
+				fetchCatalogs,
+				fetchPalettes
+			);
 			resetInputs();
 			toggleMenu(false);
 		}
@@ -59,7 +71,7 @@ const [userSignupStatus, handleSignupAttempt] = useState('');
 	const isEnabled = canBeSubmitted();
 
 	return (
-		<form className='UserSignupForm'>
+		<form className='UserSignupForm' onSubmit={e => handleSubmit(e)}>
 			<label htmlFor='firstName' className='form-login email-login__label'>
 				First Name
 			</label>
@@ -108,13 +120,13 @@ const [userSignupStatus, handleSignupAttempt] = useState('');
 				onChange={e => handlePasswordChange(e.target.value)}
 				value={passwordValue}
 			/>
-			<div
+			<button
 				type='button'
 				className='loginFormBtn'
 				disabled={!isEnabled}
 				onClick={e => handleSubmit(e)}>
 				Sign Up
-			</div>
+			</button>
 		</form>
 	);
 };
