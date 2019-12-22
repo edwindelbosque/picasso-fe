@@ -14,7 +14,6 @@ const PaletteCard = ({
 	const handleDelete = async () => {
 		await deletePalette(palette);
 		await fetchPalettes();
-		toggleMenu(true);
 	};
 
 	if (palette.id) {

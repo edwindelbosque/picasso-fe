@@ -8,132 +8,216 @@ exports[`Catalogs App should match snapshot 1`] = `
     Catalogs
   </h2>
   <ul>
-    <Fade
-      bottom={true}
-      delay={200}
-      duration={400}
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="1"
+      onClick={[Function]}
+      to="/catalogs/1"
     >
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      <div
         key="1"
-        onClick={[Function]}
-        to="/catalogs/1"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Personal
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="2"
+      onClick={[Function]}
+      to="/catalogs/2"
+    >
+      <div
         key="2"
-        onClick={[Function]}
-        to="/catalogs/2"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Favorites
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="3"
+      onClick={[Function]}
+      to="/catalogs/3"
+    >
+      <div
         key="3"
-        onClick={[Function]}
-        to="/catalogs/3"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Mood
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="4"
+      onClick={[Function]}
+      to="/catalogs/4"
+    >
+      <div
         key="4"
-        onClick={[Function]}
-        to="/catalogs/4"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Work
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="5"
+      onClick={[Function]}
+      to="/catalogs/5"
+    >
+      <div
         key="5"
-        onClick={[Function]}
-        to="/catalogs/5"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Favorites
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="6"
+      onClick={[Function]}
+      to="/catalogs/6"
+    >
+      <div
         key="6"
-        onClick={[Function]}
-        to="/catalogs/6"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Mood
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="7"
+      onClick={[Function]}
+      to="/catalogs/7"
+    >
+      <div
         key="7"
-        onClick={[Function]}
-        to="/catalogs/7"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Work
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="8"
+      onClick={[Function]}
+      to="/catalogs/8"
+    >
+      <div
         key="8"
-        onClick={[Function]}
-        to="/catalogs/8"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Favorites
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="9"
+      onClick={[Function]}
+      to="/catalogs/9"
+    >
+      <div
         key="9"
-        onClick={[Function]}
-        to="/catalogs/9"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Mood
         </li>
-      </NavLink>
-      <NavLink
-        activeClassName="active-catalog"
-        exact={true}
+      </div>
+    </NavLink>
+    <NavLink
+      activeClassName="active-catalog"
+      exact={true}
+      key="10"
+      onClick={[Function]}
+      to="/catalogs/10"
+    >
+      <div
         key="10"
-        onClick={[Function]}
-        to="/catalogs/10"
       >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
          
         <li>
           Work
         </li>
-      </NavLink>
-    </Fade>
+      </div>
+    </NavLink>
   </ul>
 </section>
 `;

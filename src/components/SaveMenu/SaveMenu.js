@@ -4,7 +4,7 @@ import { saveCatalog } from '../../util/apiCalls';
 
 const SaveMenu = ({
 	catalogs,
-	closeSaveMenu,
+	toggleSaveMenu,
 	showSaveMenu,
 	postPalette,
 	userID,
@@ -26,17 +26,17 @@ const SaveMenu = ({
 	const savePalette = async id => {
 		await postPalette(id);
 		await fetchPalettes();
-		closeSaveMenu();
+		toggleSaveMenu(false);
 	};
 
 	const handleClick = async () => {
 		const newCatalog = { user_id: userID, catalogName: catalogName };
 		const response = await saveCatalog(newCatalog);
 		const data = await response.json();
-		await fetchCatalogs(userID);
+		await fetchCatalogs({ id: userID });
 		await postPalette(data.id);
 		await fetchPalettes();
-		closeSaveMenu();
+		toggleSaveMenu(false);
 	};
 
 	return (
