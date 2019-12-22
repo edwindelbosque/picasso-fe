@@ -1,7 +1,7 @@
 import { createPalette, saveCatalog } from './apiCalls.js';
 
 export const newUserCatalogAndPalettes = async (
-	updateArrayOfColors,
+	updateColors,
 	newUser,
 	fetchCatalogs,
 	fetchPalettes
@@ -356,7 +356,7 @@ export const newUserCatalogAndPalettes = async (
 
 	const response = await saveCatalog({
 		user_id: newUser.id,
-		catalogName: 'First Catalog'
+		catalogName: 'Catalog No. 1'
 	});
 
 	const catalog1 = await response.json();
@@ -364,14 +364,12 @@ export const newUserCatalogAndPalettes = async (
 	await createPalette({
 		catalog_id: catalog1.id,
 		user_id: newUser.id,
-		paletteName: 'First Palette',
+		paletteName: 'Palette No. 1',
 		colorsToString: arrayOfColors
 	});
 
-	await fetchCatalogs(newUser.id);
-	const catalogs = [
-		{ id: catalog1.id, user_id: newUser.id }
-	];
+	await fetchCatalogs({ id: newUser.id });
+	const catalogs = [{ id: catalog1.id, user_id: newUser.id }];
 
 	return await fetchPalettes(catalogs);
 };

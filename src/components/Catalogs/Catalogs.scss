@@ -2,9 +2,42 @@
 	overflow: scroll;
 	direction: rtl;
 	padding-top: 100px;
-	width: 500px;
+	width: 600px;
 	height: 99%;
 	padding-right: 30px;
+
+	h2 {
+		margin-right: 80px;
+	}
+
+	div {
+		display: flex;
+	}
+
+	button {
+		width: 22px;
+		height: 22px;
+		margin-top: 38px;
+		margin-left: 40px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: bold;
+		border-radius: 1px;
+		z-index: 10000;
+		transition: 0s;
+		visibility: hidden;
+		line-height: 2px;
+		text-align: center;
+		border-color: transparent;
+		transition: 0.05s;
+
+		&:hover {
+			color: rgb(255, 255, 255);
+			background: rgb(233, 53, 53);
+			border-color: white;
+		}
+	}
 
 	a {
 		text-decoration: none;
@@ -15,6 +48,10 @@
 		color: rgb(232, 242, 255);
 		li {
 			transform: translate(25px);
+		}
+
+		button {
+			visibility: visible;
 		}
 	}
 

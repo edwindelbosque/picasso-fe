@@ -1,10 +1,20 @@
 import React from 'react';
 import './Catalogs.scss';
 import { NavLink } from 'react-router-dom';
-// import { getPalettes } from '../../util/apiCalls';
 
-const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
+const Catalogs = ({
+	catalogs,
+	menuIsActive,
+	updateCurrentCatalog,
+	removeCatalog,
+	fetchCatalogs
+}) => {
 	let allCatalogs;
+
+	const handleDelete = async catalog => {
+		await removeCatalog(catalog);
+		await fetchCatalogs();
+	};
 
 	if (catalogs.length) {
 		allCatalogs = catalogs.map(catalog => {
@@ -16,8 +26,10 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 					exact
 					to={`/catalogs/${id}`}
 					activeClassName='active-catalog'>
-					{' '}
-					<li>{catalogName}</li>
+					<div key={id}>
+						<button onClick={() => handleDelete(catalog)}>x</button>{' '}
+						<li>{catalogName}</li>
+					</div>
 				</NavLink>
 			);
 		});
@@ -26,9 +38,7 @@ const Catalogs = ({ catalogs, menuIsActive, updateCurrentCatalog }) => {
 	return (
 		<section className='Catalogs'>
 			<h2>Catalogs</h2>
-				<ul>
-					{allCatalogs}
-				</ul>
+			<ul>{allCatalogs}</ul>
 		</section>
 	);
 };

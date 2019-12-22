@@ -19,13 +19,13 @@ const NavBar = ({
 	updateUserId,
 	palettes,
 	currentCatalog,
-	resetCurrentCatalog,
 	fetchPalettes,
-	closeMenu,
+	toggleTriggerMenu,
 	triggerMenu,
-	updateArrayOfColors,
+	updateColors,
 	arrayOfColors,
-	fetchCatalogs
+	fetchCatalogs,
+	removeCatalog
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	const isSignedIn = userName;
@@ -68,8 +68,8 @@ const NavBar = ({
 								'hamburger-menu-active'}`}
 							onClick={() => {
 								if (menuIsActive) {
-									resetCurrentCatalog();
-									closeMenu();
+									updateCurrentCatalog(0);
+									toggleTriggerMenu(false);
 								} else {
 									updateCurrentCatalog(catalogs.length && catalogs[0].id);
 									userName && fetchPalettes();
@@ -115,7 +115,7 @@ const NavBar = ({
 							<UserSignupForm
 								updateCurrentUser={updateCurrentUser}
 								toggleMenu={toggleMenu}
-								updateArrayOfColors={updateArrayOfColors}
+								updateColors={updateColors}
 								arrayOfColors={arrayOfColors}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
@@ -140,6 +140,8 @@ const NavBar = ({
 							menuIsActive={menuIsActive}
 							catalogs={catalogs}
 							updateCurrentCatalog={updateCurrentCatalog}
+							removeCatalog={removeCatalog}
+							fetchCatalogs={fetchCatalogs}
 						/>
 						<Link to='/create'>
 							<p className='logout-text'>Logout</p>

@@ -6,36 +6,30 @@ import SaveMenu from '../SaveMenu/SaveMenu';
 import { Link } from 'react-router-dom';
 const GetRandomColors = ({
 	arrayOfColors,
-	updateArrayOfColors,
+	updateColors,
 	userID,
 	currentCatalog,
-	openSaveMenu,
 	catalogs,
 	showSaveMenu,
-	closeSaveMenu,
-	resetCurrentCatalog,
+	toggleSaveMenu,
+	updateCurrentCatalog,
 	fetchPalettes,
 	fetchCatalogs,
-	openMenu
+	toggleTriggerMenu
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
-	// const [showCatalogs, handleShowCatalogsChange] = useState(false);
+
 	const handleGenerateColors = async () => {
-		getFiveColors(updateArrayOfColors);
-		checkToShowCatalog();
+		getFiveColors(updateColors);
 	};
 
 	useEffect(() => {
 		handleGenerateColors();
 	}, []);
 
-	const checkToShowCatalog = () => {
-		// handleShowCatalogsChange(currentCatalog ? false : true);
-	};
 	const handleSavePalette = async event => {
 		if (userID && currentCatalog === 0) {
-			// handleShowCatalogsChange(true);
-			openSaveMenu();
+			toggleSaveMenu(true);
 		} else {
 			const newPalette = {
 				paletteName: paletteNameValue,
@@ -57,7 +51,7 @@ const GetRandomColors = ({
 		};
 		await createPalette(newPalette);
 		handlePaletteNameValueChange('');
-		resetCurrentCatalog();
+		updateCurrentCatalog(0);
 	};
 
 	const canBeSubmitted = () => {
@@ -85,7 +79,7 @@ const GetRandomColors = ({
 								type='button'
 								className='SavePaletteBtn'
 								disabled={!isEnabled}
-								onClick={() => openMenu()}>
+								onClick={() => toggleTriggerMenu(true)}>
 								Save
 							</button>
 						</Link>
@@ -109,7 +103,7 @@ const GetRandomColors = ({
 			</section>
 			<SaveMenu
 				catalogs={catalogs}
-				closeSaveMenu={closeSaveMenu}
+				toggleSaveMenu={toggleSaveMenu}
 				showSaveMenu={showSaveMenu}
 				postPalette={postPalette}
 				userID={userID}

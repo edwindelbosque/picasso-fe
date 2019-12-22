@@ -6,7 +6,7 @@ import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
 const UserSignupForm = ({
 	updateCurrentUser,
 	toggleMenu,
-	updateArrayOfColors,
+	updateColors,
 	arrayOfColors,
 	fetchCatalogs,
 	fetchPalettes,
@@ -16,7 +16,7 @@ const UserSignupForm = ({
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
-	const [userSignupStatus, handleSignupAttempt] = useState('');
+	// const [userSignupStatus, handleSignupAttempt] = useState('');
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -27,14 +27,12 @@ const UserSignupForm = ({
 			password: passwordValue
 		};
 		const accountCreationResponse = await createUser(newUser);
-
-		console.log('account', accountCreationResponse);
 		if (accountCreationResponse.error) {
-			handleSignupAttempt(accountCreationResponse.error);
+			// handleSignupAttempt(accountCreationResponse.error);
 		} else {
 			await updateCurrentUser(accountCreationResponse);
 			newUserCatalogAndPalettes(
-				updateArrayOfColors,
+				updateColors,
 				accountCreationResponse,
 				fetchCatalogs,
 				fetchPalettes

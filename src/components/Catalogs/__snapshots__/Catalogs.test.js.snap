@@ -15,10 +15,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/1"
     >
-       
-      <li>
-        Personal
-      </li>
+      <div
+        key="1"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Personal
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -27,10 +36,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/2"
     >
-       
-      <li>
-        Favorites
-      </li>
+      <div
+        key="2"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Favorites
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -39,10 +57,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/3"
     >
-       
-      <li>
-        Mood
-      </li>
+      <div
+        key="3"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Mood
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -51,10 +78,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/4"
     >
-       
-      <li>
-        Work
-      </li>
+      <div
+        key="4"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Work
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -63,10 +99,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/5"
     >
-       
-      <li>
-        Favorites
-      </li>
+      <div
+        key="5"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Favorites
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -75,10 +120,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/6"
     >
-       
-      <li>
-        Mood
-      </li>
+      <div
+        key="6"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Mood
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -87,10 +141,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/7"
     >
-       
-      <li>
-        Work
-      </li>
+      <div
+        key="7"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Work
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -99,10 +162,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/8"
     >
-       
-      <li>
-        Favorites
-      </li>
+      <div
+        key="8"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Favorites
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -111,10 +183,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/9"
     >
-       
-      <li>
-        Mood
-      </li>
+      <div
+        key="9"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Mood
+        </li>
+      </div>
     </NavLink>
     <NavLink
       activeClassName="active-catalog"
@@ -123,10 +204,19 @@ exports[`Catalogs App should match snapshot 1`] = `
       onClick={[Function]}
       to="/catalogs/10"
     >
-       
-      <li>
-        Work
-      </li>
+      <div
+        key="10"
+      >
+        <button
+          onClick={[Function]}
+        >
+          x
+        </button>
+         
+        <li>
+          Work
+        </li>
+      </div>
     </NavLink>
   </ul>
 </section>

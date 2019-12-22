@@ -133,6 +133,20 @@ export const delettePalette = async paletteInfo => {
 	return response.json();
 };
 
+export const deleteCatalog = async catalogInfo => {
+	const { user_id, id } = catalogInfo;
+	const url = `https://picasso-database.herokuapp.com/api/v1/users/${user_id}/catalogs/${id}`;
+	const options = {
+		method: 'DELETE'
+	};
+
+	const response = await fetch(url, options);
+	if (!response.ok) {
+		throw new Error('Catalog could not be removed at this time.');
+	}
+	return response.json();
+};
+
 export const userLogin = async userLogin => {
 	const url = 'https://picasso-database.herokuapp.com/api/v1/login';
 	const options = {
@@ -159,7 +173,7 @@ export const colorFormats = async rgbColors => {
 };
 
 export const getFiveColors = (
-	updateArrayOfColors,
+	updateColors,
 	colorsRequest,
 	model = 'default'
 ) => {
@@ -174,7 +188,7 @@ export const getFiveColors = (
 	http.onreadystatechange = async () => {
 		if (http.readyState === 4 && http.status === 200) {
 			var palettes = await JSON.parse(http.responseText).result;
-			cleanColorName(updateArrayOfColors, palettes);
+			cleanColorName(updateColors, palettes);
 		}
 	};
 	http.open('POST', url, true);

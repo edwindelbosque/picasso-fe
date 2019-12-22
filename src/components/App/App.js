@@ -3,44 +3,27 @@ import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import GetRandomColors from '../RandomColor/RandomColor.js';
-import { delettePalette, getPalettes, getCatalogs } from '../../util/apiCalls';
+import {
+	deleteCatalog,
+	delettePalette,
+	getPalettes,
+	getCatalogs
+} from '../../util/apiCalls';
 
 const App = () => {
 	const [arrayOfColors, updateColors] = useState([]);
 	const [userName, updateUserName] = useState('');
 	const [currentCatalog, updateCurrentCatalog] = useState(0);
-	const [currentPalette, updateCurrentPalette] = useState(0);
 	const [userId, updateUserId] = useState(0);
 	const [catalogs, updateCatalogs] = useState([]);
 	const [palettes, updatePalettes] = useState([]);
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
 
-	const updateArrayOfColors = colors => {
-		updateColors(colors);
-	};
-
-	const openMenu = () => {
-		toggleTriggerMenu(true);
-	};
-
-	const closeMenu = () => {
-		toggleTriggerMenu(false);
-	};
-
-	const closeSaveMenu = () => {
-		toggleSaveMenu(false);
-	};
-
-	const openSaveMenu = () => {
-		toggleSaveMenu(true);
-	};
-
 	const wipeUserData = () => {
 		updateColors([]);
 		updateUserName('');
 		updateCurrentCatalog(0);
-		updateCurrentPalette(0);
 		updateUserId(0);
 		updateCatalogs([]);
 		updatePalettes([]);
@@ -51,16 +34,16 @@ const App = () => {
 		await delettePalette(palette);
 	};
 
+	const removeCatalog = async catalog => {
+		await deleteCatalog(catalog);
+	};
+
 	const updateCurrentUser = (user, catalogs, palettes) => {
 		const { firstName, id } = user;
 		updateUserName(firstName);
 		updateUserId(id);
 		updateCatalogs(catalogs);
 		updatePalettes(palettes);
-	};
-
-	const resetCurrentCatalog = () => {
-		updateCurrentCatalog(0);
 	};
 
 	const fetchPalettes = async (cats = catalogs) => {
@@ -75,7 +58,7 @@ const App = () => {
 	};
 
 	const fetchCatalogs = async (id = { id: userId }) => {
-		const newCatalogs = await getCatalogs({ id });
+		const newCatalogs = await getCatalogs(id);
 		updateCatalogs(newCatalogs);
 	};
 
@@ -83,17 +66,16 @@ const App = () => {
 		<div className='App'>
 			<GetRandomColors
 				arrayOfColors={arrayOfColors}
-				updateArrayOfColors={updateArrayOfColors}
+				updateColors={updateColors}
 				userID={userId}
 				currentCatalog={currentCatalog}
-				closeSaveMenu={closeSaveMenu}
-				openSaveMenu={openSaveMenu}
+				toggleSaveMenu={toggleSaveMenu}
 				showSaveMenu={showSaveMenu}
 				catalogs={catalogs}
-				resetCurrentCatalog={resetCurrentCatalog}
+				updateCurrentCatalog={updateCurrentCatalog}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
-				openMenu={openMenu}
+				toggleTriggerMenu={toggleTriggerMenu}
 			/>
 			<NavBar
 				userName={userName}
@@ -101,17 +83,16 @@ const App = () => {
 				updateCurrentUser={updateCurrentUser}
 				updateCurrentCatalog={updateCurrentCatalog}
 				wipeUserData={wipeUserData}
-				updateCurrentPalette={updateCurrentPalette}
 				deletePalette={deletePalette}
 				palettes={palettes}
-				resetCurrentCatalog={resetCurrentCatalog}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
 				currentCatalog={currentCatalog}
 				triggerMenu={triggerMenu}
-				closeMenu={closeMenu}
-				updateArrayOfColors={updateArrayOfColors}
+				toggleTriggerMenu={toggleTriggerMenu}
+				updateColors={updateColors}
 				arrayOfColors={arrayOfColors}
+				removeCatalog={removeCatalog}
 			/>
 			<Footer />
 		</div>
