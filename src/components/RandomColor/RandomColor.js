@@ -12,7 +12,7 @@ const GetRandomColors = ({
 	catalogs,
 	showSaveMenu,
 	toggleSaveMenu,
-	resetCurrentCatalog,
+	updateCurrentCatalog,
 	fetchPalettes,
 	fetchCatalogs,
 	toggleTriggerMenu
@@ -51,7 +51,7 @@ const GetRandomColors = ({
 		};
 		await createPalette(newPalette);
 		handlePaletteNameValueChange('');
-		resetCurrentCatalog();
+		updateCurrentCatalog(0);
 	};
 
 	const canBeSubmitted = () => {

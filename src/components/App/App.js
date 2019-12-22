@@ -46,10 +46,6 @@ const App = () => {
 		updatePalettes(palettes);
 	};
 
-	const resetCurrentCatalog = () => {
-		updateCurrentCatalog(0);
-	};
-
 	const fetchPalettes = async (cats = catalogs) => {
 		if (cats.length) {
 			const allPalettes = catalogs.map(async catalog => {
@@ -62,11 +58,8 @@ const App = () => {
 	};
 
 	const fetchCatalogs = async (id = { id: userId }) => {
-		console.log('id', id);
 		const newCatalogs = await getCatalogs(id);
-		console.log('newCatalogs', newCatalogs);
 		updateCatalogs(newCatalogs);
-		console.log('updateCats()', updateCatalogs(newCatalogs));
 	};
 
 	return (
@@ -79,7 +72,7 @@ const App = () => {
 				toggleSaveMenu={toggleSaveMenu}
 				showSaveMenu={showSaveMenu}
 				catalogs={catalogs}
-				resetCurrentCatalog={resetCurrentCatalog}
+				updateCurrentCatalog={updateCurrentCatalog}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
 				toggleTriggerMenu={toggleTriggerMenu}
@@ -92,7 +85,6 @@ const App = () => {
 				wipeUserData={wipeUserData}
 				deletePalette={deletePalette}
 				palettes={palettes}
-				resetCurrentCatalog={resetCurrentCatalog}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
 				currentCatalog={currentCatalog}

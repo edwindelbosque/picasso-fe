@@ -19,7 +19,6 @@ const NavBar = ({
 	updateUserId,
 	palettes,
 	currentCatalog,
-	resetCurrentCatalog,
 	fetchPalettes,
 	toggleTriggerMenu,
 	triggerMenu,
@@ -69,7 +68,7 @@ const NavBar = ({
 								'hamburger-menu-active'}`}
 							onClick={() => {
 								if (menuIsActive) {
-									resetCurrentCatalog();
+									updateCurrentCatalog(0);
 									toggleTriggerMenu(false);
 								} else {
 									updateCurrentCatalog(catalogs.length && catalogs[0].id);
