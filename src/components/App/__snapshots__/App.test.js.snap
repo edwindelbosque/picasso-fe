@@ -10,11 +10,11 @@ exports[`App App should match snapshot 1`] = `
     currentCatalog={0}
     fetchCatalogs={[Function]}
     fetchPalettes={[Function]}
-    resetCurrentCatalog={[Function]}
     showSaveMenu={false}
     toggleSaveMenu={[Function]}
     toggleTriggerMenu={[Function]}
     updateColors={[Function]}
+    updateCurrentCatalog={[Function]}
     userID={0}
   />
   <NavBar
@@ -26,7 +26,6 @@ exports[`App App should match snapshot 1`] = `
     fetchPalettes={[Function]}
     palettes={Array []}
     removeCatalog={[Function]}
-    resetCurrentCatalog={[Function]}
     toggleTriggerMenu={[Function]}
     triggerMenu={false}
     updateColors={[Function]}
