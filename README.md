@@ -1,5 +1,7 @@
 # Picasso | Color Palette Picker
 
+[![Build Status](https://travis-ci.org/edwindelbosque/picasso-fe.svg?branch=master)](https://travis-ci.org/edwindelbosque/picasso-fe)
+
 ## Summary
 
 Create your own color palettes in this smart color palette generator that gives you colors that make sense.
