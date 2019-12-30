@@ -1,31 +1,25 @@
-# Picasso | Color Palette Picker
+# Picasso | Smart Color Palette Picker
 
 [![Build Status](https://travis-ci.org/edwindelbosque/picasso-fe.svg?branch=master)](https://travis-ci.org/edwindelbosque/picasso-fe)
-
 ## Summary
 
 Create your own color palettes in this smart color palette generator that gives you colors that make sense.
 
-## Check out our live app in Heroku [here](http://colorsbypicasso.herokuapp.com/)!
+### Visit our app deployed in Heroku [here](http://colorsbypicasso.herokuapp.com/)!
+### You can find our back-end repo [here](https://github.com/matthewdshepherd/picasso-be).
 
 ## Developers
 - [matthewdshepherd](https://github.com/matthewdshepherd)
 - [edwindelbosque](https://github.com/edwindelbosque)
 
-## How to install into your computer
+## Screenshots
 
-1. Fork and clone down this repository.
-2. In your Terminal, access the directory of this repository.
-3. Run `npm install` to install the webpack dependencies.
-4. Once it has finished installing, run `npm start`.
-5. Follow the instructions [here](https://github.com/turingschool-examples/favorites-tracker-api) to get the database up and running.
-6. Check out your broswer.
+<img width="1440" src="https://user-images.githubusercontent.com/48811985/71566134-d553c580-2aac-11ea-9aec-4d5b2cf232f8.png">
 
-## Screenshot
+![](https://user-images.githubusercontent.com/48811985/71566133-d553c580-2aac-11ea-9da8-95da35cb882b.jpg)
 
-<img width="1440" alt="Screen Shot 2019-12-12 at 9 32 46 AM" src="https://user-images.githubusercontent.com/48811985/70730847-9d533100-1cfd-11ea-95f1-5a53bce31ccf.png">
-<img width="1440" alt="Screen Shot 2019-12-12 at 9 32 33 AM" src="https://user-images.githubusercontent.com/48811985/70730859-a217e500-1cfd-11ea-9935-62e1d3aa2597.png">
-<img width="1440" alt="Screen Shot 2019-12-12 at 9 33 17 AM" src="https://user-images.githubusercontent.com/48811985/70730866-a6dc9900-1cfd-11ea-91fb-bec1a6dd8d22.png">
+<img width="1440" src="https://user-images.githubusercontent.com/48811985/71566135-d5ec5c00-2aac-11ea-96ff-af76f05bfe48.png">
+
 
 ## Kanban Board Workflow
 
@@ -57,4 +51,11 @@ Learning goals were for the most part for our backend [here](https://github.com/
 - Travis CI
 - Git Hooks
 
-## You can find our backend [here](https://github.com/matthewdshepherd/picasso-be)
+## How to install into your computer
+
+1. Fork and clone down this repository.
+2. In your Terminal, access the directory of this repository.
+3. Run `npm install` to install the webpack dependencies.
+4. Once it has finished installing, run `npm start`.
+5. Follow the instructions [here](https://github.com/turingschool-examples/favorites-tracker-api) to get the database up and running.
+6. Check out your broswer.
