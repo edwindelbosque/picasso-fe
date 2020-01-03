@@ -3,10 +3,16 @@
 	padding: 0;
 }
 
+body {
+	padding: 0;
+}
+
 .random-generator__section {
-	width: 800px;
 	margin: auto;
 	margin-top: 180px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	label {
 		font-family: 'Roboto';
@@ -42,6 +48,7 @@
 		margin-left: 10px;
 		width: 90px;
 		background: #1a355c;
+		margin: 0 25px;
 	}
 
 	button {
@@ -69,14 +76,12 @@
 .random-generator__div-header {
 	display: flex;
 	justify-content: space-between;
-	// flex-direction: column;
 	align-items: flex-end;
 }
 
 .palette-name__label-and__input {
 	display: flex;
 	flex-direction: column;
-	// align-items: flex-end;
 	justify-content: flex-start;
 }
 
@@ -90,39 +95,90 @@
 	font-weight: 700;
 }
 
-// .RancomColor.js {
-// 	margin-top: 40px;
-// 	cursor: pointer;
-// 	transition: 0.1s ease-in-out;
-// 	width: fit-content;
-// 	background: rgb(36, 36, 36);
-// 	padding: 0 5px;
+@media only screen and (max-width: 835px) {
+	body {
+		padding: 0;
+	}
 
-// 	&:hover {
-// 		margin-right: 50px;
-// 	}
+	.random-generator__section {
+		label {
+			font-family: 'Roboto';
+			color: rgb(77, 77, 77);
+		}
 
-// 	h4 {
-// 		font-size: 30px;
-// 		color: rgb(255, 255, 255);
-// 		font-family: 'Roboto';
-// 		padding: 10px 0;
-// 		width: 100%;
-// 		text-align: left;
-// 	}
+		label {
+			font-family: 'Roboto';
+			color: rgb(77, 77, 77);
+		}
 
-// 	.colors {
-// 		box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.24);
-// 		display: flex;
-// 		background: rgb(85, 85, 85);
-// 		width: fit-content;
-// 		justify-content: center;
-// 		border-bottom: 6px solid rgb(36, 36, 36);
-// 		border-radius: 2px;
+		::placeholder {
+			color: rgb(207, 207, 207);
+		}
 
-// 		div {
-// 			width: 125px;
-// 			// height: 125px;
-// 		}
-// 	}
-// }
+		button:disabled {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		input {
+			height: 60px;
+			padding-left: 1px;
+			width: 300px;
+			border-bottom: 3px solid rgb(122, 124, 133);
+			font-size: 30px;
+			padding-top: 15px;
+
+			&:focus {
+				outline: none;
+			}
+		}
+
+		.SavePaletteBtn {
+			width: 90px;
+			background: #1a355c;
+		}
+
+		button {
+			height: 60px;
+			width: 170px;
+			cursor: pointer;
+			border: none;
+			background: #2164f3;
+			font-size: 18px;
+			color: white;
+			border-radius: 3px;
+			transition: 0.15s;
+
+			&:focus {
+				outline: none;
+			}
+
+			&:hover {
+				background: #3777ff;
+				box-shadow: 0 0 15px -6px #3777ff;
+			}
+		}
+	}
+
+	.random-generator__div-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+	}
+
+	.palette-name__label-and__input {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+	}
+
+	.palette-name__input {
+		background: transparent;
+		border: none;
+		border-bottom: 3px solid black;
+		height: 40px;
+		font-size: 40px;
+		text-align: left;
+		font-weight: 700;
+	}
+}
