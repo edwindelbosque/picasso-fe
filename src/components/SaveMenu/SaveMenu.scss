@@ -94,3 +94,21 @@
 .showSaveMenu {
 	right: 5px;
 }
+
+@media only screen and (max-width: 835px) {
+	.SaveMenu {
+		position: fixed;
+		right: -40vw;
+		width: 250px;
+		height: 500px;
+		background: #2164f3;
+		top: 150px;
+		border-radius: 3px;
+		padding: 20px;
+		padding-top: 15px;
+		display: flex;
+		flex-direction: column;
+		box-shadow: 0 3px 4px rgba(0, 0, 0, 0.144);
+		transition: 0.25s ease-in-out;
+	}
+}
