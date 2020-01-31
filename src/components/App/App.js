@@ -19,6 +19,13 @@ const App = () => {
 	const [palettes, updatePalettes] = useState([]);
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
+	const [lockedColors, updateLockedColors] = useState([
+		'N',
+		'N',
+		'N',
+		'N',
+		'N'
+	]);
 
 	const wipeUserData = () => {
 		updateColors([]);

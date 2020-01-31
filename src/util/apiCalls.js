@@ -178,6 +178,7 @@ export const getFiveColors = (
 	model = 'default'
 ) => {
 	const url = 'http://colormind.io/api/';
+	console.log(colorsRequest);
 	const data = {
 		model: model
 	};
