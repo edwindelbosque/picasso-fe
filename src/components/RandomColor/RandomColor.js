@@ -15,12 +15,13 @@ const GetRandomColors = ({
 	updateCurrentCatalog,
 	fetchPalettes,
 	fetchCatalogs,
-	toggleTriggerMenu
+	toggleTriggerMenu,
+	lockedColors
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 
 	const handleGenerateColors = async () => {
-		getFiveColors(updateColors);
+		getFiveColors(updateColors, lockedColors);
 	};
 
 	useEffect(() => {

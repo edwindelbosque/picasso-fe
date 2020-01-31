@@ -73,6 +73,7 @@ const App = () => {
 		<div className='App'>
 			<GetRandomColors
 				arrayOfColors={arrayOfColors}
+				lockedColors={lockedColors}
 				updateColors={updateColors}
 				userID={userId}
 				currentCatalog={currentCatalog}
