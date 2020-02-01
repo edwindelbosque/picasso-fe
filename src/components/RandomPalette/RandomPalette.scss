@@ -42,13 +42,14 @@
 }
 
 .show {
-	height: 35px;
-	width: 35px;
-	background: rgba(255, 255, 255, 0.61);
-	border-radius: 4px;
+	height: 30px;
+	width: 30px;
+	background: rgba(255, 255, 255, 0.301);
+	border-radius: 8px;
 	margin-left: 5px;
 	margin-bottom: 5px;
 	cursor: pointer;
+	padding: 5px;
 }
 
 .color-square {

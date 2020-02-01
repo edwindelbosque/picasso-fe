@@ -4,6 +4,7 @@ import RandomPalette from '../RandomPalette/RandomPalette.js';
 import './RandomColor.scss';
 import SaveMenu from '../SaveMenu/SaveMenu';
 import { Link } from 'react-router-dom';
+
 const GetRandomColors = ({
 	arrayOfColors,
 	updateColors,
@@ -15,10 +16,28 @@ const GetRandomColors = ({
 	updateCurrentCatalog,
 	fetchPalettes,
 	fetchCatalogs,
-	toggleTriggerMenu,
-	lockedColors
+	toggleTriggerMenu
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
+	const [lockedColors, updateLockedColors] = useState([
+		'N',
+		'N',
+		'N',
+		'N',
+		'N'
+	]);
+
+	const toggleLock = (i, color) => {
+		if (!color) {
+			lockedColors[i] = 'N';
+			updateLockedColors(lockedColors);
+			console.log('NEW', lockedColors);
+		} else {
+			lockedColors[i] = [color.r, color.g, color.b];
+			console.log('NEW', lockedColors);
+			updateLockedColors(lockedColors);
+		}
+	};
 
 	const handleGenerateColors = async () => {
 		getFiveColors(updateColors, lockedColors);
@@ -100,7 +119,11 @@ const GetRandomColors = ({
 						Generate Colors
 					</button>
 				</div>
-				<RandomPalette palette={arrayOfColors} lockedColors={lockedColors} />
+				<RandomPalette
+					palette={arrayOfColors}
+					lockedColors={lockedColors}
+					toggleLock={toggleLock}
+				/>
 			</section>
 			<SaveMenu
 				catalogs={catalogs}

@@ -19,13 +19,13 @@ const App = () => {
 	const [palettes, updatePalettes] = useState([]);
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
-	const [lockedColors, updateLockedColors] = useState([
-		'N',
-		'N',
-		'N',
-		'N',
-		'N'
-	]);
+
+	// const toggleLock = (state, index) => {
+	// 	console.log('line 31:', lockedColors);
+	// 	state === 'N'
+	// 		? updateLockedColors((lockedColors[index] = 'N'))
+	// 		: updateLockedColors((lockedColors[index] = [state.r, state.g, state.b]));
+	// };
 
 	const wipeUserData = () => {
 		updateColors([]);
@@ -73,7 +73,6 @@ const App = () => {
 		<div className='App'>
 			<GetRandomColors
 				arrayOfColors={arrayOfColors}
-				lockedColors={lockedColors}
 				updateColors={updateColors}
 				userID={userId}
 				currentCatalog={currentCatalog}
