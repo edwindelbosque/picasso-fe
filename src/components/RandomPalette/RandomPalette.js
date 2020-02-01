@@ -12,7 +12,6 @@ const RandomPalette = ({ palette }) => {
 		return <></>;
 	} else {
 		const createdColor = palette.map((color, i) => {
-			console.log(lockedColors[i]);
 			return (
 				<div
 					key={i}
