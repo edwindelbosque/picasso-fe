@@ -1,12 +1,32 @@
 import React from 'react';
 import './RandomPalette.scss';
+import locked from '../../assets/locked.svg';
+import unlocked from '../../assets/unlocked.svg';
 
-const RandomPalette = ({ palette }) => {
+let classNames = require('classnames');
+
+const RandomPalette = ({ palette, lockedColors }) => {
 	if (!palette.length) {
 		return <></>;
 	} else {
 		const createdColor = palette.map((color, i) => {
-			return <div key={i} style={{ background: color.hex.value }}></div>;
+			let unlockClass = classNames({
+				show: lockedColors[i] === 'N',
+				hide: lockedColors[i] !== 'N'
+			});
+			let lockClass = classNames({
+				show: lockedColors[i] !== 'N',
+				hide: lockedColors[i] === 'N'
+			});
+			return (
+				<div
+					key={i}
+					className='color-square'
+					style={{ background: color.hex.value }}>
+					<img src={unlocked} alt='unlocked' className={unlockClass} />
+					<img src={locked} alt='locked' className={lockClass} />
+				</div>
+			);
 		});
 		const createdInfo = palette.map((color, i) => {
 			return (
