@@ -20,13 +20,6 @@ const App = () => {
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
 
-	// const toggleLock = (state, index) => {
-	// 	console.log('line 31:', lockedColors);
-	// 	state === 'N'
-	// 		? updateLockedColors((lockedColors[index] = 'N'))
-	// 		: updateLockedColors((lockedColors[index] = [state.r, state.g, state.b]));
-	// };
-
 	const wipeUserData = () => {
 		updateColors([]);
 		updateUserName('');
