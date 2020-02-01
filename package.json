@@ -7,6 +7,7 @@
 		"node": "13.1.0"
 	},
 	"dependencies": {
+		"classnames": "^2.2.6",
 		"fsevents": "^2.1.2",
 		"history": "^4.10.1",
 		"node-sass": "^4.13.0",

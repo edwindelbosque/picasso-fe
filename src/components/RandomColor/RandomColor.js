@@ -100,7 +100,7 @@ const GetRandomColors = ({
 						Generate Colors
 					</button>
 				</div>
-				<RandomPalette palette={arrayOfColors} />
+				<RandomPalette palette={arrayOfColors} lockedColors={lockedColors} />
 			</section>
 			<SaveMenu
 				catalogs={catalogs}

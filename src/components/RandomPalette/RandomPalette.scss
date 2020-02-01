@@ -37,6 +37,27 @@
 	}
 }
 
+.hide {
+	display: none;
+}
+
+.show {
+	height: 35px;
+	width: 35px;
+	background: rgba(255, 255, 255, 0.61);
+	border-radius: 4px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+
+.color-square {
+	display: flex;
+	justify-content: flex-end;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
 .colors-info {
 	margin-top: 10px;
 	display: flex;
