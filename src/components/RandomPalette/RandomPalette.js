@@ -3,28 +3,31 @@ import './RandomPalette.scss';
 import locked from '../../assets/locked.svg';
 import unlocked from '../../assets/unlocked.svg';
 
-let classNames = require('classnames');
-
-const RandomPalette = ({ palette, lockedColors }) => {
+const RandomPalette = ({ palette, toggleLock, lockedColors }) => {
 	if (!palette.length) {
 		return <></>;
 	} else {
 		const createdColor = palette.map((color, i) => {
-			let unlockClass = classNames({
-				show: lockedColors[i] === 'N',
-				hide: lockedColors[i] !== 'N'
-			});
-			let lockClass = classNames({
-				show: lockedColors[i] !== 'N',
-				hide: lockedColors[i] === 'N'
-			});
 			return (
 				<div
 					key={i}
 					className='color-square'
 					style={{ background: color.hex.value }}>
-					<img src={unlocked} alt='unlocked' className={unlockClass} />
-					<img src={locked} alt='locked' className={lockClass} />
+					{lockedColors[i] === 'N' ? (
+						<img
+							src={unlocked}
+							onClick={() => toggleLock(i, color.rgb)}
+							alt='unlocked'
+							className='show'
+						/>
+					) : (
+						<img
+							src={locked}
+							onClick={() => toggleLock(i)}
+							alt='locked'
+							className='show'
+						/>
+					)}
 				</div>
 			);
 		});
