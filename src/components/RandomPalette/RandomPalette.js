@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './RandomPalette.scss';
 import locked from '../../assets/locked.svg';
 import unlocked from '../../assets/unlocked.svg';
+import { useSelector, useDispatch } from 'react-redux';
 
-const RandomPalette = ({ palette, toggleLock, lockedColors }) => {
+const RandomPalette = ({ palette }) => {
+	const dispatch = useDispatch();
+	const lockedColors = useSelector(state => state.lockedColors);
+
 	if (!palette.length) {
 		return <></>;
 	} else {
 		const createdColor = palette.map((color, i) => {
+			console.log(lockedColors[i]);
 			return (
 				<div
 					key={i}
@@ -16,14 +21,26 @@ const RandomPalette = ({ palette, toggleLock, lockedColors }) => {
 					{lockedColors[i] === 'N' ? (
 						<img
 							src={unlocked}
-							onClick={() => toggleLock(i, color.rgb)}
+							onClick={() =>
+								dispatch({
+									type: 'UPDATE_LOCKS',
+									i: i,
+									color: [color.rgb.r, color.rgb.g, color.rgb.b]
+								})
+							}
 							alt='unlocked'
 							className='show'
 						/>
 					) : (
 						<img
 							src={locked}
-							onClick={() => toggleLock(i)}
+							onClick={() =>
+								dispatch({
+									type: 'UPDATE_LOCKS',
+									i: i,
+									color: 'N'
+								})
+							}
 							alt='locked'
 							className='show'
 						/>
