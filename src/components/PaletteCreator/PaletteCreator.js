@@ -14,15 +14,15 @@ const PaletteCreator = ({ currentCatalog, updateCurrentCatalog }) => {
 	const catalogs = useSelector(state => state.catalogs);
 	const userId = useSelector(state => state.userId);
 
+	useEffect(() => {
+		handleGenerateColors();
+	}, []);
+
 	const handleGenerateColors = async () => {
 		lockedColors.every(element => element === 'N')
 			? getFiveColors(dispatch)
 			: getFiveColors(dispatch, lockedColors);
 	};
-
-	useEffect(() => {
-		handleGenerateColors();
-	}, []);
 
 	const handleSavePalette = async event => {
 		if (userId && currentCatalog === 0) {

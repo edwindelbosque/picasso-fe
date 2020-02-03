@@ -14,7 +14,6 @@ const store = createStore(rootReducer, loadState(), composeWithDevTools());
 
 store.subscribe(() => {
 	saveState({
-		lockedColors: store.getState().lockedColors,
 		userId: store.getState().userId,
 		username: store.getState().username,
 		catalogs: store.getState().catalogs,
