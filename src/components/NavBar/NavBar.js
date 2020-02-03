@@ -13,7 +13,6 @@ const NavBar = ({
 	updateCurrentCatalog,
 	updateCurrentPalette,
 	wipeUserData,
-	deletePalette,
 	currentCatalog,
 	fetchPalettes,
 	toggleTriggerMenu,
@@ -173,7 +172,6 @@ const NavBar = ({
 									matchingPalettes={matchingPalettes}
 									toggleMenu={toggleMenu}
 									updateCurrentPalette={updateCurrentPalette}
-									deletePalette={deletePalette}
 									fetchPalettes={fetchPalettes}
 									currentCatalog={currentCatalog}
 								/>

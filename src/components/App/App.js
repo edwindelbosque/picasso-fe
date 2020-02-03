@@ -4,7 +4,7 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import RandomColors from '../RandomColor/RandomColor.js';
 import { useSelector, useDispatch } from 'react-redux';
-import { delettePalette, getPalettes, getCatalogs } from '../../util/apiCalls';
+import { getPalettes, getCatalogs } from '../../util/apiCalls';
 
 export const App = () => {
 	const dispatch = useDispatch();
@@ -24,10 +24,6 @@ export const App = () => {
 		dispatch({ type: 'UPDATE_PALETTES', palettes: [] });
 		dispatch({ type: 'UPDATE_USERNAME', name: '' });
 		dispatch({ type: 'UPDATE_COLORS', colors: [] });
-	};
-
-	const deletePalette = async palette => {
-		await delettePalette(palette);
 	};
 
 	const fetchPalettes = async (cats = catalogs) => {
@@ -63,7 +59,6 @@ export const App = () => {
 				username={username}
 				updateCurrentCatalog={updateCurrentCatalog}
 				wipeUserData={wipeUserData}
-				deletePalette={deletePalette}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
 				currentCatalog={currentCatalog}

@@ -1,13 +1,11 @@
 import React from 'react';
 import './Palettes.scss';
 import PaletteCard from '../PaletteCard/PaletteCard';
-import { useSelector } from 'react-redux';
 
 const Palettes = ({
 	menuIsActive,
 	matchingPalettes,
 	toggleMenu,
-	deletePalette,
 	fetchPalettes,
 	currentCatalog
 }) => {
@@ -20,7 +18,6 @@ const Palettes = ({
 						key={palette.id}
 						palette={palette}
 						menuIsActive={menuIsActive}
-						deletePalette={deletePalette}
 						fetchPalettes={fetchPalettes}
 						toggleMenu={toggleMenu}
 						currentCatalog={currentCatalog}

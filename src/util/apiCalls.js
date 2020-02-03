@@ -119,7 +119,7 @@ export const getPalette = async paletteInfo => {
 	return palette;
 };
 
-export const delettePalette = async paletteInfo => {
+export const deletePalette = async paletteInfo => {
 	const { catalog_id, id } = paletteInfo;
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/0/catalogs/${catalog_id}/palettes/${id}`;
 	const options = {
