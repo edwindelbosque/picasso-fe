@@ -13,3 +13,8 @@ export const updateColors = colors => ({
 	type: 'UPDATE_COLORS',
 	colors
 });
+
+export const updateUsername = name => ({
+	type: 'UPDATE_USERNAME',
+	name
+});

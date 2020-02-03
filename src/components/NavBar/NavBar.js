@@ -9,7 +9,7 @@ import logoutIcon from '../../assets/logoutIcon.png';
 import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 
 const NavBar = ({
-	userName,
+	username,
 	catalogs,
 	updateCurrentUser,
 	updateCurrentCatalog,
@@ -26,7 +26,7 @@ const NavBar = ({
 	removeCatalog
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
-	const isSignedIn = userName;
+	const isSignedIn = username;
 
 	const filterPalettes = id => {
 		if (palettes) {
@@ -48,7 +48,7 @@ const NavBar = ({
 			<nav className='NavBar'>
 				<p className={menuIsActive ? 'active-title' : ''}>Picasso</p>
 				<div>
-					{userName && <h3>{userName}</h3>}
+					{username && <h3>{username}</h3>}
 					<Link
 						to={
 							isSignedIn
@@ -70,7 +70,7 @@ const NavBar = ({
 									toggleTriggerMenu(false);
 								} else {
 									updateCurrentCatalog(catalogs.length && catalogs[0].id);
-									userName && fetchPalettes();
+									username && fetchPalettes();
 								}
 								toggleMenu(!menuIsActive);
 							}}>

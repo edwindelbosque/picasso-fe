@@ -14,8 +14,7 @@ import {
 const App = () => {
 	const dispatch = useDispatch();
 	const userId = useSelector(state => state.userId);
-
-	const [userName, updateUserName] = useState('');
+	const username = useSelector(state => state.username);
 	const [currentCatalog, updateCurrentCatalog] = useState(0);
 	const [catalogs, updateCatalogs] = useState([]);
 	const [palettes, updatePalettes] = useState([]);
@@ -23,21 +22,14 @@ const App = () => {
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
 
 	const wipeUserData = () => {
-		updateUserName('');
 		updateCurrentCatalog(0);
 		updateCatalogs([]);
 		updatePalettes([]);
 		toggleSaveMenu(false);
-		dispatch(
-			{
-				type: 'UPDATE_USER_ID',
-				id: 0
-			},
-			{
-				type: 'UPDATE_COLORS',
-				colors: []
-			}
-		);
+
+		dispatch({ type: 'UPDATE_USER_ID', id: 0 });
+		dispatch({ type: 'UPDATE_USERNAME', name: '' });
+		dispatch({ type: 'UPDATE_COLORS', colors: [] });
 	};
 
 	const deletePalette = async palette => {
@@ -50,13 +42,10 @@ const App = () => {
 
 	const updateCurrentUser = (user, catalogs, palettes) => {
 		const { firstName, id } = user;
-		updateUserName(firstName);
 		updateCatalogs(catalogs);
 		updatePalettes(palettes);
-		dispatch({
-			type: 'UPDATE_USER_ID',
-			id: id
-		});
+		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
+		dispatch({ type: 'UPDATE_USER_ID', id: id });
 	};
 
 	const fetchPalettes = async (cats = catalogs) => {
@@ -89,7 +78,7 @@ const App = () => {
 				toggleTriggerMenu={toggleTriggerMenu}
 			/>
 			<NavBar
-				userName={userName}
+				username={username}
 				catalogs={catalogs}
 				updateCurrentUser={updateCurrentUser}
 				updateCurrentCatalog={updateCurrentCatalog}
