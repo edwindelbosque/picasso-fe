@@ -16,7 +16,9 @@ store.subscribe(() => {
 	saveState({
 		lockedColors: store.getState().lockedColors,
 		userId: store.getState().userId,
-		username: store.getState().username
+		username: store.getState().username,
+		catalogs: store.getState().catalogs,
+		palettes: store.getState().palettes
 	});
 });
 

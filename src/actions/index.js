@@ -18,3 +18,13 @@ export const updateUsername = name => ({
 	type: 'UPDATE_USERNAME',
 	name
 });
+
+export const updateCatalogs = catalogs => ({
+	type: 'UPDATE_CATALOGS',
+	catalogs
+});
+
+export const updatePalettes = palettes => ({
+	type: 'UPDATE_PALETTES',
+	palettes
+});

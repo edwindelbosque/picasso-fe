@@ -4,7 +4,7 @@ import './UserSignupForm.scss';
 import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
 
 const UserSignupForm = ({
-	updateCurrentUser,
+	signUpUser,
 	toggleMenu,
 	fetchCatalogs,
 	fetchPalettes,
@@ -26,7 +26,7 @@ const UserSignupForm = ({
 		const accountCreationResponse = await createUser(newUser);
 		if (accountCreationResponse.error) {
 		} else {
-			await updateCurrentUser(accountCreationResponse);
+			await signUpUser(accountCreationResponse);
 			newUserCatalogAndPalettes(
 				accountCreationResponse,
 				fetchCatalogs,

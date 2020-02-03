@@ -3,12 +3,16 @@ import { lockedColors } from './lockedColors';
 import { userId } from './userId';
 import { colors } from './colors';
 import { username } from './username';
+import { catalogs } from './catalogs';
+import { palettes } from './palettes';
 
 const rootReducer = combineReducers({
 	lockedColors,
 	userId,
 	colors,
-	username
+	username,
+	catalogs,
+	palettes
 });
 
 export default rootReducer;

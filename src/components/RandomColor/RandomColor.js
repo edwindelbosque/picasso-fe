@@ -7,9 +7,7 @@ import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
 const RandomColors = ({
-	userID,
 	currentCatalog,
-	catalogs,
 	showSaveMenu,
 	toggleSaveMenu,
 	updateCurrentCatalog,
@@ -21,6 +19,8 @@ const RandomColors = ({
 	const lockedColors = useSelector(state => state.lockedColors);
 	const colors = useSelector(state => state.colors);
 	const dispatch = useDispatch();
+	const catalogs = useSelector(state => state.catalogs);
+	const userId = useSelector(state => state.userId);
 
 	const handleGenerateColors = async () => {
 		lockedColors.every(element => element === 'N')
@@ -33,13 +33,13 @@ const RandomColors = ({
 	}, []);
 
 	const handleSavePalette = async event => {
-		if (userID && currentCatalog === 0) {
+		if (userId && currentCatalog === 0) {
 			toggleSaveMenu(true);
 		} else {
 			const newPalette = {
 				paletteName: paletteNameValue,
 				catalog_id: currentCatalog,
-				user_id: userID,
+				user_id: userId,
 				colorsToString: colors
 			};
 			await createPalette(newPalette);
@@ -51,7 +51,7 @@ const RandomColors = ({
 		const newPalette = {
 			paletteName: paletteNameValue,
 			catalog_id: id,
-			user_id: userID,
+			user_id: userId,
 			colorsToString: colors
 		};
 		await createPalette(newPalette);
@@ -78,7 +78,7 @@ const RandomColors = ({
 							value={paletteNameValue}
 						/>
 					</div>
-					{userID === 0 ? (
+					{userId === 0 ? (
 						<Link to='/signup'>
 							<button
 								type='button'
@@ -111,7 +111,7 @@ const RandomColors = ({
 				toggleSaveMenu={toggleSaveMenu}
 				showSaveMenu={showSaveMenu}
 				postPalette={postPalette}
-				userID={userID}
+				userID={userId}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
 			/>

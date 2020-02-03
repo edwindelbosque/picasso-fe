@@ -15,19 +15,18 @@ export const App = () => {
 	const dispatch = useDispatch();
 	const userId = useSelector(state => state.userId);
 	const username = useSelector(state => state.username);
+	const catalogs = useSelector(state => state.catalogs);
+
 	const [currentCatalog, updateCurrentCatalog] = useState(0);
-	const [catalogs, updateCatalogs] = useState([]);
-	const [palettes, updatePalettes] = useState([]);
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
 
 	const wipeUserData = () => {
 		updateCurrentCatalog(0);
-		updateCatalogs([]);
-		updatePalettes([]);
 		toggleSaveMenu(false);
-
 		dispatch({ type: 'UPDATE_USER_ID', id: 0 });
+		dispatch({ type: 'UPDATE_CATALOGS', catalogs: [] });
+		dispatch({ type: 'UPDATE_PALETTES', palettes: [] });
 		dispatch({ type: 'UPDATE_USERNAME', name: '' });
 		dispatch({ type: 'UPDATE_COLORS', colors: [] });
 	};
@@ -40,10 +39,16 @@ export const App = () => {
 		await deleteCatalog(catalog);
 	};
 
-	const updateCurrentUser = (user, catalogs, palettes) => {
+	const signUpUser = user => {
 		const { firstName, id } = user;
-		updateCatalogs(catalogs);
-		updatePalettes(palettes);
+		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
+		dispatch({ type: 'UPDATE_USER_ID', id: id });
+	};
+
+	const logInUser = (user, catalogs, palettes) => {
+		const { firstName, id } = user;
+		dispatch({ type: 'UPDATE_CATALOGS', catalogs: catalogs });
+		dispatch({ type: 'UPDATE_PALETTES', palettes: palettes });
 		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
 		dispatch({ type: 'UPDATE_USER_ID', id: id });
 	};
@@ -54,24 +59,24 @@ export const App = () => {
 				return await getPalettes(catalog);
 			});
 			const allResolvedPalettes = await Promise.all(allPalettes);
-
-			updatePalettes(allResolvedPalettes.flat());
+			dispatch({
+				type: 'UPDATE_PALETTES',
+				palettes: allResolvedPalettes.flat()
+			});
 		}
 	};
 
 	const fetchCatalogs = async (id = { id: userId }) => {
 		const newCatalogs = await getCatalogs(id);
-		updateCatalogs(newCatalogs);
+		dispatch({ type: 'UPDATE_CATALOGS', catalogs: newCatalogs });
 	};
 
 	return (
 		<div className='App'>
 			<RandomColors
-				userID={userId}
 				currentCatalog={currentCatalog}
 				toggleSaveMenu={toggleSaveMenu}
 				showSaveMenu={showSaveMenu}
-				catalogs={catalogs}
 				updateCurrentCatalog={updateCurrentCatalog}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
@@ -79,12 +84,11 @@ export const App = () => {
 			/>
 			<NavBar
 				username={username}
-				catalogs={catalogs}
-				updateCurrentUser={updateCurrentUser}
+				signUpUser={signUpUser}
+				logInUser={logInUser}
 				updateCurrentCatalog={updateCurrentCatalog}
 				wipeUserData={wipeUserData}
 				deletePalette={deletePalette}
-				palettes={palettes}
 				fetchPalettes={fetchPalettes}
 				fetchCatalogs={fetchCatalogs}
 				currentCatalog={currentCatalog}

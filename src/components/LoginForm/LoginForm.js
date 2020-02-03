@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 
-const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
+const LoginForm = ({ logInUser, toggleMenu }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
 	// const [loginStatus, handleLoginAttempt] = useState('');
@@ -27,7 +27,7 @@ const LoginForm = ({ updateCurrentUser, toggleMenu }) => {
 		if (loginResponse.error) {
 			// handleLoginAttempt(loginResponse.error);
 		} else {
-			updateCurrentUser(loginResponse, catalogs, palettes);
+			logInUser(loginResponse, catalogs, palettes);
 			resetInputs();
 			toggleMenu(false);
 		}

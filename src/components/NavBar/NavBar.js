@@ -7,17 +7,17 @@ import { Route, Link } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import logoutIcon from '../../assets/logoutIcon.png';
 import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
+import { useSelector } from 'react-redux';
 
 const NavBar = ({
 	username,
-	catalogs,
-	updateCurrentUser,
+	signUpUser,
+	logInUser,
 	updateCurrentCatalog,
 	updateCurrentPalette,
 	wipeUserData,
 	deletePalette,
 	updateUserId,
-	palettes,
 	currentCatalog,
 	fetchPalettes,
 	toggleTriggerMenu,
@@ -27,6 +27,8 @@ const NavBar = ({
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
 	const isSignedIn = username;
+	const catalogs = useSelector(state => state.catalogs);
+	const palettes = useSelector(state => state.palettes);
 
 	const filterPalettes = id => {
 		if (palettes) {
@@ -103,7 +105,7 @@ const NavBar = ({
 						</Fade>
 						<Route exact path='/login'>
 							<LoginForm
-								updateCurrentUser={updateCurrentUser}
+								logInUser={logInUser}
 								toggleMenu={toggleMenu}
 								fetchPalettes={fetchPalettes}
 								fetchCatalogs={fetchCatalogs}
@@ -111,7 +113,7 @@ const NavBar = ({
 						</Route>
 						<Route exact path='/signup'>
 							<UserSignupForm
-								updateCurrentUser={updateCurrentUser}
+								signUpUser={signUpUser}
 								toggleMenu={toggleMenu}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
@@ -134,7 +136,6 @@ const NavBar = ({
 					<Route path='/catalogs'>
 						<Catalogs
 							menuIsActive={menuIsActive}
-							catalogs={catalogs}
 							updateCurrentCatalog={updateCurrentCatalog}
 							removeCatalog={removeCatalog}
 							fetchCatalogs={fetchCatalogs}
