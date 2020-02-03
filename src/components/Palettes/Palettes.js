@@ -5,16 +5,16 @@ import { useSelector } from 'react-redux';
 
 const Palettes = ({
 	menuIsActive,
+	matchingPalettes,
 	toggleMenu,
 	deletePalette,
 	fetchPalettes,
 	currentCatalog
 }) => {
-	const palettes = useSelector(state => state.palettes);
 	return (
 		<section className='Palettes'>
 			<h2>Palettes</h2>
-			{palettes.map(palette => {
+			{matchingPalettes.map(palette => {
 				return (
 					<PaletteCard
 						key={palette.id}

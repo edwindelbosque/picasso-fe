@@ -4,12 +4,7 @@ import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
 import RandomColors from '../RandomColor/RandomColor.js';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-	deleteCatalog,
-	delettePalette,
-	getPalettes,
-	getCatalogs
-} from '../../util/apiCalls';
+import { delettePalette, getPalettes, getCatalogs } from '../../util/apiCalls';
 
 export const App = () => {
 	const dispatch = useDispatch();
@@ -33,10 +28,6 @@ export const App = () => {
 
 	const deletePalette = async palette => {
 		await delettePalette(palette);
-	};
-
-	const removeCatalog = async catalog => {
-		await deleteCatalog(catalog);
 	};
 
 	const fetchPalettes = async (cats = catalogs) => {
@@ -78,7 +69,6 @@ export const App = () => {
 				currentCatalog={currentCatalog}
 				triggerMenu={triggerMenu}
 				toggleTriggerMenu={toggleTriggerMenu}
-				removeCatalog={removeCatalog}
 			/>
 			<Footer />
 		</div>

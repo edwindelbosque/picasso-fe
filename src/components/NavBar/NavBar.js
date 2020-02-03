@@ -170,7 +170,7 @@ const NavBar = ({
 							return (
 								<Palettes
 									menuIsActive={menuIsActive}
-									palettes={matchingPalettes}
+									matchingPalettes={matchingPalettes}
 									toggleMenu={toggleMenu}
 									updateCurrentPalette={updateCurrentPalette}
 									deletePalette={deletePalette}
