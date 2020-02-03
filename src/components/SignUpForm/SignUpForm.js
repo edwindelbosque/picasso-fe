@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
 import { createUser } from '../../util/apiCalls.js';
-import './UserSignupForm.scss';
+import './SignUpForm.scss';
 import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
+import { useDispatch } from 'react-redux';
 
-const UserSignupForm = ({
-	updateCurrentUser,
-	toggleMenu,
-	updateColors,
-	arrayOfColors,
-	fetchCatalogs,
-	fetchPalettes,
-	updateUserId
-}) => {
+const SignUpForm = ({ isMenuOpen, fetchCatalogs, fetchPalettes }) => {
 	const [firstNameValue, handleFirstNameChange] = useState('');
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
-	// const [userSignupStatus, handleSignupAttempt] = useState('');
+	const dispatch = useDispatch();
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -28,19 +21,26 @@ const UserSignupForm = ({
 		};
 		const accountCreationResponse = await createUser(newUser);
 		if (accountCreationResponse.error) {
-			// handleSignupAttempt(accountCreationResponse.error);
 		} else {
-			await updateCurrentUser(accountCreationResponse);
+			await signUpUser(accountCreationResponse);
 			newUserCatalogAndPalettes(
-				updateColors,
 				accountCreationResponse,
 				fetchCatalogs,
 				fetchPalettes
 			);
 			resetInputs();
-			toggleMenu(false);
+			dispatch({
+				type: 'TOGGLE_MENU',
+				boolean: !isMenuOpen
+			});
 			fetchPalettes();
 		}
+	};
+
+	const signUpUser = user => {
+		const { firstName, id } = user;
+		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
+		dispatch({ type: 'UPDATE_USER_ID', id: id });
 	};
 
 	const resetInputs = () => {
@@ -73,7 +73,7 @@ const UserSignupForm = ({
 	const isEnabled = canBeSubmitted();
 
 	return (
-		<form className='UserSignupForm' onSubmit={e => handleSubmit(e)}>
+		<form className='SignUpForm' onSubmit={e => handleSubmit(e)}>
 			<label htmlFor='firstName' className='form-login email-login__label'>
 				First Name
 			</label>
@@ -133,4 +133,4 @@ const UserSignupForm = ({
 	);
 };
 
-export default UserSignupForm;
+export default SignUpForm;

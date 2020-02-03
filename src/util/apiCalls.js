@@ -119,7 +119,7 @@ export const getPalette = async paletteInfo => {
 	return palette;
 };
 
-export const delettePalette = async paletteInfo => {
+export const deletePalette = async paletteInfo => {
 	const { catalog_id, id } = paletteInfo;
 	const url = `https://picasso-database.herokuapp.com/api/v1/users/0/catalogs/${catalog_id}/palettes/${id}`;
 	const options = {
@@ -172,11 +172,7 @@ export const colorFormats = async rgbColors => {
 	return colorInfo;
 };
 
-export const getFiveColors = (
-	updateColors,
-	colorsRequest,
-	model = 'default'
-) => {
+export const getFiveColors = (dispatch, colorsRequest, model = 'default') => {
 	const url = 'http://colormind.io/api/';
 	const data = {
 		model: model
@@ -188,7 +184,7 @@ export const getFiveColors = (
 	http.onreadystatechange = async () => {
 		if (http.readyState === 4 && http.status === 200) {
 			var palettes = await JSON.parse(http.responseText).result;
-			cleanColorName(updateColors, palettes);
+			cleanColorName(dispatch, palettes);
 		}
 	};
 	http.open('POST', url, true);

@@ -1,18 +1,20 @@
 import React from 'react';
 import './Catalogs.scss';
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { deleteCatalog } from '../../util/apiCalls';
 
 const Catalogs = ({
-	catalogs,
 	menuIsActive,
 	updateCurrentCatalog,
 	removeCatalog,
 	fetchCatalogs
 }) => {
 	let allCatalogs;
+	const catalogs = useSelector(state => state.catalogs);
 
 	const handleDelete = async catalog => {
-		await removeCatalog(catalog);
+		await deleteCatalog(catalog);
 		await fetchCatalogs();
 	};
 

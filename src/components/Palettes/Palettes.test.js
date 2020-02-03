@@ -1,6 +1,9 @@
 import React from 'react';
 import Palettes from './Palettes';
 import { shallow } from 'enzyme';
+jest.mock('react-redux', () => ({
+	useDispatch: () => {}
+}));
 
 describe('Palettes', () => {
 	let wrapper;
@@ -262,7 +265,7 @@ describe('Palettes', () => {
 	];
 
 	beforeEach(() => {
-		wrapper = shallow(<Palettes palettes={palettes} />);
+		wrapper = shallow(<Palettes matchingPalettes={palettes} />);
 	});
 
 	it('App should match snapshot', () => {

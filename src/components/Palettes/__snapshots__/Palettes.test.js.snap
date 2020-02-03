@@ -21,6 +21,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Personal",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="2"
@@ -36,6 +37,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Sunny",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="3"
@@ -51,6 +53,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "I love it",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="4"
@@ -66,6 +69,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "12345",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="5"
@@ -81,6 +85,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Personal",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="6"
@@ -96,6 +101,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Dreamin",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="7"
@@ -111,6 +117,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Hotel",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="8"
@@ -126,6 +133,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Blue",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="9"
@@ -141,6 +149,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Warm",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="10"
@@ -156,6 +165,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Sad",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="11"
@@ -171,6 +181,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Colorful",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="12"
@@ -186,6 +197,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Vibrant",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="13"
@@ -201,6 +213,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Bold",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="14"
@@ -216,6 +229,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Magical",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="15"
@@ -231,6 +245,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Interesting",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="16"
@@ -246,6 +261,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Prototype",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="17"
@@ -261,6 +277,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Prototype Hotel 2",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="18"
@@ -276,6 +293,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Prototype Hotel 3",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="19"
@@ -291,6 +309,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Prototype Hotel 4",
       }
     }
+    toggleMenu={[Function]}
   />
   <PaletteCard
     key="20"
@@ -306,6 +325,7 @@ exports[`Palettes App should match snapshot 1`] = `
         "paletteName": "Movie poster 1",
       }
     }
+    toggleMenu={[Function]}
   />
 </section>
 `;

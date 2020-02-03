@@ -1,7 +1,6 @@
 import { createPalette, saveCatalog } from './apiCalls.js';
 
 export const newUserCatalogAndPalettes = async (
-	updateColors,
 	newUser,
 	fetchCatalogs,
 	fetchPalettes

@@ -6,16 +6,19 @@ exports[`NavBar App should match snapshot 1`] = `
     className="NavBar"
   >
     <p
-      className=""
+      className="active-title"
     >
       Picasso
     </p>
     <div>
+      <h3>
+        <Component />
+      </h3>
       <Link
-        to="/signup"
+        to="/create"
       >
         <div
-          className="hamburger-menu false"
+          className="hamburger-menu hamburger-menu-active"
           onClick={[Function]}
         >
           <div
@@ -32,10 +35,10 @@ exports[`NavBar App should match snapshot 1`] = `
     </div>
   </nav>
   <div
-    className="menu false"
+    className="menu show-menu"
   />
   <div
-    className="menu false"
+    className="menu show-menu"
   >
     <Route
       path="(/signup|/login)"
@@ -47,13 +50,19 @@ exports[`NavBar App should match snapshot 1`] = `
           delay={200}
           duration={300}
           right={true}
-          when={false}
+          when={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
         >
           <Link
             to="/login"
           >
             <button
-              className="login-button false"
+              className="login-button animate-button"
             >
               Login
             </button>
@@ -62,7 +71,7 @@ exports[`NavBar App should match snapshot 1`] = `
             to="/signup"
           >
             <button
-              className="signup-button false"
+              className="signup-button animate-button"
             >
               Sign Up
             </button>
@@ -73,15 +82,31 @@ exports[`NavBar App should match snapshot 1`] = `
           path="/login"
         >
           <LoginForm
-            toggleMenu={[Function]}
+            fetchCatalogs={[Function]}
+            fetchPalettes={[Function]}
+            isMenuOpen={
+              Object {
+                "NavBar": Object {
+                  "isMenuOpen": false,
+                },
+              }
+            }
           />
         </Route>
         <Route
           exact={true}
           path="/signup"
         >
-          <UserSignupForm
-            toggleMenu={[Function]}
+          <SignUpForm
+            fetchCatalogs={[Function]}
+            fetchPalettes={[Function]}
+            isMenuOpen={
+              Object {
+                "NavBar": Object {
+                  "isMenuOpen": false,
+                },
+              }
+            }
           />
         </Route>
       </div>
@@ -92,7 +117,13 @@ exports[`NavBar App should match snapshot 1`] = `
           delay={60}
           duration={400}
           left={true}
-          when={false}
+          when={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
         >
           <h1>
             Save all of your palettes by creating an 
@@ -102,7 +133,7 @@ exports[`NavBar App should match snapshot 1`] = `
           </h1>
         </Fade>
         <div
-          className="hidden-circle false"
+          className="hidden-circle active-circle"
         />
       </div>
     </Route>
@@ -113,7 +144,14 @@ exports[`NavBar App should match snapshot 1`] = `
         path="/catalogs"
       >
         <Catalogs
-          menuIsActive={false}
+          fetchCatalogs={[Function]}
+          menuIsActive={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
         />
         <Link
           to="/create"
@@ -135,7 +173,13 @@ exports[`NavBar App should match snapshot 1`] = `
         path="/logout"
       >
         <div
-          menuIsActive={false}
+          menuIsActive={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
         />
         <Link
           to="/create"

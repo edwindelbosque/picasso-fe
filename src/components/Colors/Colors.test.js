@@ -1,15 +1,16 @@
 import React from 'react';
-import App from './App';
+import Colors from './Colors';
 import { shallow } from 'enzyme';
 jest.mock('react-redux', () => ({
-	useDispatch: () => {}
+	useDispatch: () => {},
+	useSelector: () => ({ catalogs: [{}, {}] })
 }));
 
-describe('App', () => {
+describe('Colors', () => {
 	let wrapper;
 
 	beforeEach(() => {
-		wrapper = shallow(<App />);
+		wrapper = shallow(<Colors />);
 	});
 
 	it('App should match snapshot', () => {

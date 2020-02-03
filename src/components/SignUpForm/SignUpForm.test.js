@@ -1,15 +1,16 @@
 import React from 'react';
-import App from './App';
+import SignUpForm from './SignUpForm';
 import { shallow } from 'enzyme';
 jest.mock('react-redux', () => ({
-	useDispatch: () => {}
+	useDispatch: () => {},
+	useSelector: () => ({ catalogs: [{}, {}] })
 }));
 
-describe('App', () => {
+describe('SignUpForm', () => {
 	let wrapper;
 
 	beforeEach(() => {
-		wrapper = shallow(<App />);
+		wrapper = shallow(<SignUpForm />);
 	});
 
 	it('App should match snapshot', () => {

@@ -1,15 +1,16 @@
 import React from 'react';
-import App from './App';
+import PaletteCreator from './PaletteCreator';
 import { shallow } from 'enzyme';
 jest.mock('react-redux', () => ({
-	useDispatch: () => {}
+	useDispatch: () => {},
+	useSelector: () => ({ catalogs: [{}, {}] })
 }));
 
-describe('App', () => {
+describe('PaletteCreator', () => {
 	let wrapper;
 
 	beforeEach(() => {
-		wrapper = shallow(<App />);
+		wrapper = shallow(<PaletteCreator />);
 	});
 
 	it('App should match snapshot', () => {

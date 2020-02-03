@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './NavBar.scss';
 import Fade from 'react-reveal/Fade';
 import Palettes from '../Palettes/Palettes';
@@ -6,29 +6,23 @@ import Catalogs from '../Catalogs/Catalogs';
 import { Route, Link } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import logoutIcon from '../../assets/logoutIcon.png';
-import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
+import SignUpForm from '../SignUpForm/SignUpForm.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPalettes, getCatalogs } from '../../util/apiCalls';
 
 const NavBar = ({
-	userName,
-	catalogs,
-	updateCurrentUser,
 	updateCurrentCatalog,
 	updateCurrentPalette,
 	wipeUserData,
-	deletePalette,
-	updateUserId,
-	palettes,
 	currentCatalog,
-	fetchPalettes,
-	toggleTriggerMenu,
-	triggerMenu,
-	updateColors,
-	arrayOfColors,
-	fetchCatalogs,
 	removeCatalog
 }) => {
-	const [menuIsActive, toggleMenu] = useState(false);
-	const isSignedIn = userName;
+	const isMenuOpen = useSelector(state => state.isMenuOpen);
+	const catalogs = useSelector(state => state.catalogs);
+	const palettes = useSelector(state => state.palettes);
+	const username = useSelector(state => state.username);
+	const userId = useSelector(state => state.userId);
+	const dispatch = useDispatch();
 
 	const filterPalettes = id => {
 		if (palettes) {
@@ -39,42 +33,60 @@ const NavBar = ({
 		}
 	};
 
-	useEffect(() => {
-		if (triggerMenu) {
-			toggleMenu(true);
+	const fetchCatalogs = async (id = { id: userId }) => {
+		const newCatalogs = await getCatalogs(id);
+		dispatch({ type: 'UPDATE_CATALOGS', catalogs: newCatalogs });
+	};
+
+	const fetchPalettes = async (cats = catalogs) => {
+		if (cats.length) {
+			const allPalettes = catalogs.map(async catalog => {
+				return await getPalettes(catalog);
+			});
+			const allResolvedPalettes = await Promise.all(allPalettes);
+			dispatch({
+				type: 'UPDATE_PALETTES',
+				palettes: allResolvedPalettes.flat()
+			});
 		}
-	}, [triggerMenu]);
+	};
 
 	return (
 		<>
 			<nav className='NavBar'>
-				<p className={menuIsActive ? 'active-title' : ''}>Picasso</p>
+				<p className={isMenuOpen ? 'active-title' : ''}>Picasso</p>
 				<div>
-					{userName && <h3>{userName}</h3>}
+					{username && <h3>{username}</h3>}
 					<Link
 						to={
-							isSignedIn
-								? menuIsActive
+							username
+								? isMenuOpen
 									? '/create'
 									: catalogs
 									? `/catalogs/${catalogs.length ? catalogs[0].id : 0}`
 									: '/logout'
-								: menuIsActive
+								: isMenuOpen
 								? '/create'
 								: '/signup'
 						}>
 						<div
-							className={`hamburger-menu ${menuIsActive &&
+							className={`hamburger-menu ${isMenuOpen &&
 								'hamburger-menu-active'}`}
 							onClick={() => {
-								if (menuIsActive) {
+								if (isMenuOpen) {
 									updateCurrentCatalog(0);
-									toggleTriggerMenu(false);
+									dispatch({
+										type: 'TOGGLE_MENU',
+										boolean: !isMenuOpen
+									});
 								} else {
 									updateCurrentCatalog(catalogs.length && catalogs[0].id);
-									userName && fetchPalettes();
+									username && fetchPalettes();
 								}
-								toggleMenu(!menuIsActive);
+								dispatch({
+									type: 'TOGGLE_MENU',
+									boolean: !isMenuOpen
+								});
 							}}>
 							<div className='bar-1'></div>
 							<div className='bar-2'></div>
@@ -83,62 +95,54 @@ const NavBar = ({
 					</Link>
 				</div>
 			</nav>
-			<div className={`menu ${menuIsActive && 'show-menu'}`}></div>
-			<div className={`menu ${menuIsActive && 'show-menu'}`}>
+			<div className={`menu ${isMenuOpen && 'show-menu'}`}></div>
+			<div className={`menu ${isMenuOpen && 'show-menu'}`}>
 				<Route path='(/signup|/login)'>
 					<div className='access-buttons'>
-						<Fade right when={menuIsActive} duration={300} delay={200}>
+						<Fade right when={isMenuOpen} duration={300} delay={200}>
 							<Link to='/login'>
 								<button
-									className={`login-button ${menuIsActive &&
-										'animate-button'}`}>
+									className={`login-button ${isMenuOpen && 'animate-button'}`}>
 									Login
 								</button>
 							</Link>
 							<Link to='/signup'>
 								<button
-									className={`signup-button ${menuIsActive &&
-										'animate-button'}`}>
+									className={`signup-button ${isMenuOpen && 'animate-button'}`}>
 									Sign Up
 								</button>
 							</Link>
 						</Fade>
 						<Route exact path='/login'>
 							<LoginForm
-								updateCurrentUser={updateCurrentUser}
-								toggleMenu={toggleMenu}
 								fetchPalettes={fetchPalettes}
 								fetchCatalogs={fetchCatalogs}
+								isMenuOpen={isMenuOpen}
 							/>
 						</Route>
 						<Route exact path='/signup'>
-							<UserSignupForm
-								updateCurrentUser={updateCurrentUser}
-								toggleMenu={toggleMenu}
-								updateColors={updateColors}
-								arrayOfColors={arrayOfColors}
+							<SignUpForm
+								isMenuOpen={isMenuOpen}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
-								updateUserId={updateUserId}
 							/>
 						</Route>
 					</div>
 					<div className='information-area'>
-						<Fade left when={menuIsActive} delay={60} duration={400}>
+						<Fade left when={isMenuOpen} delay={60} duration={400}>
 							<h1>
 								Save all of your palettes by creating an <span>account.</span>
 							</h1>
 						</Fade>
 						<div
-							className={`hidden-circle ${menuIsActive &&
+							className={`hidden-circle ${isMenuOpen &&
 								'active-circle'}`}></div>
 					</div>
 				</Route>
 				<div className='main-menu'>
 					<Route path='/catalogs'>
 						<Catalogs
-							menuIsActive={menuIsActive}
-							catalogs={catalogs}
+							menuIsActive={isMenuOpen}
 							updateCurrentCatalog={updateCurrentCatalog}
 							removeCatalog={removeCatalog}
 							fetchCatalogs={fetchCatalogs}
@@ -150,14 +154,17 @@ const NavBar = ({
 								className='logout-icon'
 								alt='logout button'
 								onClick={() => {
-									toggleMenu(false);
+									dispatch({
+										type: 'TOGGLE_MENU',
+										boolean: false
+									});
 									wipeUserData();
 								}}
 							/>
 						</Link>
 					</Route>
 					<Route path='/logout'>
-						<div menuIsActive={menuIsActive}></div>
+						<div menuIsActive={isMenuOpen}></div>
 						<Link to='/create'>
 							<p className='logout-text'>Logout</p>
 							<img
@@ -165,7 +172,10 @@ const NavBar = ({
 								className='logout-icon'
 								alt='logout button'
 								onClick={() => {
-									toggleMenu(false);
+									dispatch({
+										type: 'TOGGLE_MENU',
+										boolean: false
+									});
 									wipeUserData();
 								}}
 							/>
@@ -179,11 +189,10 @@ const NavBar = ({
 
 							return (
 								<Palettes
-									menuIsActive={menuIsActive}
-									palettes={matchingPalettes}
-									toggleMenu={toggleMenu}
+									menuIsActive={isMenuOpen}
+									matchingPalettes={matchingPalettes}
+									isMenuOpen={isMenuOpen}
 									updateCurrentPalette={updateCurrentPalette}
-									deletePalette={deletePalette}
 									fetchPalettes={fetchPalettes}
 									currentCatalog={currentCatalog}
 								/>

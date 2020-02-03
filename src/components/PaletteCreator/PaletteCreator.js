@@ -1,46 +1,38 @@
 import React, { useState, useEffect } from 'react';
 import { getFiveColors, createPalette } from '../../util/apiCalls.js';
-import RandomPalette from '../RandomPalette/RandomPalette.js';
-import './RandomColor.scss';
+import Colors from '../Colors/Colors.js';
+import './PaletteCreator.scss';
 import SaveMenu from '../SaveMenu/SaveMenu';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-const GetRandomColors = ({
-	arrayOfColors,
-	updateColors,
-	userID,
-	currentCatalog,
-	catalogs,
-	showSaveMenu,
-	toggleSaveMenu,
-	updateCurrentCatalog,
-	fetchPalettes,
-	fetchCatalogs,
-	toggleTriggerMenu
-}) => {
+const PaletteCreator = ({ currentCatalog, updateCurrentCatalog }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const lockedColors = useSelector(state => state.lockedColors);
-
-	const handleGenerateColors = async () => {
-		lockedColors.every(element => element === 'N')
-			? getFiveColors(updateColors)
-			: getFiveColors(updateColors, lockedColors);
-	};
+	const colors = useSelector(state => state.colors);
+	const dispatch = useDispatch();
+	const catalogs = useSelector(state => state.catalogs);
+	const userId = useSelector(state => state.userId);
 
 	useEffect(() => {
 		handleGenerateColors();
 	}, []);
 
+	const handleGenerateColors = async () => {
+		lockedColors.every(element => element === 'N')
+			? getFiveColors(dispatch)
+			: getFiveColors(dispatch, lockedColors);
+	};
+
 	const handleSavePalette = async event => {
-		if (userID && currentCatalog === 0) {
-			toggleSaveMenu(true);
+		if (userId && currentCatalog === 0) {
+			dispatch({ type: 'TOGGLE_SAVE_MENU', boolean: true });
 		} else {
 			const newPalette = {
 				paletteName: paletteNameValue,
 				catalog_id: currentCatalog,
-				user_id: userID,
-				colorsToString: arrayOfColors
+				user_id: userId,
+				colorsToString: colors
 			};
 			await createPalette(newPalette);
 			handlePaletteNameValueChange('');
@@ -51,8 +43,8 @@ const GetRandomColors = ({
 		const newPalette = {
 			paletteName: paletteNameValue,
 			catalog_id: id,
-			user_id: userID,
-			colorsToString: arrayOfColors
+			user_id: userId,
+			colorsToString: colors
 		};
 		await createPalette(newPalette);
 		handlePaletteNameValueChange('');
@@ -60,7 +52,7 @@ const GetRandomColors = ({
 	};
 
 	const canBeSubmitted = () => {
-		return paletteNameValue.length > 0 && arrayOfColors.length;
+		return paletteNameValue.length > 0 && colors.length;
 	};
 	const isEnabled = canBeSubmitted();
 	return (
@@ -78,13 +70,18 @@ const GetRandomColors = ({
 							value={paletteNameValue}
 						/>
 					</div>
-					{userID === 0 ? (
+					{userId === 0 ? (
 						<Link to='/signup'>
 							<button
 								type='button'
 								className='SavePaletteBtn'
 								disabled={!isEnabled}
-								onClick={() => toggleTriggerMenu(true)}>
+								onClick={() => {
+									dispatch({
+										type: 'TOGGLE_MENU',
+										boolean: true
+									});
+								}}>
 								Save
 							</button>
 						</Link>
@@ -104,18 +101,10 @@ const GetRandomColors = ({
 						Generate Colors
 					</button>
 				</div>
-				<RandomPalette palette={arrayOfColors} lockedColors={lockedColors} />
+				<Colors palette={colors} lockedColors={lockedColors} />
 			</section>
-			<SaveMenu
-				catalogs={catalogs}
-				toggleSaveMenu={toggleSaveMenu}
-				showSaveMenu={showSaveMenu}
-				postPalette={postPalette}
-				userID={userID}
-				fetchPalettes={fetchPalettes}
-				fetchCatalogs={fetchCatalogs}
-			/>
+			<SaveMenu catalogs={catalogs} postPalette={postPalette} />
 		</>
 	);
 };
-export default GetRandomColors;
+export default PaletteCreator;

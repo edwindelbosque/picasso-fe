@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaveMenu App should match snapshot 1`] = `
+<div
+  className="SaveMenu showSaveMenu"
+>
+  <h3>
+    Catalogs
+  </h3>
+  <ul />
+  <h4>
+    Or create a new catalog
+  </h4>
+  <input
+    onChange={[Function]}
+    placeholder="New Catalog"
+    type="text"
+    value=""
+  />
+  <button
+    onClick={[Function]}
+  >
+    Create & Save
+  </button>
+</div>
+`;

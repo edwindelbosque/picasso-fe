@@ -2,11 +2,11 @@ import React from 'react';
 import './PaletteCard.scss';
 import Fade from 'react-reveal/Fade';
 import { Link } from 'react-router-dom';
+import { deletePalette } from '../../util/apiCalls';
 
 const PaletteCard = ({
 	menuIsActive,
 	palette,
-	deletePalette,
 	fetchPalettes,
 	toggleMenu,
 	currentCatalog
