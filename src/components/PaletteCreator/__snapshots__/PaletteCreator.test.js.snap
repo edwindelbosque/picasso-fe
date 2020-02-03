@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteCreator App should match snapshot 1`] = `
+<Fragment>
+  <section
+    className="random-generator__section"
+  >
+    <div
+      className="random-generator__div-header"
+    >
+      <div
+        className="palette-name__label-and__input"
+      >
+        <input
+          className="palette-name__input"
+          id="palette-name"
+          name="palette-name"
+          onChange={[Function]}
+          placeholder="Palette Name"
+          type="text"
+          value=""
+        />
+      </div>
+      <button
+        className="SavePaletteBtn"
+        disabled={true}
+        onClick={[Function]}
+        type="button"
+      >
+        Save
+      </button>
+      <button
+        className="GenerateColorsBtn"
+        onClick={[Function]}
+        type="button"
+      >
+        Generate Colors
+      </button>
+    </div>
+    <Colors
+      lockedColors={
+        Object {
+          "catalogs": Array [
+            Object {},
+            Object {},
+          ],
+        }
+      }
+      palette={
+        Object {
+          "catalogs": Array [
+            Object {},
+            Object {},
+          ],
+        }
+      }
+    />
+  </section>
+  <SaveMenu
+    catalogs={
+      Object {
+        "catalogs": Array [
+          Object {},
+          Object {},
+        ],
+      }
+    }
+    postPalette={[Function]}
+  />
+</Fragment>
+`;

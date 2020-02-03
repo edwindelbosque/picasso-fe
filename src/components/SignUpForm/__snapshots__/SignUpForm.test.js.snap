@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUpForm App should match snapshot 1`] = `
+<form
+  className="SignUpForm"
+  onSubmit={[Function]}
+>
+  <label
+    className="form-login email-login__label"
+    htmlFor="firstName"
+  >
+    First Name
+  </label>
+  <input
+    className="inputForm"
+    id="firstName"
+    name="firstName"
+    onChange={[Function]}
+    placeholder="ex. Walter"
+    type="text"
+    value=""
+  />
+  <label
+    className="form-login email-login__label"
+    htmlFor="lastName"
+  >
+    Last Name
+  </label>
+  <input
+    className="inputForm"
+    id="lastName"
+    name="lastName"
+    onChange={[Function]}
+    placeholder="ex. White"
+    type="text"
+    value=""
+  />
+  <label
+    className="form-login email-login__label"
+    htmlFor="email"
+  >
+    Email
+  </label>
+  <input
+    className="inputForm"
+    id="email"
+    name="email"
+    onChange={[Function]}
+    placeholder="ex. me@email.com"
+    type="text"
+    value=""
+  />
+  <label
+    className="form-login password-login__label"
+    htmlFor="password"
+  >
+    Password
+  </label>
+  <input
+    className="inputForm"
+    id="password"
+    name="password"
+    onChange={[Function]}
+    placeholder="At least 8 characters"
+    type="password"
+    value=""
+  />
+  <button
+    className="loginFormBtn"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Sign Up
+  </button>
+</form>
+`;
