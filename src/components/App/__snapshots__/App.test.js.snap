@@ -4,7 +4,7 @@ exports[`App App should match snapshot 1`] = `
 <div
   className="App"
 >
-  <RandomColors
+  <PaletteCreator
     currentCatalog={0}
     updateCurrentCatalog={[Function]}
   />

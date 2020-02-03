@@ -97,7 +97,7 @@ exports[`NavBar App should match snapshot 1`] = `
           exact={true}
           path="/signup"
         >
-          <UserSignupForm
+          <SignUpForm
             fetchCatalogs={[Function]}
             fetchPalettes={[Function]}
             isMenuOpen={

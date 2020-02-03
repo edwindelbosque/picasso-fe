@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { getFiveColors, createPalette } from '../../util/apiCalls.js';
-import RandomPalette from '../RandomPalette/RandomPalette.js';
-import './RandomColor.scss';
+import Colors from '../Colors/Colors.js';
+import './PaletteCreator.scss';
 import SaveMenu from '../SaveMenu/SaveMenu';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-const RandomColors = ({ currentCatalog, updateCurrentCatalog }) => {
+const PaletteCreator = ({ currentCatalog, updateCurrentCatalog }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const lockedColors = useSelector(state => state.lockedColors);
 	const colors = useSelector(state => state.colors);
@@ -101,10 +101,10 @@ const RandomColors = ({ currentCatalog, updateCurrentCatalog }) => {
 						Generate Colors
 					</button>
 				</div>
-				<RandomPalette palette={colors} lockedColors={lockedColors} />
+				<Colors palette={colors} lockedColors={lockedColors} />
 			</section>
 			<SaveMenu catalogs={catalogs} postPalette={postPalette} />
 		</>
 	);
 };
-export default RandomColors;
+export default PaletteCreator;

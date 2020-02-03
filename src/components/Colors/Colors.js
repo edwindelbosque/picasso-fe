@@ -1,10 +1,10 @@
 import React from 'react';
-import './RandomPalette.scss';
+import './Colors.scss';
 import locked from '../../assets/locked.svg';
 import unlocked from '../../assets/unlocked.svg';
 import { useSelector, useDispatch } from 'react-redux';
 
-const RandomPalette = () => {
+const Colors = () => {
 	const dispatch = useDispatch();
 	const lockedColors = useSelector(state => state.lockedColors);
 	const colors = useSelector(state => state.colors);
@@ -69,4 +69,4 @@ const RandomPalette = () => {
 	}
 };
 
-export default RandomPalette;
+export default Colors;

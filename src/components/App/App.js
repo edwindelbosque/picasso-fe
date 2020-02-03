@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import RandomColors from '../RandomColor/RandomColor.js';
+import PaletteCreator from '../PaletteCreator/PaletteCreator.js';
 import { useDispatch } from 'react-redux';
 import { getFiveColors } from '../../util/apiCalls.js';
 
@@ -23,7 +23,7 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<RandomColors
+			<PaletteCreator
 				currentCatalog={currentCatalog}
 				updateCurrentCatalog={updateCurrentCatalog}
 			/>
