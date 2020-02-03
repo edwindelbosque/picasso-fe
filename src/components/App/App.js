@@ -6,7 +6,7 @@ import RandomColors from '../RandomColor/RandomColor.js';
 import { useDispatch } from 'react-redux';
 import { getFiveColors } from '../../util/apiCalls.js';
 
-export const App = () => {
+const App = () => {
 	const dispatch = useDispatch();
 	const [currentCatalog, updateCurrentCatalog] = useState(0);
 
@@ -36,3 +36,5 @@ export const App = () => {
 		</div>
 	);
 };
+
+export default App;

@@ -1,3 +1,208 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavBar App should match snapshot 1`] = `undefined`;
+exports[`NavBar App should match snapshot 1`] = `
+<Fragment>
+  <nav
+    className="NavBar"
+  >
+    <p
+      className="active-title"
+    >
+      Picasso
+    </p>
+    <div>
+      <h3>
+        <Component />
+      </h3>
+      <Link
+        to="/create"
+      >
+        <div
+          className="hamburger-menu hamburger-menu-active"
+          onClick={[Function]}
+        >
+          <div
+            className="bar-1"
+          />
+          <div
+            className="bar-2"
+          />
+          <div
+            className="bar-3"
+          />
+        </div>
+      </Link>
+    </div>
+  </nav>
+  <div
+    className="menu show-menu"
+  />
+  <div
+    className="menu show-menu"
+  >
+    <Route
+      path="(/signup|/login)"
+    >
+      <div
+        className="access-buttons"
+      >
+        <Fade
+          delay={200}
+          duration={300}
+          right={true}
+          when={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
+        >
+          <Link
+            to="/login"
+          >
+            <button
+              className="login-button animate-button"
+            >
+              Login
+            </button>
+          </Link>
+          <Link
+            to="/signup"
+          >
+            <button
+              className="signup-button animate-button"
+            >
+              Sign Up
+            </button>
+          </Link>
+        </Fade>
+        <Route
+          exact={true}
+          path="/login"
+        >
+          <LoginForm
+            fetchCatalogs={[Function]}
+            fetchPalettes={[Function]}
+            isMenuOpen={
+              Object {
+                "NavBar": Object {
+                  "isMenuOpen": false,
+                },
+              }
+            }
+          />
+        </Route>
+        <Route
+          exact={true}
+          path="/signup"
+        >
+          <UserSignupForm
+            fetchCatalogs={[Function]}
+            fetchPalettes={[Function]}
+            isMenuOpen={
+              Object {
+                "NavBar": Object {
+                  "isMenuOpen": false,
+                },
+              }
+            }
+          />
+        </Route>
+      </div>
+      <div
+        className="information-area"
+      >
+        <Fade
+          delay={60}
+          duration={400}
+          left={true}
+          when={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
+        >
+          <h1>
+            Save all of your palettes by creating an 
+            <span>
+              account.
+            </span>
+          </h1>
+        </Fade>
+        <div
+          className="hidden-circle active-circle"
+        />
+      </div>
+    </Route>
+    <div
+      className="main-menu"
+    >
+      <Route
+        path="/catalogs"
+      >
+        <Catalogs
+          fetchCatalogs={[Function]}
+          menuIsActive={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
+        />
+        <Link
+          to="/create"
+        >
+          <p
+            className="logout-text"
+          >
+            Logout
+          </p>
+          <img
+            alt="logout button"
+            className="logout-icon"
+            onClick={[Function]}
+            src="logoutIcon.png"
+          />
+        </Link>
+      </Route>
+      <Route
+        path="/logout"
+      >
+        <div
+          menuIsActive={
+            Object {
+              "NavBar": Object {
+                "isMenuOpen": false,
+              },
+            }
+          }
+        />
+        <Link
+          to="/create"
+        >
+          <p
+            className="logout-text"
+          >
+            Logout
+          </p>
+          <img
+            alt="logout button"
+            className="logout-icon"
+            onClick={[Function]}
+            src="logoutIcon.png"
+          />
+        </Link>
+      </Route>
+      <Route
+        exact={true}
+        path="/catalogs/:id"
+        render={[Function]}
+      />
+    </div>
+  </div>
+</Fragment>
+`;

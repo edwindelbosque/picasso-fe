@@ -1,10 +1,13 @@
 import React from 'react';
 import Catalogs from './Catalogs';
 import { shallow } from 'enzyme';
+jest.mock('react-redux', () => ({
+	useDispatch: () => {},
+	useSelector: () => ({ catalogs: [{}, {}] })
+}));
 
 describe('Catalogs', () => {
 	let wrapper;
-
 	let catalogs = [
 		{
 			id: 1,

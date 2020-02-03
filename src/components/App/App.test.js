@@ -1,22 +1,15 @@
 import React from 'react';
-import LoginForm from './LoginForm';
+import App from './App';
 import { shallow } from 'enzyme';
 jest.mock('react-redux', () => ({
 	useDispatch: () => {}
 }));
 
-describe('LoginForm', () => {
+describe('App', () => {
 	let wrapper;
-	const updateCurrentUser = jest.fn();
-	const toggleMenu = jest.fn();
 
 	beforeEach(() => {
-		wrapper = shallow(
-			<LoginForm
-				updateCurrentUser={updateCurrentUser}
-				toggleMenu={toggleMenu}
-			/>
-		);
+		wrapper = shallow(<App />);
 	});
 
 	it('App should match snapshot', () => {
