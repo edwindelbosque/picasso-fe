@@ -14,7 +14,7 @@ Create your own color palettes in this smart color palette generator that gives 
 
 ## Screenshots
 
-<img width="1440" src="https://user-images.githubusercontent.com/48811985/71566134-d553c580-2aac-11ea-9aec-4d5b2cf232f8.png">
+<img width="1437" src="https://user-images.githubusercontent.com/48811985/73695574-5157b380-46d2-11ea-9114-3ccdea45f702.png">
 
 ![](https://user-images.githubusercontent.com/48811985/71566133-d553c580-2aac-11ea-9da8-95da35cb882b.jpg)
 
@@ -39,17 +39,19 @@ Learning goals were for the most part for our backend [here](https://github.com/
 ## Built with
 
 - React
+- Redux
 - React Hooks
 - React Router
+- Jest & Enzyme
+- Sass (SCSS)
+- Colormind API
+- The Color API
 - PostgreSQL
 - Nodejs
 - Express
 - Knex
-- Jest & Enzyme
-- Sass (SCSS)
 - Heroku
 - Travis CI
-- Git Hooks
 
 ## How to install into your computer
 
