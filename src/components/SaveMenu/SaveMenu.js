@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import './SaveMenu.scss';
 import { saveCatalog } from '../../util/apiCalls';
+import { useSelector } from 'react-redux';
 
 const SaveMenu = ({
-	catalogs,
 	toggleSaveMenu,
 	showSaveMenu,
 	postPalette,
-	userID,
 	fetchPalettes,
 	fetchCatalogs
 }) => {
+	const userId = useSelector(state => state.userId);
+	const catalogs = useSelector(state => state.catalogs);
+
 	const showCatalogs = () => {
 		return catalogs.map((catalog, i) => {
 			return (
@@ -30,10 +32,10 @@ const SaveMenu = ({
 	};
 
 	const handleClick = async () => {
-		const newCatalog = { user_id: userID, catalogName: catalogName };
+		const newCatalog = { user_id: userId, catalogName: catalogName };
 		const response = await saveCatalog(newCatalog);
 		const data = await response.json();
-		await fetchCatalogs({ id: userID });
+		await fetchCatalogs({ id: userId });
 		await postPalette(data.id);
 		await fetchPalettes();
 		toggleSaveMenu(false);

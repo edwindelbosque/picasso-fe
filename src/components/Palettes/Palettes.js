@@ -1,15 +1,16 @@
 import React from 'react';
 import './Palettes.scss';
 import PaletteCard from '../PaletteCard/PaletteCard';
+import { useSelector } from 'react-redux';
 
 const Palettes = ({
 	menuIsActive,
-	palettes,
 	toggleMenu,
 	deletePalette,
 	fetchPalettes,
 	currentCatalog
 }) => {
+	const palettes = useSelector(state => state.palettes);
 	return (
 		<section className='Palettes'>
 			<h2>Palettes</h2>

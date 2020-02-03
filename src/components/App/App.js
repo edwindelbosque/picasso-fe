@@ -39,20 +39,6 @@ export const App = () => {
 		await deleteCatalog(catalog);
 	};
 
-	const signUpUser = user => {
-		const { firstName, id } = user;
-		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
-		dispatch({ type: 'UPDATE_USER_ID', id: id });
-	};
-
-	const logInUser = (user, catalogs, palettes) => {
-		const { firstName, id } = user;
-		dispatch({ type: 'UPDATE_CATALOGS', catalogs: catalogs });
-		dispatch({ type: 'UPDATE_PALETTES', palettes: palettes });
-		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
-		dispatch({ type: 'UPDATE_USER_ID', id: id });
-	};
-
 	const fetchPalettes = async (cats = catalogs) => {
 		if (cats.length) {
 			const allPalettes = catalogs.map(async catalog => {
@@ -84,8 +70,6 @@ export const App = () => {
 			/>
 			<NavBar
 				username={username}
-				signUpUser={signUpUser}
-				logInUser={logInUser}
 				updateCurrentCatalog={updateCurrentCatalog}
 				wipeUserData={wipeUserData}
 				deletePalette={deletePalette}

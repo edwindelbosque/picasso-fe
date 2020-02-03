@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { createUser } from '../../util/apiCalls.js';
 import './UserSignupForm.scss';
 import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
+import { useDispatch } from 'react-redux';
 
-const UserSignupForm = ({
-	signUpUser,
-	toggleMenu,
-	fetchCatalogs,
-	fetchPalettes,
-	updateUserId
-}) => {
+const UserSignupForm = ({ toggleMenu, fetchCatalogs, fetchPalettes }) => {
 	const [firstNameValue, handleFirstNameChange] = useState('');
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
+	const dispatch = useDispatch();
 
 	const handleSubmit = async event => {
 		event.preventDefault();
@@ -36,6 +32,12 @@ const UserSignupForm = ({
 			toggleMenu(false);
 			fetchPalettes();
 		}
+	};
+
+	const signUpUser = user => {
+		const { firstName, id } = user;
+		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
+		dispatch({ type: 'UPDATE_USER_ID', id: id });
 	};
 
 	const resetInputs = () => {

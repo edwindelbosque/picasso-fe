@@ -10,14 +10,10 @@ import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
 import { useSelector } from 'react-redux';
 
 const NavBar = ({
-	username,
-	signUpUser,
-	logInUser,
 	updateCurrentCatalog,
 	updateCurrentPalette,
 	wipeUserData,
 	deletePalette,
-	updateUserId,
 	currentCatalog,
 	fetchPalettes,
 	toggleTriggerMenu,
@@ -26,9 +22,9 @@ const NavBar = ({
 	removeCatalog
 }) => {
 	const [menuIsActive, toggleMenu] = useState(false);
-	const isSignedIn = username;
 	const catalogs = useSelector(state => state.catalogs);
 	const palettes = useSelector(state => state.palettes);
+	const username = useSelector(state => state.username);
 
 	const filterPalettes = id => {
 		if (palettes) {
@@ -53,7 +49,7 @@ const NavBar = ({
 					{username && <h3>{username}</h3>}
 					<Link
 						to={
-							isSignedIn
+							username
 								? menuIsActive
 									? '/create'
 									: catalogs
@@ -105,7 +101,6 @@ const NavBar = ({
 						</Fade>
 						<Route exact path='/login'>
 							<LoginForm
-								logInUser={logInUser}
 								toggleMenu={toggleMenu}
 								fetchPalettes={fetchPalettes}
 								fetchCatalogs={fetchCatalogs}
@@ -113,11 +108,9 @@ const NavBar = ({
 						</Route>
 						<Route exact path='/signup'>
 							<UserSignupForm
-								signUpUser={signUpUser}
 								toggleMenu={toggleMenu}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
-								updateUserId={updateUserId}
 							/>
 						</Route>
 					</div>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
+import { useDispatch } from 'react-redux';
 
-const LoginForm = ({ logInUser, toggleMenu }) => {
+const LoginForm = ({ toggleMenu }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
-	// const [loginStatus, handleLoginAttempt] = useState('');
+	const dispatch = useDispatch();
 
 	const fetchPalettes = async (loginResponse, catalogsForFetch) => {
 		if (loginResponse.id && catalogsForFetch.length) {
@@ -19,13 +20,11 @@ const LoginForm = ({ logInUser, toggleMenu }) => {
 
 	const handleSubmit = async event => {
 		event.preventDefault();
-		// handleLoginAttempt('');
 		const newUser = { email: emailValue, password: passwordValue };
 		const loginResponse = await userLogin(newUser);
 		const catalogs = await getCatalogs(loginResponse);
 		const palettes = await fetchPalettes(loginResponse, catalogs);
 		if (loginResponse.error) {
-			// handleLoginAttempt(loginResponse.error);
 		} else {
 			logInUser(loginResponse, catalogs, palettes);
 			resetInputs();
@@ -33,10 +32,17 @@ const LoginForm = ({ logInUser, toggleMenu }) => {
 		}
 	};
 
+	const logInUser = (user, catalogs, palettes) => {
+		const { firstName, id } = user;
+		dispatch({ type: 'UPDATE_CATALOGS', catalogs: catalogs });
+		dispatch({ type: 'UPDATE_PALETTES', palettes: palettes });
+		dispatch({ type: 'UPDATE_USERNAME', name: firstName });
+		dispatch({ type: 'UPDATE_USER_ID', id: id });
+	};
+
 	const resetInputs = () => {
 		handleEmailChange('');
 		handlePasswordChange('');
-		// handleLoginAttempt('');
 	};
 
 	const checkEmail = () => {
