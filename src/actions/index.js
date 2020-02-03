@@ -28,3 +28,8 @@ export const updatePalettes = palettes => ({
 	type: 'UPDATE_PALETTES',
 	palettes
 });
+
+export const toggleMenu = boolean => ({
+	type: 'TOGGLE_MENU',
+	boolean
+});

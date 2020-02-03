@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import './SaveMenu.scss';
 import { saveCatalog } from '../../util/apiCalls';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getPalettes, getCatalogs } from '../../util/apiCalls';
 
-const SaveMenu = ({
-	toggleSaveMenu,
-	showSaveMenu,
-	postPalette,
-	fetchPalettes,
-	fetchCatalogs
-}) => {
+const SaveMenu = ({ toggleSaveMenu, showSaveMenu, postPalette }) => {
 	const userId = useSelector(state => state.userId);
 	const catalogs = useSelector(state => state.catalogs);
+	const dispatch = useDispatch();
 
 	const showCatalogs = () => {
 		return catalogs.map((catalog, i) => {
@@ -39,6 +35,24 @@ const SaveMenu = ({
 		await postPalette(data.id);
 		await fetchPalettes();
 		toggleSaveMenu(false);
+	};
+
+	const fetchPalettes = async (cats = catalogs) => {
+		if (cats.length) {
+			const allPalettes = catalogs.map(async catalog => {
+				return await getPalettes(catalog);
+			});
+			const allResolvedPalettes = await Promise.all(allPalettes);
+			dispatch({
+				type: 'UPDATE_PALETTES',
+				palettes: allResolvedPalettes.flat()
+			});
+		}
+	};
+
+	const fetchCatalogs = async (id = { id: userId }) => {
+		const newCatalogs = await getCatalogs(id);
+		dispatch({ type: 'UPDATE_CATALOGS', catalogs: newCatalogs });
 	};
 
 	return (

@@ -11,8 +11,6 @@ const RandomColors = ({
 	showSaveMenu,
 	toggleSaveMenu,
 	updateCurrentCatalog,
-	fetchPalettes,
-	fetchCatalogs,
 	toggleTriggerMenu
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
@@ -111,9 +109,6 @@ const RandomColors = ({
 				toggleSaveMenu={toggleSaveMenu}
 				showSaveMenu={showSaveMenu}
 				postPalette={postPalette}
-				userID={userId}
-				fetchPalettes={fetchPalettes}
-				fetchCatalogs={fetchCatalogs}
 			/>
 		</>
 	);

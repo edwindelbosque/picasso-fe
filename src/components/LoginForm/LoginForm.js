@@ -3,7 +3,7 @@ import { userLogin, getCatalogs, getPalettes } from '../../util/apiCalls.js';
 import './LoginForm.scss';
 import { useDispatch } from 'react-redux';
 
-const LoginForm = ({ toggleMenu }) => {
+const LoginForm = ({ isMenuOpen }) => {
 	const [emailValue, handleEmailChange] = useState('');
 	const [passwordValue, handlePasswordChange] = useState('');
 	const dispatch = useDispatch();
@@ -28,7 +28,10 @@ const LoginForm = ({ toggleMenu }) => {
 		} else {
 			logInUser(loginResponse, catalogs, palettes);
 			resetInputs();
-			toggleMenu(false);
+			dispatch({
+				type: 'TOGGLE_MENU',
+				boolean: !isMenuOpen
+			});
 		}
 	};
 

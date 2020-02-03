@@ -4,7 +4,7 @@ import './UserSignupForm.scss';
 import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
 import { useDispatch } from 'react-redux';
 
-const UserSignupForm = ({ toggleMenu, fetchCatalogs, fetchPalettes }) => {
+const UserSignupForm = ({ isMenuOpen, fetchCatalogs, fetchPalettes }) => {
 	const [firstNameValue, handleFirstNameChange] = useState('');
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
@@ -29,7 +29,10 @@ const UserSignupForm = ({ toggleMenu, fetchCatalogs, fetchPalettes }) => {
 				fetchPalettes
 			);
 			resetInputs();
-			toggleMenu(false);
+			dispatch({
+				type: 'TOGGLE_MENU',
+				boolean: !isMenuOpen
+			});
 			fetchPalettes();
 		}
 	};
