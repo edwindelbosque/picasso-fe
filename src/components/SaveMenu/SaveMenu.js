@@ -4,10 +4,11 @@ import { saveCatalog } from '../../util/apiCalls';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPalettes, getCatalogs } from '../../util/apiCalls';
 
-const SaveMenu = ({ toggleSaveMenu, showSaveMenu, postPalette }) => {
+const SaveMenu = ({ postPalette }) => {
+	const dispatch = useDispatch();
 	const userId = useSelector(state => state.userId);
 	const catalogs = useSelector(state => state.catalogs);
-	const dispatch = useDispatch();
+	const isSaveMenuOpen = useSelector(state => state.isSaveMenuOpen);
 
 	const showCatalogs = () => {
 		return catalogs.map((catalog, i) => {
@@ -24,7 +25,7 @@ const SaveMenu = ({ toggleSaveMenu, showSaveMenu, postPalette }) => {
 	const savePalette = async id => {
 		await postPalette(id);
 		await fetchPalettes();
-		toggleSaveMenu(false);
+		dispatch({ type: 'TOGGLE_SAVE_MENU', boolean: false });
 	};
 
 	const handleClick = async () => {
@@ -34,7 +35,7 @@ const SaveMenu = ({ toggleSaveMenu, showSaveMenu, postPalette }) => {
 		await fetchCatalogs({ id: userId });
 		await postPalette(data.id);
 		await fetchPalettes();
-		toggleSaveMenu(false);
+		dispatch({ type: 'TOGGLE_SAVE_MENU', boolean: false });
 	};
 
 	const fetchPalettes = async (cats = catalogs) => {
@@ -56,7 +57,7 @@ const SaveMenu = ({ toggleSaveMenu, showSaveMenu, postPalette }) => {
 	};
 
 	return (
-		<div className={`SaveMenu ${showSaveMenu ? 'showSaveMenu' : ''}`}>
+		<div className={`SaveMenu ${isSaveMenuOpen ? 'showSaveMenu' : ''}`}>
 			<h3>Catalogs</h3>
 			<ul>{catalogs && catalogs.length && showCatalogs()}</ul>
 			<h4>Or create a new catalog</h4>

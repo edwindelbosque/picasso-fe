@@ -18,7 +18,8 @@ store.subscribe(() => {
 		userId: store.getState().userId,
 		username: store.getState().username,
 		catalogs: store.getState().catalogs,
-		palettes: store.getState().palettes
+		palettes: store.getState().palettes,
+		isMenuOpen: store.getState().isMenuOpen
 	});
 });
 

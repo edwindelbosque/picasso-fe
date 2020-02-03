@@ -33,3 +33,8 @@ export const toggleMenu = boolean => ({
 	type: 'TOGGLE_MENU',
 	boolean
 });
+
+export const toggleSaveMenu = boolean => ({
+	type: 'TOGGLE_SAVE_MENU',
+	boolean
+});

@@ -6,6 +6,7 @@ import { username } from './username';
 import { catalogs } from './catalogs';
 import { palettes } from './palettes';
 import { isMenuOpen } from './isMenuOpen';
+import { isSaveMenuOpen } from './isSaveMenuOpen';
 
 const rootReducer = combineReducers({
 	lockedColors,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
 	username,
 	catalogs,
 	palettes,
-	isMenuOpen
+	isMenuOpen,
+	isSaveMenuOpen
 });
 
 export default rootReducer;

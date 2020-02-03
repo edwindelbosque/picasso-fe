@@ -6,13 +6,7 @@ import SaveMenu from '../SaveMenu/SaveMenu';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
-const RandomColors = ({
-	currentCatalog,
-	showSaveMenu,
-	toggleSaveMenu,
-	updateCurrentCatalog,
-	toggleTriggerMenu
-}) => {
+const RandomColors = ({ currentCatalog, updateCurrentCatalog }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const lockedColors = useSelector(state => state.lockedColors);
 	const colors = useSelector(state => state.colors);
@@ -32,7 +26,7 @@ const RandomColors = ({
 
 	const handleSavePalette = async event => {
 		if (userId && currentCatalog === 0) {
-			toggleSaveMenu(true);
+			dispatch({ type: 'TOGGLE_SAVE_MENU', boolean: true });
 		} else {
 			const newPalette = {
 				paletteName: paletteNameValue,
@@ -82,7 +76,12 @@ const RandomColors = ({
 								type='button'
 								className='SavePaletteBtn'
 								disabled={!isEnabled}
-								onClick={() => toggleTriggerMenu(true)}>
+								onClick={() => {
+									dispatch({
+										type: 'TOGGLE_MENU',
+										boolean: true
+									});
+								}}>
 								Save
 							</button>
 						</Link>
@@ -104,12 +103,7 @@ const RandomColors = ({
 				</div>
 				<RandomPalette palette={colors} lockedColors={lockedColors} />
 			</section>
-			<SaveMenu
-				catalogs={catalogs}
-				toggleSaveMenu={toggleSaveMenu}
-				showSaveMenu={showSaveMenu}
-				postPalette={postPalette}
-			/>
+			<SaveMenu catalogs={catalogs} postPalette={postPalette} />
 		</>
 	);
 };
