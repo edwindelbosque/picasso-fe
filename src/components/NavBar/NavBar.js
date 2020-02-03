@@ -22,8 +22,6 @@ const NavBar = ({
 	fetchPalettes,
 	toggleTriggerMenu,
 	triggerMenu,
-	updateColors,
-	arrayOfColors,
 	fetchCatalogs,
 	removeCatalog
 }) => {
@@ -115,8 +113,6 @@ const NavBar = ({
 							<UserSignupForm
 								updateCurrentUser={updateCurrentUser}
 								toggleMenu={toggleMenu}
-								updateColors={updateColors}
-								arrayOfColors={arrayOfColors}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
 								updateUserId={updateUserId}

@@ -4,11 +4,9 @@ import RandomPalette from '../RandomPalette/RandomPalette.js';
 import './RandomColor.scss';
 import SaveMenu from '../SaveMenu/SaveMenu';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-const GetRandomColors = ({
-	arrayOfColors,
-	updateColors,
+const RandomColors = ({
 	userID,
 	currentCatalog,
 	catalogs,
@@ -21,11 +19,13 @@ const GetRandomColors = ({
 }) => {
 	const [paletteNameValue, handlePaletteNameValueChange] = useState('');
 	const lockedColors = useSelector(state => state.lockedColors);
+	const colors = useSelector(state => state.colors);
+	const dispatch = useDispatch();
 
 	const handleGenerateColors = async () => {
 		lockedColors.every(element => element === 'N')
-			? getFiveColors(updateColors)
-			: getFiveColors(updateColors, lockedColors);
+			? getFiveColors(dispatch)
+			: getFiveColors(dispatch, lockedColors);
 	};
 
 	useEffect(() => {
@@ -40,7 +40,7 @@ const GetRandomColors = ({
 				paletteName: paletteNameValue,
 				catalog_id: currentCatalog,
 				user_id: userID,
-				colorsToString: arrayOfColors
+				colorsToString: colors
 			};
 			await createPalette(newPalette);
 			handlePaletteNameValueChange('');
@@ -52,7 +52,7 @@ const GetRandomColors = ({
 			paletteName: paletteNameValue,
 			catalog_id: id,
 			user_id: userID,
-			colorsToString: arrayOfColors
+			colorsToString: colors
 		};
 		await createPalette(newPalette);
 		handlePaletteNameValueChange('');
@@ -60,7 +60,7 @@ const GetRandomColors = ({
 	};
 
 	const canBeSubmitted = () => {
-		return paletteNameValue.length > 0 && arrayOfColors.length;
+		return paletteNameValue.length > 0 && colors.length;
 	};
 	const isEnabled = canBeSubmitted();
 	return (
@@ -104,7 +104,7 @@ const GetRandomColors = ({
 						Generate Colors
 					</button>
 				</div>
-				<RandomPalette palette={arrayOfColors} lockedColors={lockedColors} />
+				<RandomPalette palette={colors} lockedColors={lockedColors} />
 			</section>
 			<SaveMenu
 				catalogs={catalogs}
@@ -118,4 +118,4 @@ const GetRandomColors = ({
 		</>
 	);
 };
-export default GetRandomColors;
+export default RandomColors;

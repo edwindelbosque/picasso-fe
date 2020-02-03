@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './App.scss';
 import NavBar from '../NavBar/NavBar';
 import Footer from '../Footer/Footer';
-import GetRandomColors from '../RandomColor/RandomColor.js';
+import RandomColors from '../RandomColor/RandomColor.js';
+import { useSelector, useDispatch } from 'react-redux';
 import {
 	deleteCatalog,
 	delettePalette,
@@ -11,23 +12,32 @@ import {
 } from '../../util/apiCalls';
 
 const App = () => {
-	const [arrayOfColors, updateColors] = useState([]);
+	const dispatch = useDispatch();
+	const userId = useSelector(state => state.userId);
+
 	const [userName, updateUserName] = useState('');
 	const [currentCatalog, updateCurrentCatalog] = useState(0);
-	const [userId, updateUserId] = useState(0);
 	const [catalogs, updateCatalogs] = useState([]);
 	const [palettes, updatePalettes] = useState([]);
 	const [showSaveMenu, toggleSaveMenu] = useState(false);
 	const [triggerMenu, toggleTriggerMenu] = useState(false);
 
 	const wipeUserData = () => {
-		updateColors([]);
 		updateUserName('');
 		updateCurrentCatalog(0);
-		updateUserId(0);
 		updateCatalogs([]);
 		updatePalettes([]);
 		toggleSaveMenu(false);
+		dispatch(
+			{
+				type: 'UPDATE_USER_ID',
+				id: 0
+			},
+			{
+				type: 'UPDATE_COLORS',
+				colors: []
+			}
+		);
 	};
 
 	const deletePalette = async palette => {
@@ -41,9 +51,12 @@ const App = () => {
 	const updateCurrentUser = (user, catalogs, palettes) => {
 		const { firstName, id } = user;
 		updateUserName(firstName);
-		updateUserId(id);
 		updateCatalogs(catalogs);
 		updatePalettes(palettes);
+		dispatch({
+			type: 'UPDATE_USER_ID',
+			id: id
+		});
 	};
 
 	const fetchPalettes = async (cats = catalogs) => {
@@ -64,9 +77,7 @@ const App = () => {
 
 	return (
 		<div className='App'>
-			<GetRandomColors
-				arrayOfColors={arrayOfColors}
-				updateColors={updateColors}
+			<RandomColors
 				userID={userId}
 				currentCatalog={currentCatalog}
 				toggleSaveMenu={toggleSaveMenu}
@@ -90,8 +101,6 @@ const App = () => {
 				currentCatalog={currentCatalog}
 				triggerMenu={triggerMenu}
 				toggleTriggerMenu={toggleTriggerMenu}
-				updateColors={updateColors}
-				arrayOfColors={arrayOfColors}
 				removeCatalog={removeCatalog}
 			/>
 			<Footer />

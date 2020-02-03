@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './RandomPalette.scss';
 import locked from '../../assets/locked.svg';
 import unlocked from '../../assets/unlocked.svg';
 import { useSelector, useDispatch } from 'react-redux';
 
-const RandomPalette = ({ palette }) => {
+const RandomPalette = () => {
 	const dispatch = useDispatch();
 	const lockedColors = useSelector(state => state.lockedColors);
+	const colors = useSelector(state => state.colors);
 
-	if (!palette.length) {
+	if (!colors.length) {
 		return <></>;
 	} else {
-		const createdColor = palette.map((color, i) => {
+		const createdColor = colors.map((color, i) => {
 			return (
 				<div
 					key={i}
@@ -47,7 +48,7 @@ const RandomPalette = ({ palette }) => {
 				</div>
 			);
 		});
-		const createdInfo = palette.map((color, i) => {
+		const createdInfo = colors.map((color, i) => {
 			return (
 				<div key={i}>
 					<h5>{color.name.value}</h5>
@@ -59,7 +60,7 @@ const RandomPalette = ({ palette }) => {
 		return (
 			<div>
 				<div className='random-palette-card'>
-					<h4>{palette.paletteName}</h4>
+					<h4>{colors.paletteName}</h4>
 					<div className='colors-holder'>{createdColor}</div>
 				</div>
 				<div className='colors-info'>{createdInfo}</div>
