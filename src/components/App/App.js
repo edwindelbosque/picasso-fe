@@ -11,7 +11,7 @@ import {
 	getCatalogs
 } from '../../util/apiCalls';
 
-const App = () => {
+export const App = () => {
 	const dispatch = useDispatch();
 	const userId = useSelector(state => state.userId);
 	const username = useSelector(state => state.username);
@@ -96,5 +96,3 @@ const App = () => {
 		</div>
 	);
 };
-
-export default App;
