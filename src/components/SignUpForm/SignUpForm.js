@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { createUser } from '../../util/apiCalls.js';
-import './UserSignupForm.scss';
+import './SignUpForm.scss';
 import { newUserCatalogAndPalettes } from '../../util/userCreatorFunctions.js';
 import { useDispatch } from 'react-redux';
 
-const UserSignupForm = ({ isMenuOpen, fetchCatalogs, fetchPalettes }) => {
+const SignUpForm = ({ isMenuOpen, fetchCatalogs, fetchPalettes }) => {
 	const [firstNameValue, handleFirstNameChange] = useState('');
 	const [lastNameValue, handleLastNameChange] = useState('');
 	const [emailValue, handleEmailChange] = useState('');
@@ -73,7 +73,7 @@ const UserSignupForm = ({ isMenuOpen, fetchCatalogs, fetchPalettes }) => {
 	const isEnabled = canBeSubmitted();
 
 	return (
-		<form className='UserSignupForm' onSubmit={e => handleSubmit(e)}>
+		<form className='SignUpForm' onSubmit={e => handleSubmit(e)}>
 			<label htmlFor='firstName' className='form-login email-login__label'>
 				First Name
 			</label>
@@ -133,4 +133,4 @@ const UserSignupForm = ({ isMenuOpen, fetchCatalogs, fetchPalettes }) => {
 	);
 };
 
-export default UserSignupForm;
+export default SignUpForm;

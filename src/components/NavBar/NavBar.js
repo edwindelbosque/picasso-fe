@@ -6,7 +6,7 @@ import Catalogs from '../Catalogs/Catalogs';
 import { Route, Link } from 'react-router-dom';
 import LoginForm from '../LoginForm/LoginForm';
 import logoutIcon from '../../assets/logoutIcon.png';
-import UserSignupForm from '../UserSignupForm/UserSignupForm.js';
+import SignUpForm from '../SignUpForm/SignUpForm.js';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPalettes, getCatalogs } from '../../util/apiCalls';
 
@@ -121,7 +121,7 @@ const NavBar = ({
 							/>
 						</Route>
 						<Route exact path='/signup'>
-							<UserSignupForm
+							<SignUpForm
 								isMenuOpen={isMenuOpen}
 								fetchCatalogs={fetchCatalogs}
 								fetchPalettes={fetchPalettes}
