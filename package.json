@@ -10,7 +10,7 @@
 		"classnames": "^2.2.6",
 		"fsevents": "^2.1.2",
 		"history": "^4.10.1",
-		"node-sass": "^4.13.1",
+		"node-sass": "^7.0.0",
 		"normalize-scss": "^7.0.1",
 		"poetic": "^1.4.0",
 		"prop-types": "^15.7.2",
